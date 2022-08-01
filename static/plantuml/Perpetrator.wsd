@@ -1,0 +1,27 @@
+@startuml "Perpetrator"
+
+
+class Perpetrator{
+  perpetratorId: String
+  date: String
+  year: String
+  location: String
+  country: String
+  killed: String
+  injured: String
+}
+
+class People{
+  peopleId: String
+  name: Int
+  height: Int
+  weight: Int
+  homeTown: Int
+}
+
+
+
+Perpetrator "*" -- "1" People
+
+
+@enduml

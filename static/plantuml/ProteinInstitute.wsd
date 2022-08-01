@@ -1,0 +1,40 @@
+@startuml "ProteinInstitute"
+
+
+class Building{
+  buildingId: String
+  name: String
+  streetAddress: String
+  yearsAsTallest: String
+  heightFeet: String
+  floors: String
+}
+
+class Institution{
+  institutionId: String
+  institution: String
+  location: String
+  founded: String
+  type: String
+  enrollment: String
+  team: String
+  primaryConference: String
+}
+
+class Protein{
+  commonName: String
+  proteinName: String
+  divergenceFromHumanLineage: String
+  accessionNumber: String
+  sequenceLength: String
+  sequenceIdentityToHumanProtein: String
+}
+
+
+
+Building "1" -- "*" Institution
+
+Institution "1" -- "*" Protein
+
+
+@enduml

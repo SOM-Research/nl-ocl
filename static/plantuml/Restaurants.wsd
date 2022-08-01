@@ -1,0 +1,30 @@
+@startuml "Restaurants"
+
+
+class Geographic{
+  cityName: String
+  county: String
+  region: String
+}
+
+class Restaurant{
+  id: String
+  name: String
+  foodType: String
+  rating: String
+}
+
+class Location{
+  restaurantId: String
+  houseNumber: String
+  streetName: String
+}
+
+
+
+Geographic "1" -- "*" Location
+
+Geographic "1" -- "*" Restaurant
+
+
+@enduml

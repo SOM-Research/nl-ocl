@@ -1,0 +1,73 @@
+@startuml "DrivingSchool"
+
+
+class Addresses{
+  addressId: String
+  line1NumberBuilding: String
+  city: String
+  zipPostcode: String
+  stateProvinceCounty: String
+  country: String
+}
+
+class Staff{
+  staffId: Int
+  nickname: Int
+  firstName: Int
+  middleName: Int
+  lastName: Int
+  dateOfBirth: Int
+  dateJoinedStaff: Int
+  dateLeftStaff: Int
+}
+
+class Vehicles{
+  vehicleId: String
+  vehicleDetails: String
+}
+
+class Customers{
+  customerId: String
+  customerStatusCode: String
+  dateBecameCustomer: String
+  dateOfBirth: String
+  firstName: String
+  lastName: String
+  amountOutstanding: String
+  emailAddress: String
+  phoneNumber: String
+  cellMobilePhoneNumber: String
+}
+
+class CustomerPayments{
+  datetimePayment: String
+  paymentMethodCode: String
+  amountPayment: String
+}
+
+class Lessons{
+  lessonId: String
+  lessonStatusCode: String
+  lessonDate: String
+  lessonTime: String
+  price: String
+}
+
+
+
+Addresses "1" -- "*" Customers
+
+Addresses "1" -- "*" Staff
+
+Staff "1" -- "*" Lessons
+
+Vehicles "1" -- "*" Lessons
+
+Customers "1" -- "*" CustomerPayments
+
+Customers "1" -- "*" Lessons
+
+CustomerPayments "1" -- "*" Lessons
+
+
+@enduml

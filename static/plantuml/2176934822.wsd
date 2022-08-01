@@ -1,0 +1,20 @@
+@startuml "2176934822"
+
+
+class MyClass{
+  position: Real
+  club: String
+  played: Real
+  points: Real
+  wins: Real
+  draws: Real
+  losses: Real
+  goalsFor: Real
+  goalsAgainst: Real
+  goalDifference: Real
+}
+
+
+
+
+@enduml

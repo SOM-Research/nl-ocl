@@ -1,0 +1,54 @@
+@startuml "SchoolPlayer"
+
+
+class School{
+  schoolId: String
+  school: String
+  location: String
+  enrollment: String
+  founded: String
+  denomination: String
+  boysOrGirls: String
+  dayOrBoarding: String
+  yearEnteredCompetition: String
+  schoolColors: String
+}
+
+class SchoolDetails{
+  nickname: Int
+  colors: Int
+  league: Int
+  class: Int
+  division: Int
+}
+
+class SchoolPerformance{
+  schoolYear: String
+  classA: String
+  classAa: String
+}
+
+class Player{
+  playerId: String
+  player: String
+  team: String
+  age: String
+  position: String
+}
+
+
+
+School "1" -- "*" SchoolDetails
+
+School "1" -- "*" SchoolPerformance
+
+School "1" -- "*" Player
+
+SchoolDetails "1" -- "*" Player
+
+SchoolDetails "1" -- "*" SchoolPerformance
+
+SchoolPerformance "1" -- "*" Player
+
+
+@enduml

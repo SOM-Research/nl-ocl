@@ -1,0 +1,37 @@
+@startuml "Loan1"
+
+
+class Bank{
+  branchId: String
+  bname: String
+  noOfCustomers: String
+  city: String
+  state: String
+}
+
+class Customer{
+  customerId: Int
+  customerName: Int
+  accountType: Int
+  accountBalance: Int
+  numberOfLoans: Int
+  creditScore: Int
+  state: Int
+}
+
+class Loan{
+  loanId: String
+  loanType: String
+  amount: String
+}
+
+
+
+Bank "1" -- "*" Loan
+
+Bank "1" -- "*" Customer
+
+Customer "1" -- "*" Loan
+
+
+@enduml

@@ -1,0 +1,60 @@
+@startuml "TrackingSoftwareProblems"
+
+
+class ProblemCategoryCodes{
+  problemCategoryCode: String
+  problemCategoryDescription: String
+}
+
+class ProblemLog{
+  problemLogId: String
+  logEntryDate: String
+  logEntryDescription: String
+  logEntryFix: String
+  otherLogDetails: String
+}
+
+class ProblemStatusCodes{
+  problemStatusCode: String
+  problemStatusDescription: String
+}
+
+class Product{
+  productId: Int
+  productName: Int
+  productDetails: Int
+}
+
+class Staff{
+  staffId: String
+  staffFirstName: Int
+  staffLastName: Int
+  otherStaffDetails: Int
+}
+
+class Problems{
+  problemId: String
+  dateProblemReported: Int
+  dateProblemClosed: Int
+  problemDescription: Int
+  otherProblemDetails: Int
+}
+
+
+
+ProblemCategoryCodes "1" -- "*" ProblemLog
+
+ProblemLog "*" -- "1" Staff
+
+ProblemLog "*" -- "1" Problems
+
+ProblemLog "*" -- "1" ProblemStatusCodes
+
+Product "1" -- "*" Problems
+
+Staff "1" -- "*" Problems
+
+Staff "1" -- "*" Problems
+
+
+@enduml

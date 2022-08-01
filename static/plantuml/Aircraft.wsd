@@ -1,0 +1,54 @@
+@startuml "Aircraft"
+
+
+class Pilot{
+  pilotId: String
+  name: String
+  age: String
+}
+
+class Aircraft{
+  aircraftId: Int
+  aircraft: Int
+  description: Int
+  maxGrossWeight: Int
+  totalDiskArea: Int
+  maxDiskLoading: Int
+}
+
+class Match{
+  round: String
+  location: String
+  country: String
+  date: String
+  fastestQualifying: String
+}
+
+class Airport{
+  airportId: Int
+  airportName: Int
+  totalPassengers: Int
+  change2007: Int
+  internationalPassengers: Int
+  domesticPassengers: Int
+  transitPassengers: Int
+  aircraftMovements: Int
+  freightMetricTonnes: Int
+}
+
+class AirportAircraft{
+  id: Int
+}
+
+
+
+Pilot "1" -- "*" Match
+
+Aircraft "1" -- "*" Match
+
+Aircraft "1" -- "*" AirportAircraft
+
+Airport "1" -- "*" AirportAircraft
+
+
+@enduml

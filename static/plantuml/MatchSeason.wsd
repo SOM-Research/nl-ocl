@@ -1,0 +1,43 @@
+@startuml "MatchSeason"
+
+
+class Country{
+  countryId: String
+  countryName: String
+  capital: String
+  officialNativeLanguage: String
+}
+
+class Team{
+  teamId: Int
+  name: Int
+}
+
+class MatchSeason{
+  season: String
+  player: String
+  position: String
+  draftPickNumber: String
+  draftClass: String
+  college: String
+}
+
+class Player{
+  playerId: String
+  player: String
+  yearsPlayed: String
+  totalWl: String
+  singlesWl: String
+  doublesWl: String
+}
+
+
+
+Country "1" -- "*" MatchSeason
+
+Team "1" -- "*" Player
+
+Team "1" -- "*" MatchSeason
+
+
+@enduml

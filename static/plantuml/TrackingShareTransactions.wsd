@@ -1,0 +1,50 @@
+@startuml "TrackingShareTransactions"
+
+
+class Investors{
+  investorId: String
+  investorDetails: String
+}
+
+class Lots{
+  lotId: Int
+  lotDetails: Int
+}
+
+class ReferenceTransactionTypes{
+  transactionTypeCode: String
+  transactionTypeDescription: String
+}
+
+class Transactions{
+  transactionId: Int
+  dateOfTransaction: Int
+  amountOfTransaction: Int
+  shareCount: Int
+  otherDetails: Int
+}
+
+class Sales{
+  salesDetails: Int
+}
+
+class Purchases{
+  purchaseDetails: String
+}
+
+
+
+Investors "1" -- "*" Lots
+
+Investors "1" -- "*" Transactions
+
+Lots "*" -- "*" Transactions
+
+ReferenceTransactionTypes "1" -- "*" Transactions
+
+Transactions "1" -- "*" Purchases
+
+Transactions "1" -- "*" Sales
+
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml "Movie1"
+
+
+class Movie{
+  movieId: String
+  title: String
+  year: String
+  director: String
+}
+
+class Reviewer{
+  reviewerId: Int
+  name: Int
+}
+
+class Rating{
+  ratingStars: String
+  ratingDate: String
+}
+
+
+
+Movie "1" -- "*" Rating
+
+Reviewer "1" -- "*" Rating
+
+
+@enduml

@@ -1,0 +1,213 @@
+@startuml "CreDramaWorkshopGroups"
+
+
+class ReferencePaymentMethods{
+  paymentMethodCode: String
+  paymentMethodDescription: String
+}
+
+class ReferenceServiceTypes{
+  serviceTypeCode: String
+  parentServiceTypeCode: String
+  serviceTypeDescription: String
+}
+
+class Addresses{
+  addressId: String
+  line1: String
+  line2: String
+  cityTown: String
+  stateCounty: String
+  otherDetails: String
+}
+
+class Products{
+  productId: String
+  productName: String
+  productPrice: String
+  productDescription: String
+  otherProductServiceDetails: String
+}
+
+class MarketingRegions{
+  marketingRegionCode: String
+  marketingRegionName: String
+  marketingRegionDescriptrion: String
+  otherDetails: String
+}
+
+class Clients{
+  clientId: String
+  customerEmailAddress: String
+  customerName: String
+  customerPhone: String
+  otherDetails: String
+}
+
+class DramaWorkshopGroups{
+  workshopGroupId: String
+  currencyCode: String
+  storeName: String
+  storePhone: String
+  storeEmailAddress: String
+  otherDetails: String
+}
+
+class Performers{
+  performerId: String
+  customerName: String
+  customerPhone: String
+  customerEmailAddress: String
+  otherDetails: String
+}
+
+class Customers{
+  customerId: String
+  customerName: String
+  customerPhone: String
+  customerEmailAddress: String
+  otherDetails: String
+}
+
+class Stores{
+  storeId: String
+  storeName: String
+  storePhone: String
+  storeEmailAddress: String
+  otherDetails: String
+}
+
+class Bookings{
+  bookingId: String
+  statusCode: String
+  orderDate: String
+  plannedDeliveryDate: String
+  actualDeliveryDate: String
+  otherOrderDetails: String
+}
+
+class PerformersInBookings{
+}
+
+class CustomerOrders{
+  orderDate: String
+  plannedDeliveryDate: String
+  actualDeliveryDate: String
+  otherOrderDetails: String
+}
+
+class OrderItems{
+  orderItemId: String
+  orderQuantity: String
+  otherItemDetails: String
+}
+
+class Invoices{
+  invoiceId: Int
+  orderQuantity: Int
+  otherItemDetails: Int
+}
+
+class Services{
+  serviceId: String
+  productDescription: String
+  productName: String
+  productPrice: String
+  otherProductServiceDetails: String
+}
+
+class BookingsServices{
+}
+
+class InvoiceItems{
+  invoiceItemId: String
+  orderQuantity: String
+  otherItemDetails: String
+}
+
+
+
+ReferencePaymentMethods "1" -- "*" Invoices
+
+ReferenceServiceTypes "1" -- "*" Services
+
+Addresses "1" -- "*" Performers
+
+Addresses "1" -- "*" Customers
+
+Addresses "1" -- "*" Stores
+
+Addresses "1" -- "*" Clients
+
+Addresses "1" -- "*" DramaWorkshopGroups
+
+Products "1" -- "*" OrderItems
+
+Products "1" -- "*" Invoices
+
+Products "1" -- "*" BookingsServices
+
+Products "1" -- "*" InvoiceItems
+
+MarketingRegions "1" -- "*" DramaWorkshopGroups
+
+MarketingRegions "1" -- "*" Stores
+
+Clients "1" -- "*" Bookings
+
+DramaWorkshopGroups "1" -- "*" Bookings
+
+DramaWorkshopGroups "1" -- "*" Services
+
+Performers "1" -- "*" PerformersInBookings
+
+Customers "1" -- "*" Bookings
+
+Customers "1" -- "*" CustomerOrders
+
+Stores "1" -- "*" Bookings
+
+Stores "1" -- "*" CustomerOrders
+
+Bookings "1" -- "*" BookingsServices
+
+Bookings "1" -- "*" PerformersInBookings
+
+Bookings "1" -- "*" Invoices
+
+PerformersInBookings "1" -- "*" InvoiceItems
+
+PerformersInBookings "1" -- "*" OrderItems
+
+PerformersInBookings "1" -- "*" BookingsServices
+
+PerformersInBookings "1" -- "*" Invoices
+
+PerformersInBookings "1" -- "*" CustomerOrders
+
+CustomerOrders "1" -- "*" InvoiceItems
+
+CustomerOrders "1" -- "*" OrderItems
+
+CustomerOrders "1" -- "*" BookingsServices
+
+CustomerOrders "1" -- "*" Invoices
+
+OrderItems "1" -- "*" InvoiceItems
+
+OrderItems "1" -- "*" Invoices
+
+OrderItems "1" -- "*" BookingsServices
+
+Invoices "1" -- "*" InvoiceItems
+
+Invoices "1" -- "*" BookingsServices
+
+Services "1" -- "*" BookingsServices
+
+BookingsServices "1" -- "*" InvoiceItems
+
+BookingsServices "1" -- "*" InvoiceItems
+
+
+@enduml

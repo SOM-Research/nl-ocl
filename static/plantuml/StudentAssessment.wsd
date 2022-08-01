@@ -1,0 +1,85 @@
+@startuml "StudentAssessment"
+
+
+class Addresses{
+  addressId: String
+  line1: String
+  line2: String
+  city: String
+  zipPostcode: String
+  stateProvinceCounty: String
+  country: String
+}
+
+class People{
+  personId: Int
+  firstName: Int
+  middleName: Int
+  lastName: Int
+  cellMobileNumber: Int
+  emailAddress: Int
+  loginName: Int
+  password: Int
+}
+
+class Students{
+  studentDetails: String
+}
+
+class Courses{
+  courseId: String
+  courseName: String
+  courseDescription: String
+  otherDetails: String
+}
+
+class PeopleAddresses{
+  personAddressId: String
+  dateFrom: String
+  dateTo: String
+}
+
+class StudentCourseRegistrations{
+  registrationDate: String
+}
+
+class StudentCourseAttendance{
+  dateOfAttendance: String
+}
+
+class Candidates{
+  candidateDetails: String
+}
+
+class CandidateAssessments{
+  qualification: Int
+  assessmentDate: Int
+  asessmentOutcomeCode: Int
+}
+
+
+
+Addresses "1" -- "*" PeopleAddresses
+
+People "1" -- "*" Candidates
+
+People "1" -- "*" PeopleAddresses
+
+People "1" -- "*" Students
+
+Students "1" -- "*" StudentCourseAttendance
+
+Students "1" -- "*" StudentCourseRegistrations
+
+Courses "1" -- "*" StudentCourseRegistrations
+
+Courses "1" -- "*" StudentCourseAttendance
+
+StudentCourseRegistrations "1" -- "*" StudentCourseAttendance
+
+StudentCourseRegistrations "1" -- "*" StudentCourseAttendance
+
+Candidates "1" -- "*" CandidateAssessments
+
+
+@enduml

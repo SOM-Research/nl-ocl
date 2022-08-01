@@ -1,0 +1,86 @@
+@startuml "DogKennels"
+
+
+class Breeds{
+  breedCode: String
+  breedName: String
+}
+
+class Charges{
+  chargeId: String
+  chargeType: String
+  chargeAmount: String
+}
+
+class Sizes{
+  sizeCode: String
+  sizeDescription: String
+}
+
+class TreatmentTypes{
+  treatmentTypeCode: Int
+  treatmentTypeDescription: Int
+}
+
+class Owners{
+  ownerId: String
+  firstName: String
+  lastName: String
+  street: String
+  city: String
+  state: String
+  zipCode: String
+  emailAddress: String
+  homePhone: String
+  cellNumber: String
+}
+
+class Dogs{
+  dogId: Int
+  abandonedYesOrNo: Int
+  name: Int
+  age: Int
+  dateOfBirth: Int
+  gender: Int
+  weight: Int
+  dateArrived: Int
+  dateAdopted: Int
+  dateDeparted: Int
+}
+
+class Professionals{
+  professionalId: String
+  roleCode: String
+  firstName: String
+  street: String
+  city: String
+  state: String
+  zipCode: String
+  lastName: String
+  emailAddress: String
+  homePhone: String
+  cellNumber: String
+}
+
+class Treatments{
+  treatmentId: String
+  dateOfTreatment: String
+  costOfTreatment: String
+}
+
+
+
+Breeds "1" -- "*" Dogs
+
+Sizes "1" -- "*" Dogs
+
+TreatmentTypes "1" -- "*" Treatments
+
+Owners "1" -- "*" Dogs
+
+Dogs "1" -- "*" Treatments
+
+Professionals "1" -- "*" Treatments
+
+
+@enduml

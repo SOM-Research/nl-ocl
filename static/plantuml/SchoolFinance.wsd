@@ -1,0 +1,39 @@
+@startuml "SchoolFinance"
+
+
+class School{
+  schoolId: String
+  schoolName: String
+  location: String
+  mascot: String
+  enrollment: String
+  ihsaaClass: String
+  ihsaaFootballClass: String
+  county: String
+}
+
+class Budget{
+  budgetId: String
+  year: String
+  totalBudgetPercentBudgeted: String
+  invested: String
+  totalBudgetPercentInvested: String
+  budgetInvestedPercent: String
+}
+
+class Endowment{
+  endowmentId: String
+  donatorName: String
+  amount: String
+}
+
+
+
+School "1" -- "*" Endowment
+
+School "1" -- "*" Budget
+
+Budget "1" -- "*" Endowment
+
+
+@enduml

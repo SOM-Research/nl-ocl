@@ -1,0 +1,32 @@
+@startuml "Flight1"
+
+
+class Flight{
+  flightNumber: String
+  origin: String
+  destination: String
+  distance: String
+  departureDate: String
+  arrivalDate: String
+  price: String
+  airlineId: String
+}
+
+class Aircraft{
+  name: Int
+  distance: Int
+}
+
+class Employee{
+  employeeId: String
+  name: String
+  salary: String
+}
+
+
+Flight "*" -- "1" Aircraft
+
+Aircraft "*" -- "*" Employee: HasCertificateOf
+
+
+@enduml

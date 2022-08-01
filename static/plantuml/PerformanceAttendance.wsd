@@ -1,0 +1,30 @@
+@startuml "PerformanceAttendance"
+
+
+class Member{
+  memberId: String
+  name: String
+  nationality: String
+  role: String
+}
+
+class Performance{
+  performanceId: String
+  date: String
+  host: String
+  location: String
+  attendance: String
+}
+
+class MemberAttendance{
+  numOfPieces: String
+}
+
+
+
+Member "1" -- "*" MemberAttendance
+
+Performance "1" -- "*" MemberAttendance
+
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml "PokerPlayer"
+
+
+class PokerPlayer{
+  pokerPlayerId: String
+  finalTableMade: String
+  bestFinish: String
+  moneyRank: String
+  earnings: String
+}
+
+class People{
+  peopleId: String
+  nationality: Int
+  name: Int
+  birthDate: Int
+  height: Int
+}
+
+
+
+PokerPlayer "*" -- "1" People
+
+
+@enduml

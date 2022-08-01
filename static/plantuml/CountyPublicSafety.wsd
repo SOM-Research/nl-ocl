@@ -1,0 +1,32 @@
+@startuml "CountyPublicSafety"
+
+
+class CountyPublicSafety{
+  countyId: String
+  name: String
+  population: String
+  policeOfficers: String
+  residentsPerOfficer: String
+  caseBurden: String
+  crimeRate: String
+  policeForce: String
+  location: String
+}
+
+class City{
+  cityId: Int
+  name: Int
+  white: Int
+  black: Int
+  amerindian: Int
+  asian: Int
+  multiracial: Int
+  hispanic: Int
+}
+
+
+
+CountyPublicSafety "1" -- "*" City
+
+
+@enduml

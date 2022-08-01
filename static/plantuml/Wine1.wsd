@@ -1,0 +1,39 @@
+@startuml "Wine1"
+
+
+class Grapes{
+  id: String
+  grape: String
+  color: String
+}
+
+class Appellations{
+  no: Int
+  appelation: Int
+  county: Int
+  state: Int
+  area: Int
+  isava: Int
+}
+
+class Wine{
+  winery: String
+  state: String
+  name: String
+  year: String
+  price: String
+  score: String
+  cases: String
+  drink: String
+}
+
+
+
+Grapes "1" -- "*" Wine
+
+Appellations "1" -- "*" Wine
+
+Appellations "1" -- "*" Wine
+
+
+@enduml

@@ -1,0 +1,46 @@
+@startuml "Railway"
+
+
+class Railway{
+  railwayId: String
+  railway: String
+  builder: String
+  built: String
+  wheels: String
+  location: String
+  objectnumber: String
+}
+
+class Train{
+  trainId: Int
+  trainNum: Int
+  name: Int
+  from: Int
+  arrival: Int
+}
+
+class Manager{
+  managerId: String
+  name: String
+  country: String
+  workingYearStarts: String
+  age: String
+  level: String
+}
+
+class RailwayManage{
+  fromYear: String
+}
+
+
+
+Railway "1" -- "*" Train
+
+Railway "1" -- "*" RailwayManage
+
+Train "1" -- "*" RailwayManage
+
+Manager "1" -- "*" RailwayManage
+
+
+@enduml

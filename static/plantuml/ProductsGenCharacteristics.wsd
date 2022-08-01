@@ -1,0 +1,53 @@
+@startuml "ProductsGenCharacteristics"
+
+
+class ReferenceCharacteristicTypes{
+  characteristicTypeCode: String
+  characteristicTypeDescription: String
+}
+
+class ReferenceColors{
+  colorCode: String
+  colorDescription: String
+}
+
+class ReferenceProductCategories{
+  productCategoryCode: String
+  productCategoryDescription: String
+  unitOfMeasure: String
+}
+
+class Characteristics{
+  characteristicId: String
+  characteristicDataType: String
+  characteristicName: String
+  otherCharacteristicDetails: String
+}
+
+class Products{
+  productId: String
+  productName: String
+  typicalBuyingPrice: String
+  typicalSellingPrice: String
+  productDescription: String
+  otherProductDetails: String
+}
+
+class ProductCharacteristics{
+  productCharacteristicValue: String
+}
+
+
+
+ReferenceCharacteristicTypes "1" -- "*" Characteristics
+
+ReferenceColors "1" -- "*" Products
+
+ReferenceProductCategories "1" -- "*" Products
+
+Characteristics "1" -- "*" ProductCharacteristics
+
+Products "1" -- "*" ProductCharacteristics
+
+
+@enduml

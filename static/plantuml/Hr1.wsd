@@ -1,0 +1,71 @@
+@startuml "Hr1"
+
+
+class Regions{
+  regionId: String
+  regionName: String
+}
+
+class Countries{
+  countryId: Int
+  countryName: Int
+}
+
+class Departments{
+  departmentId: String
+  departmentName: String
+  managerId: String
+  locationId: String
+}
+
+class Jobs{
+  jobId: String
+  jobTitle: String
+  minSalary: String
+  maxSalary: String
+}
+
+class Employees{
+  employeeId: String
+  firstName: String
+  lastName: String
+  email: String
+  phoneNumber: String
+  hireDate: String
+  salary: String
+  commissionPct: String
+  managerId: String
+}
+
+class JobHistory{
+  startDate: Int
+  endDate: Int
+}
+
+class Locations{
+  streetAddress: Int
+  postalCode: Int
+  city: Int
+  stateProvince: Int
+}
+
+
+
+Regions "1" -- "*" Countries
+
+Countries "1" -- "*" Locations
+
+Departments "1" -- "*" Employees
+
+Departments "1" -- "*" JobHistory
+
+Departments "1" -- "*" Locations
+
+Jobs "1" -- "*" Employees
+
+Jobs "1" -- "*" JobHistory
+
+Employees "1" -- "*" JobHistory
+
+
+@enduml

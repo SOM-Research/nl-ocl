@@ -1,0 +1,29 @@
+@startuml "Musical"
+
+
+class Musical{
+  musicalId: String
+  name: String
+  year: String
+  award: String
+  category: String
+  nominee: String
+  result: String
+}
+
+class Actor{
+  actorId: Int
+  name: Int
+  character: Int
+  duration: Int
+  age: Int
+}
+
+
+
+Musical "1" -- "*" Actor
+
+Actor "1" -- "*" Actor
+
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml "Allergy1"
+
+
+class AllergyType{
+  allergyName: String
+  allergyType: String
+}
+
+class Student{
+  stuid: String
+  lastName: String
+  firstName: String
+  age: String
+  sex: String
+  major: String
+  advisor: String
+  cityCode: String
+}
+
+
+
+AllergyType "*" -- "*" Student
+
+
+@enduml

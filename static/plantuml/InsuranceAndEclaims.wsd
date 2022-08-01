@@ -1,0 +1,67 @@
+@startuml "InsuranceAndEclaims"
+
+
+class Customers{
+  customerId: String
+  customerDetails: String
+}
+
+class Staff{
+  staffId: Int
+  staffDetails: Int
+}
+
+class Policies{
+  policyId: String
+  policyTypeCode: String
+  startDate: String
+  endDate: String
+}
+
+class ClaimHeaders{
+  claimHeaderId: Int
+  claimStatusCode: Int
+  claimTypeCode: Int
+  dateOfClaim: Int
+  dateOfSettlement: Int
+  amountClaimed: Int
+  amountPiad: Int
+}
+
+class ClaimsDocuments{
+  documentTypeCode: String
+  createdDate: String
+}
+
+class ClaimsProcessingStages{
+  claimStageId: Int
+  nextClaimStageId: Int
+  claimStatusName: Int
+  claimStatusDescription: Int
+}
+
+class ClaimsProcessing{
+  claimProcessingId: Int
+  claimOutcomeCode: Int
+}
+
+
+
+Customers "1" -- "*" Policies
+
+Staff "1" -- "*" ClaimsProcessing
+
+Staff "1" -- "*" ClaimsDocuments
+
+Policies "1" -- "*" ClaimHeaders
+
+ClaimHeaders "1" -- "*" ClaimsProcessing
+
+ClaimHeaders "1" -- "*" ClaimsDocuments
+
+ClaimsDocuments "1" -- "*" ClaimsProcessing
+
+ClaimsProcessingStages "1" -- "*" ClaimsProcessing
+
+
+@enduml

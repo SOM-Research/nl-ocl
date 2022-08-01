@@ -1,0 +1,178 @@
+@startuml "Sakila1"
+
+
+class Actor{
+  actorId: String
+  firstName: String
+  lastName: String
+  lastUpdate: String
+}
+
+class Address{
+  addressId: Int
+  address: String
+  address2: String
+  district: String
+  postalCode: Int
+  phone: Int
+  lastUpdate: Date
+}
+
+class Category{
+  categoryId: String
+  name: String
+  lastUpdate: Date
+}
+
+class City{
+  cityId: Int
+  city: String
+  lastUpdate: Date
+}
+
+class Country{
+  countryId: String
+  country: String
+  lastUpdate: Date
+}
+
+class Customer{
+  customerId: Int
+  firstName: String
+  lastName: String
+  email: String
+  active: Boolean
+  createDate: Date
+  lastUpdate: Date
+}
+
+class Film{
+  filmId: String
+  title: String
+  description: String
+  releaseYear: Int
+  rentalDuration: Int
+  rentalRate: String
+  length: Int
+  replacementCost: Float
+  rating: Int
+  specialFeatures: String
+  lastUpdate: Date
+}
+
+class FilmActor{
+  lastUpdate: Date
+}
+
+class FilmCategory{
+  lastUpdate: Date
+}
+
+class FilmText{
+  title: String
+  description: String
+}
+
+class Inventory{
+  inventoryId: String
+  lastUpdate: Date
+}
+
+class Language{
+  languageId: String
+  name: String
+  lastUpdate: Date
+}
+
+class Payment{
+  paymentId: Int
+  amount: Float
+  paymentDate: Date
+  lastUpdate: Date
+}
+
+class Rental{
+  rentalId: Int
+  rentalDate: Date
+  returnDate: Date
+  lastUpdate: Date
+}
+
+class Staff{
+  staffId: Date
+  firstName: String
+  lastName: String
+  picture: String
+  email: String
+  storeId: String
+  active: Boolean
+  username: String
+  password: String
+  lastUpdate: Date
+}
+
+class Store{
+  storeId: Int
+  lastUpdate: Date
+}
+
+
+
+Actor "1" -- "*" FilmActor
+
+Address "1" -- "*" Customer
+
+Address "1" -- "*" Store
+
+Address "1" -- "*" Staff
+
+Address "*" -- "1" City
+
+Category "1" -- "*" FilmCategory
+
+City "*" -- "1" Country
+
+Customer "1" -- "*" Payment
+
+Customer "1" -- "*" Rental
+
+Customer "*" -- "1" Store
+
+Film "1" -- "*" FilmActor
+
+Film "1" -- "*" Inventory
+
+Film "1" -- "*" FilmText
+
+Film "1" -- "*" FilmCategory
+
+Film "*" -- "1" Language
+
+Film "*" -- "1" Language
+
+FilmActor "1" -- "*" FilmText
+
+FilmActor "1" -- "*" FilmCategory
+
+FilmCategory "1" -- "*" FilmText
+
+FilmCategory "1" -- "*" Inventory
+
+FilmText "1" -- "*" Inventory
+
+Inventory "1" -- "*" Rental
+
+Inventory "*" -- "1" Store
+
+Payment "*" -- "1" Staff
+
+Payment "*" -- "1" Rental
+
+Rental "*" -- "1" Staff
+
+Staff "1" -- "*" Store
+
+Staff "1" -- "*" Store
+
+
+@enduml

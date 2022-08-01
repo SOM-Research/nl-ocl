@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">    
+    <link rel="icon" href="https://som-research.uoc.edu/wp-content/uploads/2015/07/cropped-SOMlogo-boxed-512px-192x192.png" sizes="192x192">
+    <link rel="icon" href="https://som-research.uoc.edu/wp-content/uploads/2015/07/cropped-SOMlogo-boxed-512px-32x32.png" sizes="32x32">    
+    <link rel="apple-touch-icon" href="https://som-research.uoc.edu/wp-content/uploads/2015/07/cropped-SOMlogo-boxed-512px-180x180.png">  
+</head>    
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center" style="padding-top: 60px;">
+                <a href="{% url 'nl2ocl:home' %}">
+                    <img src="https://som-research.uoc.edu/wp-content/uploads/2022/06/web-header-logos-uoc-blue-1.png" class="custom-logo" alt="SOM Research Lab" srcset="https://som-research.uoc.edu/wp-content/uploads/2022/06/web-header-logos-uoc-blue-1.png 688w, https://som-research.uoc.edu/wp-content/uploads/2022/06/web-header-logos-uoc-blue-1-300x45.png 300w" sizes="(max-width: 688px) 100vw, 688px" width="688" height="104">        
+                </a>
+                {% include 'nav.html' %}     
+            </div>
+        </div> 
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">      
+                <br>
+                <h5 class="text-center"><u>Question</u></h5>
+                <h3 class="text-center">{{question.question}}<br> <a href="{% url 'nl2ocl:newQuestion' question.qmodel.pk %}" class="btn btn-sm btn-outline-primary">Add a new question to this model</a> <button type="button" data-bs-toggle="modal" data-bs-target="#reporQuestionModal" class="btn btn-sm btn-outline-danger">Report question</button></h3>       
+                
+                {% if reports|length > 0 %}
+                    <h4 class="text-center">Question reported:</h3>
+                    <ul class="list-group">
+                        {% for report in reports %}
+                        <li class="list-group-item list-group-item-warning">{{report.reason}}</li>
+                        {% endfor %}
+                    </ul>        
+                    <br>
+                {% endif %}
+
+                <hr>                           
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 20px;">
+                    <h4 class="text-center"><u><strong>{{question.qmodel.pascalCaseName }}</strong></u></h4>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px; margin-bottom: 20px;">
+                <div class="col-md-12 text-center">
+                    <div id="model_container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="b-example-minidivider"></div>    
+    <div class="container" style="padding-top: 20px;" id="oclTranslationComponent">
+        <form class="form" id="oclTranslationForm"> 
+            <h3 class="text-center">Your OCL translation</h3>
+            {% include "toastMessageSuccess.html" %}
+            {% include "toastMessageError.html" %}
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="oclTranslation" class="visually-hidden">OCL</label>
+                <textarea id="oclTranslation" type="text" class="form-control text-center" placeholder="OCL here"></textarea><br>
+                <button id="submitTranslation" type="button" href="#ocTranslationComponent" class="btn btn-primary" data-url="{% url 'nl2ocl:saveTranslation' question.pk %}">SUBMIT</button>
+                {% csrf_token %}
+            </div>
+            <br>
+        </form>          
+    </div>
+    <div class="b-example-divider"></div>    
+    {% if translations|length > 0 %}
+    <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+        <h3 class="text-center">Translations</h3>
+        <ul class="list-group">
+            {% for translation in translations %}
+            <li class="list-group-item list-group-item-info text-center">{{translation.translation}}</li>
+            {% endfor %}
+        </ul>        
+        <br>
+    </div>
+    <div class="b-example-divider"></div>    
+    {% endif %}
+    <div class="container">
+        <footer class="py-5">
+            <div class="row">
+            <div class="col-6 col-md-2 mb-3">
+                <!-- <h5>Section</h5>
+                <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul> -->
+            </div>
+        
+            <div class="col-6 col-md-2 mb-3">
+
+            </div>
+        
+            <div class="col-6 col-md-2 mb-3">
+
+            </div>
+        
+            <div class="col-md-5 offset-md-1 mb-3">
+
+            </div>
+            </div>
+        
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+            <p>© 2022 SOM RESEARCH LAB</p>
+            <ul class="list-unstyled d-flex">
+                <li class="ms-3"><a class="link-dark" href="#"><i class="fa fa-chevron-circle-down"></i></a></li>
+                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+            </ul>
+            </div>
+        </footer>
+    </div>
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="reporQuestionModal" tabindex="-1" aria-labelledby="reporQuestionModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <form method="post" action="">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Report question</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">                    
+                        {% load widget_tweaks %}
+
+                        {% for field in reportQuestionForm %}
+                            {{field.error}}
+                            {{field.label_tag}}            
+                            {% render_field field class="form-control form-control-solid" %}<br>
+                        {% endfor %}
+
+                        {% csrf_token %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  
+
+
+    <style type="text/css">
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-top-width: medium;
+            border-right-width: medium;
+            border-bottom-width: medium;
+            border-left-width: medium;
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }    
+        .b-example-minidivider {
+            height: 1.5rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-top-width: medium;
+            border-right-width: medium;
+            border-bottom-width: medium;
+            border-left-width: medium;
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }              
+    </style>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+
+    {% load static %}
+    <script type="text/javascript">
+        var umlimage = "{% url 'nl2ocl:umlimage' question.qmodel.pk %}";
+        var csrftoken;
+    </script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            csrftoken = getCookie('csrftoken');
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            });
+
+            loadUMLImage();
+
+            toastError = $("#toastMessageError").toast();
+            if(window.location.hash == '#oclTranslationComponent')
+                toastSuccess = $("#toastMessageSuccess").toast("show");
+            
+
+            $("#oclTranslationForm").submit(function(e){
+                e.preventDefault();
+                $("#submitTranslation").trigger("click");
+            });
+
+            $("#submitTranslation").click(function(){
+                if($("#oclTranslation").val() != ""){
+                    var url = $(this).data("url");
+                    var loading = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+                    var translation = {"translation": $("#oclTranslation").val()};
+                    $(this).html(loading + " SUBMITTING...");
+                    $(this).attr("disabled", true);
+                    $.ajax({
+                            url: url,
+                            type: 'POST',
+                            data: JSON.stringify(translation),
+                            dataType: 'json',
+                            contentType: 'application/json',                           
+                            beforeSend: function(xhr, settings) {
+                                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                                }
+                            }
+                        }).done(function (response) {
+                            if( response.status == "ok" ){
+                                $("#oclTranslationForm INPUT").val("");
+                                window.location.hash = '#oclTranslationComponent';
+                                // toast.show();
+                                window.location.reload();
+                            }
+                            else{
+                                $("#submitTranslation").html("SUBMIT");
+                                $("#submitTranslation").attr("disabled", false);
+                                toastError.show();
+                            }
+                        }).fail(function () {
+                            alert('error')
+                        }
+                    );     
+                }   
+            });
+
+        });
+        function loadUMLImage(){
+            loading = '<div class="spinner-border text-primary" style="width: 6rem; height: 6rem;" role="status"></div>';
+            $("#model_container").html(loading);
+            $("#model_container").load(umlimage);
+        }
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        } 
+            
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>    
+</body>
+</html>

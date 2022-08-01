@@ -1,0 +1,62 @@
+@startuml "DocumentManagement"
+
+
+class Roles{
+  roleCode: String
+  roleDescription: String
+}
+
+class Users{
+  userId: String
+  userName: String
+  userLogin: String
+  password: String
+}
+
+class DocumentStructures{
+  documentStructureCode: String
+  parentDocumentStructureCode: String
+  documentStructureDescription: String
+}
+
+class FunctionalAreas{
+  functionalAreaCode: Int
+  parentFunctionalAreaCode: Int
+  functionalAreaDescription: Int
+}
+
+class Images{
+  imageId: String
+  imageAltText: String
+  imageName: String
+  imageUrl: String
+}
+
+class Documents{
+  documentCode: String
+  documentTypeCode: String
+  accessCount: String
+  documentName: String
+}
+
+class DocumentSections{
+  sectionId: String
+  sectionSequence: String
+  sectionCode: String
+  sectionTitle: String
+}
+
+
+Roles "1" -- "*" Users
+
+DocumentStructures "1" -- "*" Documents
+
+FunctionalAreas "*" -- "*" Documents
+
+Images "*" -- "*" DocumentSections
+
+Documents "1" -- "*" DocumentSections
+
+
+
+@enduml

@@ -1,0 +1,39 @@
+@startuml "Phone1"
+
+
+class ChipModel{
+  modelName: String
+  launchYear: String
+  ramMib: String
+  romMib: String
+  slots: String
+  wifi: String
+  bluetooth: String
+}
+
+class ScreenMode{
+  graphicsMode: String
+  charCells: String
+  pixels: String
+  hardwareColours: String
+  usedKb: String
+  map: String
+  type: String
+}
+
+class Phone{
+  companyName: Int
+  hardwareModelName: Int
+  accreditationType: Int
+  accreditationLevel: Int
+  date: Int
+}
+
+
+
+ChipModel "1" -- "*" Phone
+
+ScreenMode "1" -- "*" Phone
+
+
+@enduml

@@ -1,0 +1,61 @@
+@startuml "InsuranceFnol"
+
+
+class Customers{
+  customerId: String
+  customerName: String
+}
+
+class Services{
+  serviceId: Int
+  serviceName: Int
+}
+
+class AvailablePolicies{
+  policyId: String
+  policyTypeCode: String
+  customerPhone: String
+}
+
+class CustomersPolicies{
+  dateOpened: Int
+  dateClosed: Int
+}
+
+class FirstNotificationOfLoss{
+  fnolId: String
+}
+
+class Claims{
+  claimId: Int
+  effectiveDate: Int
+}
+
+class Settlements{
+  settlementId: String
+  effectiveDate: String
+  settlementAmount: String
+}
+
+
+
+Customers "1" -- "*" CustomersPolicies
+
+Customers "1" -- "*" FirstNotificationOfLoss
+
+Services "1" -- "*" FirstNotificationOfLoss
+
+AvailablePolicies "1" -- "*" FirstNotificationOfLoss
+
+AvailablePolicies "1" -- "*" CustomersPolicies
+
+CustomersPolicies "1" -- "*" FirstNotificationOfLoss
+
+CustomersPolicies "1" -- "*" FirstNotificationOfLoss
+
+FirstNotificationOfLoss "1" -- "*" Claims
+
+Claims "1" -- "*" Settlements
+
+
+@enduml

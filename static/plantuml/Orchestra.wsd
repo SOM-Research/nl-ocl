@@ -1,0 +1,45 @@
+@startuml "Orchestra"
+
+
+class Conductor{
+  conductorId: String
+  name: String
+  age: String
+  nationality: String
+  yearOfWork: String
+}
+
+class Orchestra{
+  orchestraId: Int
+  orchestra: Int
+  recordCompany: Int
+  yearOfFounded: Int
+  majorRecordFormat: Int
+}
+
+class Performance{
+  performanceId: String
+  type: String
+  date: String
+  officialRatingsMillions: String
+  weeklyRank: String
+  share: String
+}
+
+class Show{
+  showId: Int
+  ifFirstShow: Int
+  result: Int
+  attendance: Int
+}
+
+
+
+Conductor "1" -- "*" Orchestra
+
+Orchestra "1" -- "*" Performance
+
+Performance "1" -- "*" Show
+
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml "LocalGovtInAlabama"
+
+
+class Services{
+  serviceId: String
+  serviceTypeCode: String
+}
+
+class Participants{
+  participantId: Int
+  participantTypeCode: Int
+  participantDetails: Int
+}
+
+class Events{
+  eventId: String
+  eventDetails: String
+}
+
+class ParticipantsInEvents{
+}
+
+
+
+Services "1" -- "*" Events
+
+Participants "1" -- "*" ParticipantsInEvents
+
+Events "1" -- "*" ParticipantsInEvents
+
+
+@enduml

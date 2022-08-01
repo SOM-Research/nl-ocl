@@ -1,0 +1,39 @@
+@startuml "CreDocTemplateMgt"
+
+
+class ReferenceTemplateTypes{
+  templateTypeCode: String
+  templateTypeDescription: String
+}
+
+class Templates{
+  templateId: String
+  versionNumber: String
+  dateEffectiveFrom: String
+  dateEffectiveTo: String
+  templateDetails: String
+}
+
+class Documents{
+  documentId: String
+  documentName: String
+  documentDescription: String
+  otherDetails: String
+}
+
+class Paragraphs{
+  paragraphId: Int
+  paragraphText: Int
+  otherDetails: Int
+}
+
+
+
+ReferenceTemplateTypes "1" -- "*" Templates
+
+Templates "1" -- "*" Documents
+
+Documents "1" -- "*" Paragraphs
+
+
+@enduml

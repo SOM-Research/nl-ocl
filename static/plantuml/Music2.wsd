@@ -1,0 +1,70 @@
+@startuml "Music2"
+
+
+class Songs{
+  songId: String
+  title: String
+}
+
+class Albums{
+  aid: Int
+  title: Int
+  year: Int
+  label: Int
+  type: Int
+}
+
+class Band{
+  id: String
+  firstName: String
+  lastName: String
+}
+
+class Instruments{
+  instrument: Int
+}
+
+class Performance{
+  stagePosition: String
+}
+
+class TrackLists{
+  position: Int
+}
+
+class Vocals{
+  type: String
+}
+
+
+
+Songs "1" -- "*" TrackLists
+
+Songs "1" -- "*" Instruments
+
+Songs "1" -- "*" Performance
+
+Songs "1" -- "*" Vocals
+
+Albums "1" -- "*" TrackLists
+
+Band "1" -- "*" Instruments
+
+Band "1" -- "*" Performance
+
+Band "1" -- "*" Vocals
+
+Instruments "1" -- "*" Vocals
+
+Instruments "1" -- "*" Performance
+
+Instruments "1" -- "*" TrackLists
+
+Performance "1" -- "*" Vocals
+
+Performance "1" -- "*" TrackLists
+
+TrackLists "1" -- "*" Vocals
+
+
+@enduml

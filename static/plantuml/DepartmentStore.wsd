@@ -1,0 +1,124 @@
+@startuml "DepartmentStore"
+
+
+class Addresses{
+  addressId: String
+  addressDetails: String
+}
+
+class Staff{
+  staffId: Int
+  staffGender: Int
+  staffName: Int
+}
+
+class Suppliers{
+  supplierId: String
+  supplierName: String
+  supplierPhone: String
+}
+
+class DepartmentStoreChain{
+  departmentStoreChainId: Int
+  departmentStoreChainName: Int
+}
+
+class Customers{
+  customerId: String
+  paymentMethodCode: String
+  customerCode: String
+  customerName: String
+  customerAddress: String
+  customerPhone: String
+  customerEmail: String
+}
+
+class Products{
+  productId: String
+  productTypeCode: String
+  productName: String
+  productPrice: String
+}
+
+class SupplierAddresses{
+  dateFrom: Int
+  dateTo: Int
+}
+
+class CustomerAddresses{
+  dateFrom: String
+  dateTo: String
+}
+
+class CustomerOrders{
+  orderId: String
+  orderStatusCode: String
+  orderDate: String
+}
+
+class DepartmentStores{
+  departmentStoreId: Int
+  storeName: Int
+  storeAddress: Int
+  storePhone: Int
+  storeEmail: Int
+}
+
+class Departments{
+  departmentId: String
+  departmentName: String
+}
+
+class OrderItems{
+  orderItemId: Int
+}
+
+class ProductSuppliers{
+  dateSuppliedFrom: String
+  dateSuppliedTo: String
+  totalAmountPurchased: String
+  totalValuePurchased: String
+}
+
+class StaffDepartmentAssignments{
+  dateAssignedFrom: String
+  jobTitleCode: String
+  dateAssignedTo: String
+}
+
+
+
+Addresses "1" -- "*" CustomerAddresses
+
+Addresses "1" -- "*" SupplierAddresses
+
+Staff "1" -- "*" StaffDepartmentAssignments
+
+Suppliers "1" -- "*" ProductSuppliers
+
+Suppliers "1" -- "*" SupplierAddresses
+
+DepartmentStoreChain "1" -- "*" DepartmentStores
+
+Customers "1" -- "*" CustomerAddresses
+
+Customers "1" -- "*" CustomerOrders
+
+Products "1" -- "*" ProductSuppliers
+
+Products "1" -- "*" OrderItems
+
+SupplierAddresses "1" -- "*" ProductSuppliers
+
+CustomerAddresses "1" -- "*" CustomerOrders
+
+CustomerOrders "1" -- "*" OrderItems
+
+DepartmentStores "1" -- "*" Departments
+
+Departments "1" -- "*" StaffDepartmentAssignments
+
+OrderItems "1" -- "*" ProductSuppliers
+
+
+@enduml

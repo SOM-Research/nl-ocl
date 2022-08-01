@@ -1,0 +1,78 @@
+@startuml "CreDocTrackingDb"
+
+
+class ReferenceDocumentTypes{
+  documentTypeCode: String
+  documentTypeName: String
+  documentTypeDescription: String
+}
+
+class ReferenceCalendar{
+  calendarDate: String
+  dayNumber: String
+}
+
+class ReferenceLocations{
+  locationCode: String
+  locationName: String
+  locationDescription: String
+}
+
+class Roles{
+  roleCode: String
+  roleName: String
+  roleDescription: String
+}
+
+class AllDocuments{
+  documentId: Date
+  documentName: Date
+  documentDescription: Date
+  otherDetails: Date
+}
+
+class Employees{
+  employeeId: Int
+  employeeName: Int
+  genderMfu: Int
+  dateOfBirth: Int
+  otherDetails: Int
+}
+
+class DocumentLocations{
+}
+
+class DocumentsToBeDestroyed{
+  otherDetails: String
+}
+
+
+
+ReferenceDocumentTypes "1" -- "*" AllDocuments
+
+ReferenceCalendar "1" -- "*" DocumentLocations
+
+ReferenceCalendar "1" -- "*" AllDocuments
+
+ReferenceCalendar "1" -- "*" DocumentsToBeDestroyed
+
+ReferenceCalendar "1" -- "*" DocumentsToBeDestroyed
+
+ReferenceCalendar "1" -- "*" DocumentLocations
+
+ReferenceLocations "1" -- "*" DocumentLocations
+
+Roles "1" -- "*" Employees
+
+AllDocuments "1" -- "*" DocumentsToBeDestroyed
+
+AllDocuments "1" -- "*" DocumentLocations
+
+Employees "1" -- "*" DocumentsToBeDestroyed
+
+Employees "1" -- "*" DocumentsToBeDestroyed
+
+DocumentLocations "1" -- "*" DocumentsToBeDestroyed
+
+
+@enduml

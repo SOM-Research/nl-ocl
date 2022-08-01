@@ -1,0 +1,37 @@
+@startuml "CultureCompany"
+
+
+class BookClub{
+  bookClubId: String
+  year: String
+  authorOrEditor: String
+  bookTitle: String
+  publisher: String
+  category: String
+  result: String
+}
+
+class Movie{
+  movieId: Int
+  title: Int
+  year: Int
+  director: Int
+  budgetMillion: Int
+  grossWorldwide: Int
+}
+
+class CultureCompany{
+  companyName: Int
+  type: Int
+  incorporatedIn: Int
+  groupEquityShareholding: Int
+}
+
+
+
+BookClub "1" -- "*" CultureCompany
+
+Movie "1" -- "*" CultureCompany
+
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml "SmallBank1"
+
+
+class Accounts{
+  customerId: String
+  name: String
+}
+
+class Savings{
+  balance: Int
+}
+
+class Checking{
+  balance: String
+}
+
+
+
+Accounts "1" -- "*" Savings
+
+Accounts "1" -- "*" Checking
+
+Savings "1" -- "*" Checking
+
+
+@enduml

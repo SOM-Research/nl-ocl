@@ -1,0 +1,100 @@
+@startuml "CreDocControlSystems"
+
+
+class ReferenceDocumentTypes{
+  documentTypeCode: String
+  documentTypeDescription: String
+}
+
+class Roles{
+  roleCode: String
+  roleDescription: String
+}
+
+class Addresses{
+  addressId: String
+  addressDetails: String
+}
+
+class ReferenceDocumentStatus{
+  documentStatusCode: String
+  documentStatusDescription: String
+}
+
+class ReferenceShippingAgents{
+  shippingAgentCode: String
+  shippingAgentName: String
+  shippingAgentDescription: String
+}
+
+class Documents{
+  documentId: Int
+  receiptDate: Int
+  receiptNumber: Int
+  otherDetails: Int
+}
+
+class Employees{
+  employeeId: String
+  employeeName: String
+  otherDetails: String
+}
+
+class DocumentDrafts{
+  draftNumber: String
+  draftDetails: String
+}
+
+class DraftCopies{
+  copyNumber: String
+}
+
+class CirculationHistory{
+}
+
+class DocumentsMailed{
+  mailingDate: String
+}
+
+
+
+ReferenceDocumentTypes "1" -- "*" Documents
+
+Roles "1" -- "*" Employees
+
+Addresses "1" -- "*" DocumentsMailed
+
+ReferenceDocumentStatus "1" -- "*" Documents
+
+ReferenceShippingAgents "1" -- "*" Documents
+
+Documents "1" -- "*" DocumentsMailed
+
+Documents "1" -- "*" DocumentDrafts
+
+Documents "1" -- "*" DraftCopies
+
+Documents "1" -- "*" CirculationHistory
+
+Employees "1" -- "*" CirculationHistory
+
+DocumentDrafts "1" -- "*" DocumentsMailed
+
+DocumentDrafts "1" -- "*" DraftCopies
+
+DocumentDrafts "1" -- "*" CirculationHistory
+
+DocumentDrafts "1" -- "*" DraftCopies
+
+DraftCopies "1" -- "*" DocumentsMailed
+
+DraftCopies "1" -- "*" CirculationHistory
+
+DraftCopies "1" -- "*" CirculationHistory
+
+DraftCopies "1" -- "*" CirculationHistory
+
+CirculationHistory "1" -- "*" DocumentsMailed
+
+
+@enduml

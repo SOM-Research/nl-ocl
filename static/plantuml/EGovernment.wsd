@@ -1,0 +1,98 @@
+@startuml "EGovernment"
+
+
+class Addresses{
+  addressId: String
+  line1NumberBuilding: String
+  townCity: String
+  zipPostcode: String
+  stateProvinceCounty: String
+  country: String
+}
+
+class Services{
+  serviceId: Int
+  serviceTypeCode: Int
+  serviceName: Int
+  serviceDescriptio: Int
+}
+
+class Forms{
+  formId: String
+  formTypeCode: String
+  formNumber: String
+  formName: String
+  formDescription: String
+}
+
+class Individuals{
+  individualId: String
+  individualFirstName: String
+  individualMiddleName: String
+  inidividualPhone: String
+  individualEmail: String
+  individualAddress: String
+  individualLastName: String
+}
+
+class Organizations{
+  organizationId: String
+  dateFormed: String
+  organizationName: String
+  ukVatNumber: String
+}
+
+class Parties{
+  partyId: String
+  paymentMethodCode: String
+  partyPhone: String
+  partyEmail: String
+}
+
+class OrganizationContactIndividuals{
+  dateContactFrom: String
+  dateContactTo: String
+}
+
+class PartyAddresses{
+  dateAddressFrom: Int
+  addressTypeCode: Int
+  dateAddressTo: Int
+}
+
+class PartyForms{
+  dateCompletionStarted: String
+  formStatusCode: String
+  dateFullyCompleted: String
+}
+
+class PartyServices{
+  bookingId: String
+  serviceDatetime: String
+  bookingMadeDate: String
+}
+
+
+
+Addresses "1" -- "*" PartyAddresses
+
+Services "1" -- "*" Forms
+
+Services "1" -- "*" PartyServices
+
+Forms "1" -- "*" PartyForms
+
+Individuals "1" -- "*" OrganizationContactIndividuals
+
+Organizations "1" -- "*" OrganizationContactIndividuals
+
+Parties "1" -- "*" PartyAddresses
+
+Parties "1" -- "*" PartyForms
+
+Parties "1" -- "*" PartyServices
+
+PartyAddresses "1" -- "*" PartyForms
+
+
+@enduml

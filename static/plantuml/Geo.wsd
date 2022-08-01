@@ -1,0 +1,72 @@
+@startuml "Geo"
+
+
+class State{
+  stateName: String
+  population: String
+  area: String
+  countryName: String
+  capital: String
+  density: String
+}
+
+class City{
+  cityName: String
+  population: String
+  countryName: String
+}
+
+class BorderInfo{
+}
+
+class Highlow{
+  highestElevation: Int
+  lowestPoint: Int
+  highestPoint: Int
+  lowestElevation: Int
+}
+
+class Lake{
+  lakeName: String
+  area: String
+  countryName: String
+}
+
+class Mountain{
+  mountainName: String
+  mountainAltitude: String
+  countryName: String
+}
+
+class River{
+  riverName: Int
+  length: Int
+  countryName: Int
+}
+
+
+
+State "1" -- "*" BorderInfo
+
+State "1" -- "*" Lake
+
+State "1" -- "*" BorderInfo
+
+State "1" -- "*" Highlow
+
+State "1" -- "*" City
+
+State "1" -- "*" River
+
+State "1" -- "*" Mountain
+
+City "1" -- "*" Highlow
+
+BorderInfo "1" -- "*" Highlow
+
+Highlow "1" -- "*" Mountain
+
+Highlow "1" -- "*" Lake
+
+
+@enduml

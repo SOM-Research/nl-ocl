@@ -1,0 +1,103 @@
+@startuml "StudentTranscriptsTracking"
+
+
+class Addresses{
+  addressId: String
+  line1: String
+  line2: String
+  line3: String
+  city: String
+  zipPostcode: String
+  stateProvinceCounty: String
+  country: String
+  otherAddressDetails: String
+}
+
+class Courses{
+  courseId: Int
+  courseName: Int
+  courseDescription: Int
+  otherDetails: Int
+}
+
+class Departments{
+  departmentId: String
+  departmentName: String
+  departmentDescription: String
+  otherDetails: String
+}
+
+class DegreePrograms{
+  degreeProgramId: String
+  degreeSummaryName: String
+  degreeSummaryDescription: String
+  otherDetails: String
+}
+
+class Sections{
+  sectionId: String
+  sectionName: String
+  sectionDescription: String
+  otherDetails: String
+}
+
+class Semesters{
+  semesterId: String
+  semesterName: String
+  semesterDescription: String
+  otherDetails: String
+}
+
+class Students{
+  studentId: String
+  firstName: String
+  middleName: String
+  lastName: String
+  cellMobileNumber: String
+  emailAddress: String
+  ssn: String
+  dateFirstRegistered: String
+  dateLeft: String
+  otherStudentDetails: String
+}
+
+class StudentEnrolment{
+  studentEnrolmentId: String
+  otherDetails: String
+}
+
+class StudentEnrolmentCourses{
+  studentCourseId: String
+}
+
+class Transcripts{
+  transcriptId: String
+  transcriptDate: String
+  otherDetails: String
+}
+
+
+
+Addresses "1" -- "*" Students
+
+Addresses "1" -- "*" Students
+
+Courses "1" -- "*" StudentEnrolmentCourses
+
+Courses "1" -- "*" Sections
+
+Departments "1" -- "*" DegreePrograms
+
+DegreePrograms "1" -- "*" StudentEnrolment
+
+Semesters "1" -- "*" StudentEnrolment
+
+Students "1" -- "*" StudentEnrolment
+
+StudentEnrolment "1" -- "*" StudentEnrolmentCourses
+
+StudentEnrolmentCourses "*" -- "*" Transcripts
+
+
+
+@enduml

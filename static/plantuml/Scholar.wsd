@@ -1,0 +1,76 @@
+@startuml "Scholar"
+
+
+class Venue{
+  venueId: String
+  venueName: String
+}
+
+class Author{
+  authorId: Int
+  authorName: Int
+}
+
+class Dataset{
+  datasetId: String
+  datasetName: String
+}
+
+class Journal{
+  journalId: Int
+  journalName: Int
+}
+
+class KeyPhrase{
+  keyPhraseId: String
+  keyPhraseName: String
+}
+
+class Paper{
+  paperId: Int
+  title: Int
+  year: Int
+  numberCiting: Int
+  numberCitedBy: Int
+}
+
+class Cite{
+}
+
+class PaperDataset{
+}
+
+class PaperKeyPhrase{
+}
+
+class Writes{
+}
+
+
+
+Venue "1" -- "*" Paper
+
+Author "1" -- "*" Writes
+
+Dataset "1" -- "*" PaperDataset
+
+Journal "1" -- "*" Paper
+
+KeyPhrase "1" -- "*" PaperKeyPhrase
+
+Paper "1" -- "*" PaperDataset
+
+Paper "1" -- "*" Cite
+
+Paper "1" -- "*" PaperKeyPhrase
+
+Paper "1" -- "*" Cite
+
+Paper "1" -- "*" Writes
+
+PaperDataset "1" -- "*" Writes
+
+PaperKeyPhrase "1" -- "*" Writes
+
+
+@enduml

@@ -1,0 +1,117 @@
+@startuml "BehaviorMonitoring"
+
+
+class ReferenceAddressTypes{
+  addressTypeCode: String
+  addressTypeDescription: String
+}
+
+class ReferenceDetentionType{
+  detentionTypeCode: String
+  detentionTypeDescription: String
+}
+
+class ReferenceIncidentType{
+  incidentTypeCode: String
+  incidentTypeDescription: String
+}
+
+class Addresses{
+  addressId: String
+  line1: String
+  line2: String
+  line3: String
+  city: String
+  zipPostcode: String
+  stateProvinceCounty: String
+  country: String
+  otherAddressDetails: String
+}
+
+class Students{
+  studentId: String
+  firstName: String
+  middleName: String
+  lastName: String
+  cellMobileNumber: String
+  emailAddress: String
+  dateFirstRental: String
+  dateLeftUniversity: String
+  otherStudentDetails: String
+}
+
+class Teachers{
+  teacherId: String
+  firstName: String
+  middleName: String
+  lastName: String
+  gender: String
+  cellMobileNumber: String
+  emailAddress: String
+  otherDetails: String
+}
+
+class AssessmentNotes{
+  notesId: String
+  dateOfNotes: String
+  textOfNotes: String
+  otherDetails: String
+}
+
+class BehaviorIncident{
+  incidentId: Int
+  dateIncidentStart: Int
+  dateIncidentEnd: Int
+  incidentSummary: Int
+  recommendations: Int
+  otherDetails: Int
+}
+
+class Detention{
+  detentionId: String
+  datetimeDetentionStart: String
+  datetimeDetentionEnd: String
+  detentionSummary: String
+  otherDetails: String
+}
+
+class StudentAddresses{
+  dateAddressFrom: String
+  dateAddressTo: String
+  monthlyRental: String
+  otherDetails: String
+}
+
+class StudentsInDetention{
+}
+
+
+
+ReferenceDetentionType "1" -- "*" Detention
+
+ReferenceIncidentType "1" -- "*" BehaviorIncident
+
+Addresses "1" -- "*" Teachers
+
+Addresses "1" -- "*" Students
+
+Addresses "1" -- "*" StudentAddresses
+
+Students "1" -- "*" AssessmentNotes
+
+Students "1" -- "*" StudentsInDetention
+
+Students "1" -- "*" BehaviorIncident
+
+Students "1" -- "*" StudentAddresses
+
+Teachers "1" -- "*" Detention
+
+Teachers "1" -- "*" AssessmentNotes
+
+BehaviorIncident "1" -- "*" StudentsInDetention
+
+Detention "1" -- "*" StudentsInDetention
+
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml "2143068214"
+
+
+class MyClass{
+  game: Real
+  december: Real
+  opponent: String
+  score: String
+  record: String
+  points: Real
+}
+
+
+
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml "21710096148"
+
+
+class MyClass{
+  round: Real
+  pick: Real
+  overall: Real
+  name: String
+  position: String
+  college: String
+}
+
+
+
+
+@enduml

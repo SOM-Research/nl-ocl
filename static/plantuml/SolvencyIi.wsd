@@ -1,0 +1,86 @@
+@startuml "SolvencyIi"
+
+
+class Addresses{
+  addressId: String
+  addressDetails: String
+}
+
+class Locations{
+  locationId: Int
+  otherDetails: Int
+}
+
+class Products{
+  productId: String
+  productTypeCode: String
+  productName: String
+  productPrice: String
+}
+
+class Parties{
+  partyId: Int
+  partyDetails: Int
+}
+
+class Assets{
+  assetId: String
+  otherDetails: String
+}
+
+class Channels{
+  channelId: Int
+  otherDetails: Int
+}
+
+class Finances{
+  financeId: String
+  otherDetails: String
+}
+
+class Events{
+  eventId: String
+  eventTypeCode: String
+}
+
+class ProductsInEvents{
+  productInEventId: Int
+}
+
+class PartiesInEvents{
+  roleCode: Int
+}
+
+class Agreements{
+  documentId: String
+}
+
+class AssetsInEvents{
+}
+
+
+
+Addresses "1" -- "*" Events
+
+Locations "1" -- "*" Events
+
+Products "1" -- "*" ProductsInEvents
+
+Parties "1" -- "*" PartiesInEvents
+
+Assets "1" -- "*" AssetsInEvents
+
+Channels "1" -- "*" Events
+
+Finances "1" -- "*" Events
+
+Events "1" -- "*" AssetsInEvents
+
+Events "1" -- "*" ProductsInEvents
+
+Events "1" -- "*" Agreements
+
+Events "1" -- "*" PartiesInEvents
+
+
+@enduml

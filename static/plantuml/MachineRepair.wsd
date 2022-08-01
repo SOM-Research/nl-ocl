@@ -1,0 +1,41 @@
+@startuml "MachineRepair"
+
+
+class Repair{
+  repairId: String
+  name: String
+  launchDate: String
+  notes: String
+}
+
+class Machine{
+  machineId: Int
+  makingYear: Int
+  class: Int
+  team: Int
+  machineSeries: Int
+  valuePoints: Int
+  qualityRank: Int
+}
+
+class Technician{
+  technicianId: String
+  name: String
+  team: String
+  startingYear: String
+  age: String
+}
+
+class RepairAssignment{
+}
+
+
+
+Repair "1" -- "*" RepairAssignment
+
+Machine "1" -- "*" RepairAssignment
+
+Technician "1" -- "*" RepairAssignment
+
+
+@enduml

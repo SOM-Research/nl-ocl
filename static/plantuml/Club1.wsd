@@ -1,0 +1,33 @@
+@startuml "Club1"
+
+
+class Student{
+  studentId: String
+  lastName: String
+  firstName: String
+  age: String
+  sex: String
+  major: String
+  advisor: String
+  cityCode: String
+}
+
+class Club{
+  clubId: Int
+  clubName: Int
+  clubDescription: Int
+  clubLocation: Int
+}
+
+class MemberOfClub{
+  position: String
+}
+
+
+
+Student "1" -- "*" MemberOfClub
+
+Club "1" -- "*" MemberOfClub
+
+
+@enduml

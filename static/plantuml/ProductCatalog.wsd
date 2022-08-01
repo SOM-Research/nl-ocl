@@ -1,0 +1,56 @@
+@startuml "ProductCatalog"
+
+
+class AttributeDefinitions{
+  attributeId: String
+  attributeName: String
+  attributeDataType: String
+}
+
+class Catalogs{
+  catalogId: Int
+  catalogName: Int
+  catalogPublisher: Int
+  dateOfPublication: Int
+  dateOfLatestRevision: Int
+}
+
+class CatalogStructure{
+  catalogLevelNumber: String
+  catalogLevelName: String
+}
+
+class CatalogContents{
+  catalogEntryId: String
+  parentEntryId: String
+  previousEntryId: String
+  nextEntryId: String
+  catalogEntryName: String
+  productStockNumber: String
+  priceInDollars: String
+  priceInEuros: String
+  priceInPounds: String
+  capacity: String
+  length: String
+  height: String
+  width: String
+}
+
+class CatalogContentsAdditionalAttributes{
+  attributeValue: Int
+}
+
+
+
+AttributeDefinitions "1" -- "*" CatalogContentsAdditionalAttributes
+
+Catalogs "1" -- "*" CatalogStructure
+
+CatalogStructure "1" -- "*" CatalogContents
+
+CatalogStructure "1" -- "*" CatalogContentsAdditionalAttributes
+
+CatalogContents "1" -- "*" CatalogContentsAdditionalAttributes
+
+
+@enduml

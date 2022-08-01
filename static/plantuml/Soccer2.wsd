@@ -1,0 +1,29 @@
+@startuml "Soccer2"
+
+
+class College{
+  collegeName: String
+  state: String
+  enrollment: String
+}
+
+class Player{
+  playerId: String
+  playerName: String
+  yesCard: String
+  trainingHours: String
+}
+
+class Tryout{
+  playerPosition: String
+  decision: String
+}
+
+
+
+College "1" -- "*" Tryout
+
+Player "1" -- "*" Tryout
+
+
+@enduml

@@ -1,0 +1,30 @@
+@startuml "Manufacturer"
+
+
+class Manufacturer{
+  manufacturerId: String
+  openYear: String
+  name: String
+  numOfFactories: String
+  numOfShops: String
+}
+
+class Furniture{
+  furnitureId: Int
+  name: Int
+  numOfComponent: Int
+  marketRate: Int
+}
+
+class FurnitureManufacte{
+  priceInDollar: Int
+}
+
+
+
+Manufacturer "1" -- "*" FurnitureManufacte
+
+Furniture "1" -- "*" FurnitureManufacte
+
+
+@enduml

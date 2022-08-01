@@ -1,0 +1,41 @@
+@startuml "Game1"
+
+
+class Student{
+  studentId: String
+  lastName: String
+  firstName: String
+  age: String
+  sex: String
+  major: String
+  advisor: String
+  cityCode: String
+}
+
+class VideoGames{
+  gameId: Int
+  gameName: Int
+  gameType: Int
+}
+
+class PlaysGames{
+  hoursPlayed: String
+}
+
+class SportsInfo{
+  sportName: String
+  hoursPerWeek: String
+  gamesPlayed: String
+  onScholarship: String
+}
+
+
+
+Student "1" -- "*" PlaysGames
+
+Student "1" -- "*" SportsInfo
+
+VideoGames "1" -- "*" PlaysGames
+
+
+@enduml

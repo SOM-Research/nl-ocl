@@ -1,0 +1,131 @@
+@startuml "AssetsMaintenance"
+
+
+class ThirdPartyCompanies{
+  companyId: String
+  companyType: String
+  companyName: String
+  companyAddress: String
+  otherCompanyDetails: String
+}
+
+class MaintenanceContracts{
+  maintenanceContractId: Int
+  contractStartDate: Int
+  contractEndDate: Int
+  otherContractDetails: Int
+}
+
+class Parts{
+  partId: String
+  partName: String
+  chargeableYn: String
+  chargeableAmount: String
+  otherPartDetails: String
+}
+
+class Skills{
+  skillId: String
+  skillCode: String
+  skillDescription: String
+}
+
+class Staff{
+  staffId: String
+  staffName: String
+  gender: String
+  otherStaffDetails: String
+}
+
+class Assets{
+  assetId: String
+  assetDetails: String
+  assetMake: String
+  assetModel: String
+  assetAcquiredDate: String
+  assetDisposedDate: String
+  otherAssetDetails: String
+}
+
+class AssetParts{
+}
+
+class MaintenanceEngineers{
+  engineerId: Int
+  firstName: Int
+  lastName: Int
+  otherDetails: Int
+}
+
+class EngineerSkills{
+}
+
+class FaultLog{
+  faultLogEntryId: Date
+  faultLogEntryDatetime: Date
+  faultDescription: Date
+  otherFaultDetails: Date
+}
+
+class EngineerVisits{
+  engineerVisitId: String
+  faultStatus: String
+  visitStartDatetime: String
+  visitEndDatetime: String
+  otherVisitDetails: String
+}
+
+class PartFaults{
+  partFaultId: Int
+  faultShortName: Int
+  faultDescription: Int
+  otherFaultDetails: Int
+}
+
+class FaultLogParts{
+  faultStatus: String
+}
+
+class SkillsRequiredToFix{
+}
+
+
+
+ThirdPartyCompanies "1" -- "*" MaintenanceContracts
+
+ThirdPartyCompanies "1" -- "*" MaintenanceEngineers
+
+ThirdPartyCompanies "1" -- "*" Assets
+
+MaintenanceContracts "1" -- "*" Assets
+
+Parts "1" -- "*" PartFaults
+
+Parts "1" -- "*" AssetParts
+
+Skills "1" -- "*" SkillsRequiredToFix
+
+Skills "1" -- "*" EngineerSkills
+
+Staff "1" -- "*" FaultLog
+
+Staff "1" -- "*" EngineerVisits
+
+Assets "1" -- "*" FaultLog
+
+Assets "1" -- "*" AssetParts
+
+MaintenanceEngineers "1" -- "*" EngineerVisits
+
+MaintenanceEngineers "1" -- "*" EngineerSkills
+
+FaultLog "1" -- "*" FaultLogParts
+
+FaultLog "1" -- "*" EngineerVisits
+
+PartFaults "1" -- "*" SkillsRequiredToFix
+
+PartFaults "1" -- "*" FaultLogParts
+
+
+@enduml

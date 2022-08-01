@@ -1,0 +1,31 @@
+@startuml "ThemeGallery"
+
+
+class Artist{
+  artistId: String
+  name: String
+  country: String
+  yearJoin: String
+  age: String
+}
+
+class Exhibition{
+  exhibitionId: Int
+  year: Int
+  theme: Int
+  ticketPrice: Int
+}
+
+class ExhibitionRecord{
+  date: String
+  attendance: String
+}
+
+
+
+Artist "1" -- "*" Exhibition
+
+Exhibition "1" -- "*" ExhibitionRecord
+
+
+@enduml

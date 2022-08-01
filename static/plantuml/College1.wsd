@@ -1,0 +1,80 @@
+@startuml "College1"
+
+
+class Class{
+  classCode: String
+  classSection: String
+  classTime: String
+  classRoom: String
+}
+
+class Course{
+  courseCode: String
+  courseDescription: String
+  courseCredit: String
+}
+
+class Department{
+  departmentCode: String
+  departmentName: String
+  schoolCode: String
+  departmentAddress: String
+  departmentExtension: String
+}
+
+class Employee{
+  employeeNumber: String
+  employeeLastName: String
+  employeeFirstName: String
+  employeeInitial: String
+  employeeJobCode: String
+  employeeHireDate: String
+  employeeDateOfBirth: String
+}
+
+class Enroll{
+  enrollGrade: String
+}
+
+class Professor{
+  professorOffice: String
+  professorExtension: String
+  professorHighDegree: String
+}
+
+class Student{
+  studentNumber: String    
+  studentLastName: Int
+  studentFirstName: Int
+  studentInit: Int
+  studentDateOfBirth: Int
+  studentClassHoursTook: Int
+  studentClass: Int
+  studentGpa: Int
+  studentTransfer: Int
+  studentPhone: Int
+  professorNumber: Int
+}
+
+
+
+Class "1" -- "*" Enroll
+
+Class "*" -- "1" Course
+
+Class "*" -- "1" Employee
+
+Course "*" -- "1" Department
+
+Department "1" -- "*" Professor
+
+Department "1" -- "*" Student
+
+Department "*" -- "1" Employee
+
+Employee "1" -- "*" Professor
+
+Enroll "*" -- "1" Student
+
+
+@enduml

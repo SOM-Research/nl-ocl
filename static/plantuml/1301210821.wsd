@@ -1,0 +1,15 @@
+@startuml "1301210821"
+
+
+class MyClass{
+  townland: String
+  areaAcres: Real
+  barony: String
+  civilParish: String
+  poorLawUnion: String
+}
+
+
+
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml "Pets1"
+
+
+class Student{
+  studentId: String
+  lastName: String
+  firstName: String
+  age: String
+  sex: String
+  major: String
+  advisor: String
+  cityCode: String
+}
+
+
+class Pets{
+  petId: Int
+  petType: String
+  petAge: String
+  weight: String
+}
+
+
+Student "*" -- "*" Pets
+
+
+@enduml

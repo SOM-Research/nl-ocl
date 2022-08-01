@@ -1,0 +1,116 @@
+@startuml "Chinook1"
+
+
+class Album{
+  albumId: String
+  title: String
+  artistId: String
+}
+
+class Artist{
+  name: Int
+}
+
+class Customer{
+  customerId: String
+  firstName: String
+  lastName: String
+  company: String
+  address: String
+  city: String
+  state: String
+  country: String
+  postalCode: String
+  phone: String
+  fax: String
+  email: String
+  supportRepresentativeId: String
+}
+
+class Employee{
+  lastName: Int
+  firstName: Int
+  title: Int
+  birthDate: Int
+  hireDate: Int
+  address: Int
+  city: Int
+  state: Int
+  country: Int
+  postalCode: Int
+  phone: Int
+  fax: Int
+  email: Int
+}
+
+class Genre{
+  genreId: Int
+  name: Int
+}
+
+class Invoice{
+  invoiceId: String
+  invoiceDate: String
+  billingAddress: String
+  billingCity: String
+  billingState: String
+  billingCountry: String
+  billingPostalCode: String
+  total: String
+}
+
+class InvoiceLine{
+  invoiceLineId: Int
+  trackId: Int
+  unitPrice: Int
+  quantity: Int
+}
+
+class MediaType{
+  mediaTypeId: String
+  name: String
+}
+
+class Playlist{
+  playListId: String
+  name: String
+}
+
+class PlaylistTrack{
+  trackId: String
+}
+
+class Track{
+  name: String
+  composer: String
+  milliseconds: String
+  bytes: String
+  unitPrice: String
+}
+
+
+
+Album "1" -- "*" Track
+
+Album "1" -- "*" Artist
+
+Customer "1" -- "*" Invoice
+
+Customer "1" -- "*" Employee
+
+Employee "1" -- "*" Employee
+
+Genre "1" -- "*" Track
+
+Invoice "1" -- "*" InvoiceLine
+
+InvoiceLine "1" -- "*" Track
+
+MediaType "1" -- "*" Track
+
+Playlist "1" -- "*" PlaylistTrack
+
+PlaylistTrack "1" -- "*" Track
+
+
+@enduml

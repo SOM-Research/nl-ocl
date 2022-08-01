@@ -1,0 +1,46 @@
+@startuml "Farm"
+
+
+class City{
+  cityId: String
+  officialName: String
+  status: String
+  areaKm2: String
+  population: String
+  censusRanking: String
+}
+
+class Farm{
+  farmId: Int
+  year: Int
+  totalHorses: Int
+  workingHorses: Int
+  totalCattle: Int
+  oxen: Int
+  bulls: Int
+  cows: Int
+  pigs: Int
+  sheepAndGoats: Int
+}
+
+class FarmCompetition{
+  competitionId: String
+  year: String
+  theme: String
+  hosts: String
+}
+
+class CompetitionRecord{
+  rank: String
+}
+
+
+
+City "1" -- "*" FarmCompetition
+
+Farm "1" -- "*" CompetitionRecord
+
+FarmCompetition "1" -- "*" CompetitionRecord
+
+
+@enduml

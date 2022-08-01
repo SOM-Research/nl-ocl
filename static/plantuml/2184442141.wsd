@@ -1,0 +1,15 @@
+@startuml "2184442141"
+
+
+class MyClass{
+  date: String
+  venue: String
+  score: String
+  result: String
+  competition: String
+}
+
+
+
+
+@enduml

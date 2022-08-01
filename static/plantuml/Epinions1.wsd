@@ -1,0 +1,35 @@
+@startuml "Epinions1"
+
+
+class Item{
+  itemId: String
+  title: String
+}
+
+class Review{
+  rating: Int
+  rank: Int
+}
+
+class Useracct{
+  userId: Int
+  aId: Int
+  name: String
+}
+
+class Trust{
+  trust: Int
+}
+
+
+
+Item "1" -- "*" Review
+
+Review "*" -- "1" Useracct
+
+Useracct "1" -- "*" Trust
+
+Useracct "1" -- "*" Trust
+
+
+@enduml

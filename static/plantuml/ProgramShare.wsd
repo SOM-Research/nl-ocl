@@ -1,0 +1,42 @@
+@startuml "ProgramShare"
+
+
+class Program{
+  programId: String
+  name: String
+  origin: String
+  launch: String
+  owner: String
+}
+
+class Channel{
+  channelId: Int
+  name: Int
+  owner: Int
+  shareInPercent: Int
+  ratingInPercent: Int
+}
+
+class Broadcast{
+  timeOfDay: String
+}
+
+class BroadcastShare{
+  date: String
+  shareInPercent: String
+}
+
+
+
+Program "1" -- "*" Broadcast
+
+Program "1" -- "*" BroadcastShare
+
+Channel "1" -- "*" Broadcast
+
+Channel "1" -- "*" BroadcastShare
+
+Broadcast "1" -- "*" BroadcastShare
+
+
+@enduml

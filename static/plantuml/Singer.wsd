@@ -1,0 +1,24 @@
+@startuml "Singer"
+
+
+class Singer{
+  singerId: String
+  name: String
+  birthYear: String
+  netWorthMillions: String
+  citizenship: String
+}
+
+class Song{
+  songId: Int
+  title: Int
+  sales: Int
+  highestPosition: Int
+}
+
+
+
+Singer "1" -- "*" Song
+
+
+@enduml

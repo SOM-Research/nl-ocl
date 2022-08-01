@@ -1,0 +1,31 @@
+@startuml "PhoneMarket"
+
+
+class Phone{
+  name: String
+  phoneId: String
+  memoryInG: String
+  carrier: String
+  price: String
+}
+
+class Market{
+  marketId: String
+  district: String
+  numOfEmployees: String
+  numOfShops: String
+  ranking: String
+}
+
+class PhoneMarket{
+  numOfStock: Int
+}
+
+
+
+Phone "1" -- "*" PhoneMarket
+
+Market "1" -- "*" PhoneMarket
+
+
+@enduml

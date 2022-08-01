@@ -1,0 +1,34 @@
+@startuml "Icfp1"
+
+
+class Institution{
+  institutionId: String
+  name: String
+  country: String
+}
+
+class Authors{
+  authorId: Int
+  lastName: Int
+  firstName: Int
+}
+
+class Papers{
+  paperId: String
+  title: String
+}
+
+class AuthorshipCount{
+  authorCount: String
+}
+
+
+
+Institution "1" -- "*" AuthorshipCount
+
+Authors "1" -- "*" AuthorshipCount
+
+Papers "1" -- "*" AuthorshipCount
+
+
+@enduml

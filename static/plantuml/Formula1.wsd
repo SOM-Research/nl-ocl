@@ -1,0 +1,181 @@
+@startuml "Formula1"
+
+
+class Circuits{
+  circuitId: String
+  circuitReference: String
+  name: String
+  location: String
+  country: String
+  latitude: String
+  longitude: String
+  altitude: String
+  url: String
+}
+
+class Races{
+  raceId: Int
+  year: Int
+  round: Int
+  name: Int
+  date: Int
+  time: Int
+  url: Int
+}
+
+class Drivers{
+  driverId: String
+  driverReference: String
+  number: String
+  code: String
+  forename: String
+  surname: String
+  dob: String
+  nationality: String
+  url: String
+}
+
+class Status{
+  statusId: String
+  status: String
+}
+
+class Seasons{
+  url: String
+}
+
+class Constructors{
+  constructorId: String
+  constructorReference: String
+  name: String
+  nationality: String
+  url: String
+}
+
+class ConstructorStandings{
+  constructorStandingsId: Int
+  points: Int
+  position: Int
+  positionText: Int
+  wins: Int
+}
+
+class Results{
+  resultId: Int
+  number: Int
+  grid: Int
+  position: Int
+  positionText: Int
+  positionOrder: Int
+  points: Int
+  laps: Int
+  time: Int
+  milliseconds: Int
+  fastestLap: Int
+  rank: Int
+  fastestLapTime: Int
+  fastestLapSpeed: Int
+}
+
+class DriverStandings{
+  driverStandingsId: Int
+  points: Int
+  position: Int
+  positionText: Int
+  wins: Int
+}
+
+class ConstructorResults{
+  constructorResultsId: String
+  points: String
+  status: String
+}
+
+class Qualifying{
+  qualifyId: Int
+  number: Int
+  position: Int
+  q1: Int
+  q2: Int
+  q3: Int
+}
+
+class PitStops{
+  stop: Int
+  lap: Int
+  time: Int
+  duration: Int
+  milliseconds: Int
+}
+
+class LapTimes{
+  lap: Int
+  position: Int
+  time: Int
+  milliseconds: Int
+}
+
+
+
+Circuits "1" -- "*" Races
+
+Races "1" -- "*" ConstructorStandings
+
+Races "1" -- "*" PitStops
+
+Races "1" -- "*" ConstructorResults
+
+Races "1" -- "*" Results
+
+Races "1" -- "*" DriverStandings
+
+Races "1" -- "*" Qualifying
+
+Races "1" -- "*" LapTimes
+
+Races "1" -- "*" Seasons
+
+Drivers "1" -- "*" LapTimes
+
+Drivers "1" -- "*" PitStops
+
+Drivers "1" -- "*" Results
+
+Drivers "1" -- "*" DriverStandings
+
+Drivers "1" -- "*" Qualifying
+
+Status "1" -- "*" Results
+
+Constructors "1" -- "*" ConstructorStandings
+
+Constructors "1" -- "*" Results
+
+Constructors "1" -- "*" ConstructorResults
+
+Constructors "1" -- "*" Qualifying
+
+ConstructorStandings "1" -- "*" PitStops
+
+ConstructorStandings "1" -- "*" LapTimes
+
+Results "1" -- "*" LapTimes
+
+Results "1" -- "*" PitStops
+
+DriverStandings "1" -- "*" LapTimes
+
+DriverStandings "1" -- "*" PitStops
+
+ConstructorResults "1" -- "*" LapTimes
+
+ConstructorResults "1" -- "*" PitStops
+
+Qualifying "1" -- "*" PitStops
+
+Qualifying "1" -- "*" LapTimes
+
+PitStops "1" -- "*" LapTimes
+
+
+@enduml

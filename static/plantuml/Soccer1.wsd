@@ -1,0 +1,119 @@
+@startuml "Soccer1"
+
+
+class PlayerAttributes{
+  id: String
+  playerFifaApiId: String
+  playerApiId: String
+  date: String
+  overallRating: String
+  potential: String
+  preferredFoot: String
+  attackingWorkRate: String
+  defensiveWorkRate: String
+  crossing: String
+  finishing: String
+  headingAccuracy: String
+  shortPassing: String
+  volleys: String
+  dribbling: String
+  curve: String
+  freeKickAccuracy: String
+  longPassing: String
+  ballControl: String
+  acceleration: String
+  sprintSpeed: String
+  agility: String
+  reactions: String
+  balance: String
+  shotPower: String
+  jumping: String
+  stamina: String
+  strength: String
+  longShots: String
+  aggression: String
+  interceptions: String
+  positioning: String
+  vision: String
+  penalties: String
+  marking: String
+  standingTackle: String
+  slidingTackle: String
+  gkDiving: String
+  gkHandling: String
+  gkKicking: String
+  gkPositioning: String
+  gkReflexes: String
+}
+
+class SqliteSequence{
+  name: Int
+  seq: Int
+}
+
+class Player{
+  id: Int
+  playerName: Int
+  birthday: Int
+  height: Int
+  weight: Int
+}
+
+class League{
+  id: Int
+  countryId: Int
+  name: Int
+}
+
+class Country{
+  name: String
+}
+
+class Team{
+  id: Int
+  teamApiId: Int
+  teamFifaApiId: Int
+  teamLongName: Int
+  teamShortName: Int
+}
+
+class TeamAttributes{
+  id: Int
+  date: Int
+  buildupPlaySpeed: Int
+  buildupPlaySpeedClass: Int
+  buildupPlayDribbling: Int
+  buildupPlayDribblingClass: Int
+  buildupPlayPassing: Int
+  buildupPlayPassingClass: Int
+  buildupPlayPositioningClass: Int
+  chanceCreationPassing: Int
+  chanceCreationPassingClass: Int
+  chanceCreationCrossing: Int
+  chanceCreationCrossingClass: Int
+  chanceCreationShooting: Int
+  chanceCreationShootingClass: Int
+  chanceCreationPositioningClass: Int
+  defencePressure: Int
+  defencePressureClass: Int
+  defenceAggression: Int
+  defenceAggressionClass: Int
+  defenceTeamWidth: Int
+  defenceTeamWidthClass: Int
+  defenceDefenderLineClass: Int
+}
+
+
+
+PlayerAttributes "1" -- "*" Player
+
+PlayerAttributes "1" -- "*" Player
+
+League "1" -- "*" Country
+
+Team "1" -- "*" TeamAttributes
+
+Team "1" -- "*" TeamAttributes
+
+
+@enduml

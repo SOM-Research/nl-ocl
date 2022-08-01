@@ -1,0 +1,23 @@
+@startuml "Book2"
+
+
+class Publication{
+  publicationId: String
+  publisher: String
+  publicationDate: String
+  price: String
+}
+
+class Book{
+  bookId: String
+  title: Int
+  issues: Int
+  writer: Int
+}
+
+
+
+Publication "*" -- "1" Book
+
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml "11974491514"
+
+
+class MyClass{
+  rankByAverage: Real
+  place: Real
+  couple: String
+  numberOfDances: Real
+  totalPoints: String
+  average: String
+}
+
+
+
+
+@enduml

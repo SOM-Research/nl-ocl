@@ -1,0 +1,26 @@
+@startuml "ShipMission"
+
+
+class Mission{
+  missionId: String
+  code: String
+  launchedYear: String
+  location: String
+  speedKnots: String
+  fate: String
+}
+
+class Ship{
+  shipId: String    
+  name: Int
+  type: Int
+  nationality: Int
+  tonnage: Int
+}
+
+
+
+Mission "*" -- "1" Ship
+
+
+@enduml

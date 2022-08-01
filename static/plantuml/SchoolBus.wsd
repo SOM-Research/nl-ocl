@@ -1,0 +1,32 @@
+@startuml "SchoolBus"
+
+
+class Driver{
+  driverId: String
+  name: String
+  party: String
+  homeCity: String
+  age: String
+}
+
+class School{
+  schoolId: Int
+  grade: Int
+  school: Int
+  location: Int
+  type: Int
+}
+
+class SchoolBus{
+  yearsWorking: String
+  ifFullTime: String
+}
+
+
+
+Driver "1" -- "*" SchoolBus
+
+School "1" -- "*" SchoolBus
+
+
+@enduml

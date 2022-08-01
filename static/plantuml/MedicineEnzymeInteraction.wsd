@@ -1,0 +1,32 @@
+@startuml "MedicineEnzymeInteraction"
+
+
+class Medicine{
+  id: String
+  name: String
+  tradeName: String
+  fdaApproved: String
+}
+
+class Enzyme{
+  id: Int
+  name: Int
+  location: Int
+  product: Int
+  chromosome: Int
+  omim: Int
+  porphyria: Int
+}
+
+class MedicineEnzymeInteraction{
+  interactionType: String
+}
+
+
+
+Medicine "1" -- "*" MedicineEnzymeInteraction
+
+Enzyme "1" -- "*" MedicineEnzymeInteraction
+
+
+@enduml

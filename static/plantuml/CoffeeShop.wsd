@@ -1,0 +1,41 @@
+@startuml "CoffeeShop"
+
+
+class Shop{
+  shopId: String
+  address: String
+  numOfStaff: String
+  score: String
+  openYear: String
+}
+
+class Member{
+  memberId: Int
+  name: Int
+  membershipCard: Int
+  age: Int
+  timeOfPurchase: Int
+  levelOfMembership: Int
+  address: Int
+}
+
+class HappyHour{
+  hhId: String
+  month: String
+  numOfShaffInCharge: String
+}
+
+class HappyHourMember{
+  totalAmount: String
+}
+
+
+
+Shop "1" -- "*" HappyHour
+
+Member "1" -- "*" HappyHourMember
+
+HappyHour "1" -- "*" HappyHourMember
+
+
+@enduml

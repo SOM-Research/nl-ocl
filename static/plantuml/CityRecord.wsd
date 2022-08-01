@@ -1,0 +1,49 @@
+@startuml "CityRecord"
+
+
+class City{
+  cityId: String
+  city: String
+  hanzi: String
+  hanyuPinyin: String
+  regionalPopulation: String
+  gdp: String
+}
+
+class Match{
+  matchId: Int
+  date: Int
+  venue: Int
+  score: Int
+  result: Int
+  competition: Int
+}
+
+class Temperature{
+  jan: String
+  feb: String
+  mar: String
+  apr: String
+  jun: String
+  jul: String
+  aug: String
+  sep: String
+  oct: String
+  nov: String
+  dec: String
+}
+
+class HostingCity{
+  year: String
+}
+
+
+
+City "1" -- "*" Temperature
+
+City "1" -- "*" HostingCity
+
+Match "1" -- "*" HostingCity
+
+
+@enduml

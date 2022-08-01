@@ -1,0 +1,37 @@
+@startuml "PilotRecord"
+
+
+class Aircraft{
+  aircraftId: String
+  orderYear: String
+  manufacturer: String
+  model: String
+  fleetSeries: String
+  powertrain: String
+  fuelPropulsion: String
+}
+
+class Pilot{
+  pilotId: Int
+  pilotName: Int
+  rank: Int
+  age: Int
+  nationality: Int
+  position: Int
+  joinYear: Int
+  team: Int
+}
+
+class PilotRecord{
+  recordId: Int
+  date: Int
+}
+
+
+
+Aircraft "1" -- "*" PilotRecord
+
+Pilot "1" -- "*" PilotRecord
+
+
+@enduml

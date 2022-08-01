@@ -1,0 +1,28 @@
+@startuml "CandidatePoll"
+
+
+class Candidate{
+  candidateId: String
+  pollSource: String
+  date: String
+  supportRate: String
+  considerRate: String
+  opposeRate: String
+  unsureRate: String
+}
+
+class People{
+  peopleId: String
+  sex: Int
+  name: Int
+  dateOfBirth: Int
+  height: Int
+  weight: Int
+}
+
+
+
+Candidate "*" -- "1" People
+
+
+@enduml

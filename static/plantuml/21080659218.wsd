@@ -1,0 +1,17 @@
+@startuml "21080659218"
+
+
+class MyClass{
+  homeTeam: String
+  homeTeamScore: String
+  awayTeam: String
+  awayTeamScore: String
+  venue: String
+  crowd: Real
+  date: String
+}
+
+
+
+
+@enduml

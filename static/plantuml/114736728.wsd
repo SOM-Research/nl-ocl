@@ -1,0 +1,16 @@
+@startuml "114736728"
+
+
+class MyClass{
+  pick: Real
+  player: String
+  position: String
+  nationality: String
+  nhlTeam: String
+  collegeJuniorClubTeam: String
+}
+
+
+
+
+@enduml

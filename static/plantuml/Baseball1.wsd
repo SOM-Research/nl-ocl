@@ -1,0 +1,471 @@
+@startuml "Baseball1"
+
+
+class AllStar{
+  playerId: String
+  year: String
+  gameNum: String
+  gameId: String
+  teamId: String
+  leagueId: String
+  gp: String
+  startingPos: String
+}
+
+class Appearances{
+  year: String
+  teamId: String
+  leagueId: String
+  playerId: String
+  gAll: String
+  gs: String
+  gBatting: String
+  gDefense: String
+  gP: String
+  gC: String
+  g1b: String
+  g2b: String
+  g3b: String
+  gSs: String
+  gLf: String
+  gCf: String
+  gRf: String
+  gOf: String
+  gDh: String
+  gPh: String
+  gPr: String
+}
+
+class ManagerAward{
+  playerId: Int
+  awardId: Int
+  year: Int
+  leagueId: Int
+  tie: Int
+  notes: Int
+}
+
+class PlayerAward{
+  playerId: Int
+  awardId: Int
+  year: Int
+  leagueId: Int
+  tie: Int
+  notes: Int
+}
+
+class ManagerAwardVote{
+  awardId: String
+  year: String
+  leagueId: String
+  playerId: String
+  pointsWon: String
+  pointsMax: String
+  votesFirst: String
+}
+
+class PlayerAwardVote{
+  awardId: String
+  year: String
+  leagueId: String
+  playerId: String
+  pointsWon: String
+  pointsMax: String
+  votesFirst: String
+}
+
+class Batting{
+  playerId: String
+  year: String
+  stint: String
+  teamId: String
+  leagueId: String
+  g: String
+  ab: String
+  r: String
+  h: String
+  double: String
+  triple: String
+  hr: String
+  rbi: String
+  sb: String
+  cs: String
+  bb: String
+  so: String
+  ibb: String
+  hbp: String
+  sh: String
+  sf: String
+  gIdp: String
+}
+
+class BattingPostseason{
+  year: Int
+  round: Int
+  playerId: Int
+  teamId: Int
+  leagueId: Int
+  g: Int
+  ab: Int
+  r: Int
+  h: Int
+  double: Int
+  triple: Int
+  hr: Int
+  rbi: Int
+  sb: Int
+  cs: Int
+  bb: Int
+  so: Int
+  ibb: Int
+  hbp: Int
+  sh: Int
+  sf: Int
+  gIdp: Int
+}
+
+class PlayerCollege{
+  playerId: Int
+  collegeId: Int
+  year: Int
+}
+
+class Fielding{
+  playerId: Int
+  year: Int
+  stint: Int
+  teamId: Int
+  leagueId: Int
+  pos: Int
+  g: Int
+  gs: Int
+  innOuts: Int
+  po: Int
+  a: Int
+  e: Int
+  dp: Int
+  pb: Int
+  wp: Int
+  sb: Int
+  cs: Int
+  zr: Int
+}
+
+class FieldingOutfield{
+  playerId: String
+  year: String
+  stint: String
+  glf: String
+  gcf: String
+  grf: String
+}
+
+class FieldingPostseason{
+  playerId: String
+  year: String
+  teamId: String
+  leagueId: String
+  round: String
+  pos: String
+  g: String
+  gs: String
+  innOuts: String
+  po: String
+  a: String
+  e: String
+  dp: String
+  tp: String
+  pb: String
+  sb: String
+  cs: String
+}
+
+class HallOfFame{
+  playerId: String
+  yearid: String
+  votedby: String
+  ballots: String
+  needed: String
+  votes: String
+  inducted: String
+  category: String
+  neededNote: String
+}
+
+class HomeGame{
+  year: Int
+  leagueId: Int
+  teamId: Int
+  parkId: Int
+  spanFirst: Int
+  spanLast: Int
+  games: Int
+  openings: Int
+  attendance: Int
+}
+
+class Manager{
+  playerId: Int
+  year: Int
+  teamId: Int
+  leagueId: Int
+  inseason: Int
+  g: Int
+  w: Int
+  l: Int
+  rank: Int
+  plyrMgr: Int
+}
+
+class ManagerHalf{
+  playerId: Int
+  year: Int
+  teamId: Int
+  leagueId: Int
+  inseason: Int
+  half: Int
+  g: Int
+  w: Int
+  l: Int
+  rank: Int
+}
+
+class Player{
+  birthYear: Int
+  birthMonth: Int
+  birthDay: Int
+  birthCountry: Int
+  birthState: Int
+  birthCity: Int
+  deathYear: Int
+  deathMonth: Int
+  deathDay: Int
+  deathCountry: Int
+  deathState: Int
+  deathCity: Int
+  nameFirst: Int
+  nameLast: Int
+  nameGiven: Int
+  weight: Int
+  height: Int
+  bats: Int
+  throws: Int
+  debut: Int
+  finalGame: Int
+  retroId: Int
+  bbrefId: Int
+}
+
+class Park{
+  parkName: Int
+  parkAlias: Int
+  city: Int
+  state: Int
+  country: Int
+}
+
+class Pitching{
+  playerId: Int
+  year: Int
+  stint: Int
+  teamId: Int
+  leagueId: Int
+  w: Int
+  l: Int
+  g: Int
+  gs: Int
+  cg: Int
+  sho: Int
+  sv: Int
+  ipouts: Int
+  h: Int
+  er: Int
+  hr: Int
+  bb: Int
+  so: Int
+  baopp: Int
+  era: Int
+  ibb: Int
+  wp: Int
+  hbp: Int
+  bk: Int
+  bfp: Int
+  gf: Int
+  r: Int
+  sh: Int
+  sf: Int
+  gIdp: Int
+}
+
+class PitchingPostseason{
+  playerId: Int
+  year: Int
+  round: Int
+  teamId: Int
+  leagueId: Int
+  w: Int
+  l: Int
+  g: Int
+  gs: Int
+  cg: Int
+  sho: Int
+  sv: Int
+  ipouts: Int
+  h: Int
+  er: Int
+  hr: Int
+  bb: Int
+  so: Int
+  baopp: Int
+  era: Int
+  ibb: Int
+  wp: Int
+  hbp: Int
+  bk: Int
+  bfp: Int
+  gf: Int
+  r: Int
+  sh: Int
+  sf: Int
+  gIdp: Int
+}
+
+class Salary{
+  year: Int
+  teamId: Int
+  leagueId: Int
+  playerId: Int
+  salary: Int
+}
+
+class College{
+  nameFull: Int
+  city: Int
+  state: Int
+  country: Int
+}
+
+class Postseason{
+  year: Int
+  round: Int
+  teamIdWinner: Int
+  leagueIdWinner: Int
+  teamIdLoser: Int
+  leagueIdLoser: Int
+  wins: Int
+  losses: Int
+  ties: Int
+}
+
+class Team{
+  year: Int
+  leagueId: Int
+  franchiseId: Int
+  divId: Int
+  rank: Int
+  g: Int
+  ghome: Int
+  w: Int
+  l: Int
+  divWin: Int
+  wcWin: Int
+  lgWin: Int
+  wsWin: Int
+  r: Int
+  ab: Int
+  h: Int
+  double: Int
+  triple: Int
+  hr: Int
+  bb: Int
+  so: Int
+  sb: Int
+  cs: Int
+  hbp: Int
+  sf: Int
+  ra: Int
+  er: Int
+  era: Int
+  cg: Int
+  sho: Int
+  sv: Int
+  ipouts: Int
+  ha: Int
+  hra: Int
+  bba: Int
+  soa: Int
+  e: Int
+  dp: Int
+  fp: Int
+  name: Int
+  park: Int
+  attendance: Int
+  bpf: Int
+  ppf: Int
+  teamIdBr: Int
+  teamIdLahman45: Int
+  teamIdRetro: Int
+}
+
+class TeamFranchise{
+  franchiseId: Int
+  franchiseName: Int
+  active: Int
+  naAssoc: Int
+}
+
+class TeamHalf{
+  year: Int
+  leagueId: Int
+  teamId: Int
+  half: Int
+  divId: Int
+  divWin: Int
+  rank: Int
+  g: Int
+  w: Int
+  l: Int
+}
+
+
+
+AllStar "1" -- "*" Player
+
+Appearances "1" -- "*" Team
+
+Appearances "1" -- "*" Player
+
+ManagerAward "1" -- "*" Player
+
+PlayerAward "1" -- "*" Player
+
+PlayerAwardVote "1" -- "*" Player
+
+Batting "1" -- "*" Player
+
+BattingPostseason "1" -- "*" Player
+
+BattingPostseason "1" -- "*" Team
+
+PlayerCollege "1" -- "*" Player
+
+PlayerCollege "1" -- "*" College
+
+Fielding "1" -- "*" Player
+
+FieldingOutfield "1" -- "*" Player
+
+FieldingPostseason "1" -- "*" Player
+
+HallOfFame "1" -- "*" Player
+
+HomeGame "1" -- "*" Team
+
+HomeGame "1" -- "*" Park
+
+Manager "1" -- "*" Team
+
+ManagerHalf "1" -- "*" Team
+
+
+@enduml

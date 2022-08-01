@@ -1,0 +1,17 @@
+@startuml "2122566024"
+
+
+class MyClass{
+  name: String
+  years: String
+  gender: String
+  area: String
+  authority: String
+  decile: Real
+  roll: Real
+}
+
+
+
+
+@enduml

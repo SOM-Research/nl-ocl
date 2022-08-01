@@ -1,0 +1,33 @@
+@startuml "FilmRank"
+
+
+class Film{
+  filmId: String
+  title: String
+  studio: String
+  director: String
+  grossInDollar: String
+}
+
+class Market{
+  marketId: Int
+  country: Int
+  numberCities: Int
+}
+
+class FilmMarketEstimation{
+  estimationId: String
+  lowEstimate: String
+  highEstimate: String
+  type: String
+  year: String
+}
+
+
+
+Film "1" -- "*" FilmMarketEstimation
+
+Market "1" -- "*" FilmMarketEstimation
+
+
+@enduml

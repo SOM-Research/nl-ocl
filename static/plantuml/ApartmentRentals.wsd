@@ -1,0 +1,66 @@
+@startuml "ApartmentRentals"
+
+
+class ApartmentBuildings{
+  buildingId: String
+  buildingShortName: String
+  buildingFullName: String
+  buildingDescription: String
+  buildingAddress: String
+  buildingManager: String
+  buildingPhone: String
+}
+
+class Apartments{
+  apartmentId: Int
+  apartmentTypeCode: Int
+  apartmentNumber: Int
+  bathroomCount: Int
+  bedroomCount: Int
+  roomCount: Int
+}
+
+class ApartmentFacilities{
+  facilityCode: String
+}
+
+class Guests{
+  guestId: String
+  genderCode: String
+  guestFirstName: String
+  guestLastName: String
+  dateOfBirth: String
+}
+
+class ApartmentBookings{
+  apartmentBookingId: String
+  bookingStatusCode: String
+  bookingStartDate: String
+  bookingEndDate: String
+}
+
+class ViewUnitStatus{
+  statusDate: String
+  availableYesOrNo: String
+}
+
+
+
+ApartmentBuildings "1" -- "*" Apartments
+
+Apartments "1" -- "*" ApartmentBookings
+
+Apartments "1" -- "*" ViewUnitStatus
+
+Apartments "1" -- "*" ApartmentFacilities
+
+ApartmentFacilities "1" -- "*" ApartmentBookings
+
+ApartmentFacilities "1" -- "*" ViewUnitStatus
+
+Guests "1" -- "*" ApartmentBookings
+
+ApartmentBookings "1" -- "*" ViewUnitStatus
+
+
+@enduml

@@ -1,0 +1,83 @@
+@startuml "Csu1"
+
+
+class Campuses{
+  id: String
+  campus: String
+  location: String
+  county: String
+  year: String
+}
+
+class CsuFees{
+  year: Int
+  campusFee: Int
+}
+
+class Degrees{
+  degrees: String
+}
+
+class DisciplineEnrollments{
+  discipline: String
+  undergraduate: String
+  graduate: String
+}
+
+class Enrollments{
+  totalenrollmentAy: String
+  fteAy: String
+}
+
+class Faculty{
+  faculty: Int
+}
+
+
+
+Campuses "1" -- "*" CsuFees
+
+Campuses "1" -- "*" DisciplineEnrollments
+
+Campuses "1" -- "*" Faculty
+
+Campuses "1" -- "*" Enrollments
+
+Campuses "1" -- "*" Degrees
+
+Campuses "1" -- "*" Enrollments
+
+Campuses "1" -- "*" CsuFees
+
+Campuses "1" -- "*" DisciplineEnrollments
+
+Campuses "1" -- "*" Degrees
+
+CsuFees "1" -- "*" DisciplineEnrollments
+
+CsuFees "1" -- "*" Faculty
+
+CsuFees "1" -- "*" Enrollments
+
+CsuFees "1" -- "*" Degrees
+
+CsuFees "1" -- "*" Degrees
+
+Degrees "1" -- "*" DisciplineEnrollments
+
+Degrees "1" -- "*" Faculty
+
+Degrees "1" -- "*" Enrollments
+
+Degrees "1" -- "*" DisciplineEnrollments
+
+Degrees "1" -- "*" Enrollments
+
+DisciplineEnrollments "1" -- "*" Faculty
+
+DisciplineEnrollments "1" -- "*" Enrollments
+
+Enrollments "1" -- "*" Faculty
+
+
+@enduml

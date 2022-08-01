@@ -1,0 +1,36 @@
+@startuml "GasCompany"
+
+
+class Company{
+  companyId: String
+  rank: String
+  company: String
+  headquarters: String
+  mainIndustry: String
+  salesBillion: String
+  profitsBillion: String
+  assetsBillion: String
+  marketValue: String
+}
+
+class GasStation{
+  stationId: Int
+  openYear: Int
+  location: Int
+  managerName: Int
+  viceManagerName: Int
+  representativeName: Int
+}
+
+class StationCompany{
+  rankOfTheYear: Int
+}
+
+
+
+Company "1" -- "*" StationCompany
+
+GasStation "1" -- "*" StationCompany
+
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml "Debate"
+
+
+class People{
+  peopleId: String
+  district: String
+  name: String
+  party: String
+  age: String
+}
+
+class Debate{
+  debateId: Int
+  date: Int
+  venue: Int
+  numOfAudience: Int
+}
+
+class DebatePeople{
+  ifAffirmativeWin: String
+}
+
+
+
+People "1" -- "*" DebatePeople
+
+People "1" -- "*" DebatePeople
+
+Debate "1" -- "*" DebatePeople
+
+
+@enduml

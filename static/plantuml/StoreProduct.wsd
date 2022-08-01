@@ -1,0 +1,50 @@
+@startuml "StoreProduct"
+
+
+class Product{
+  productId: String
+  product: String
+  dimensions: String
+  dpi: String
+  pagesPerMinuteColor: String
+  maxPageSize: String
+  interface: String
+}
+
+class Store{
+  storeId: Int
+  storeName: Int
+  type: Int
+  areaSize: Int
+  numberOfProductCategory: Int
+  ranking: Int
+}
+
+class District{
+  districtId: String
+  districtName: String
+  headquarteredCity: String
+  cityPopulation: String
+  cityArea: String
+}
+
+class StoreProduct{
+}
+
+class StoreDistrict{
+}
+
+
+
+Product "1" -- "*" StoreProduct
+
+Store "1" -- "*" StoreDistrict
+
+Store "1" -- "*" StoreProduct
+
+District "1" -- "*" StoreDistrict
+
+StoreProduct "1" -- "*" StoreDistrict
+
+
+@enduml

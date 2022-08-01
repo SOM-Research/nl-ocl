@@ -1,0 +1,53 @@
+@startuml "Car1"
+
+
+class Continents{
+  contId: String
+  continent: String
+}
+
+class Countries{
+  countryId: Int
+  countryName: Int
+}
+
+class CarMakers{
+  id: String
+  maker: String
+  fullName: String
+}
+
+class ModelList{
+  modelId: Int
+  model: Int
+}
+
+class CarNames{
+  makeId: String
+  make: String
+}
+
+class CarsData{
+  mpg: Int
+  cylinders: Int
+  edispl: Int
+  horsepower: Int
+  weight: Int
+  accelerate: Int
+  year: Int
+}
+
+
+
+Continents "1" -- "*" Countries
+
+Countries "1" -- "*" CarMakers
+
+CarMakers "1" -- "*" ModelList
+
+ModelList "1" -- "*" CarNames
+
+CarNames "1" -- "*" CarsData
+
+
+@enduml

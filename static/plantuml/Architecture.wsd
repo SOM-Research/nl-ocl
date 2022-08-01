@@ -1,0 +1,35 @@
+@startuml "Architecture"
+
+
+class Architect{
+  id: String
+  name: String
+  nationality: String
+  gender: String
+}
+
+class Bridge{
+  id: String
+  name: String
+  location: String
+  lengthMeters: String
+  lengthFeet: String
+}
+
+class Mill{
+  id: String
+  location: String
+  name: String
+  type: String
+  builtYear: String
+  notes: String
+}
+
+
+
+Architect "1" -- "*" Mill
+
+Architect "1" -- "*" Bridge
+
+
+@enduml

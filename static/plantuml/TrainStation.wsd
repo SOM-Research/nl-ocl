@@ -1,0 +1,32 @@
+@startuml "TrainStation"
+
+
+class Station{
+  stationId: String
+  name: String
+  annualEntryExit: String
+  annualInterchanges: String
+  totalPassengers: String
+  location: String
+  mainServices: String
+  numberOfPlatforms: String
+}
+
+class Train{
+  trainId: Int
+  name: Int
+  time: Int
+  service: Int
+}
+
+class TrainStation{
+}
+
+
+
+Station "1" -- "*" TrainStation
+
+Train "1" -- "*" TrainStation
+
+
+@enduml

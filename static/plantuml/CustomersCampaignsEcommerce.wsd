@@ -1,0 +1,80 @@
+@startuml "CustomersCampaignsEcommerce"
+
+
+class Premises{
+  premiseId: String
+  premisesType: String
+  premiseDetails: String
+}
+
+class Products{
+  productId: Int
+  productCategory: Int
+  productName: Int
+}
+
+class Customers{
+  customerId: String
+  paymentMethod: String
+  customerName: String
+  customerPhone: String
+  customerEmail: String
+  customerAddress: String
+  customerLogin: String
+  customerPassword: String
+}
+
+class MailshotCampaigns{
+  mailshotId: String
+  productCategory: String
+  mailshotName: String
+  mailshotStartDate: String
+  mailshotEndDate: String
+}
+
+class CustomerAddresses{
+  dateAddressFrom: Int
+  addressTypeCode: Int
+  dateAddressTo: Int
+}
+
+class CustomerOrders{
+  orderId: String
+  orderStatusCode: String
+  shippingMethodCode: String
+  orderPlacedDatetime: String
+  orderDeliveredDatetime: String
+  orderShippingCharges: String
+}
+
+class MailshotCustomers{
+  outcomeCode: String
+  mailshotCustomerDate: String
+}
+
+class OrderItems{
+  itemId: Int
+  orderItemStatusCode: Int
+  itemStatusCode: Int
+  itemDeliveredDatetime: Int
+  itemOrderQuantity: Int
+}
+
+
+
+Premises "1" -- "*" CustomerAddresses
+
+Products "1" -- "*" OrderItems
+
+Customers "1" -- "*" MailshotCustomers
+
+Customers "1" -- "*" CustomerAddresses
+
+Customers "1" -- "*" CustomerOrders
+
+MailshotCampaigns "1" -- "*" MailshotCustomers
+
+CustomerOrders "1" -- "*" OrderItems
+
+
+@enduml

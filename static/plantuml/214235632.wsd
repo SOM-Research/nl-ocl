@@ -1,0 +1,17 @@
+@startuml "214235632"
+
+
+class MyClass{
+  flat: String
+  threaded: String
+  userSelectableThemes: String
+  calendar: String
+  imageAttachment: String
+  unreadMessageTracking: String
+  wysiwygEditor: String
+}
+
+
+
+
+@enduml

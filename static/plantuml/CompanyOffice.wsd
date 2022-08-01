@@ -1,0 +1,35 @@
+@startuml "CompanyOffice"
+
+
+class Buildings{
+  id: String
+  name: String
+  city: String
+  height: String
+  stories: String
+  status: String
+}
+
+class Companies{
+  id: Int
+  name: Int
+  headquarters: Int
+  industry: Int
+  salesBillion: Int
+  profitsBillion: Int
+  assetsBillion: Int
+  marketValueBillion: Int
+}
+
+class OfficeLocations{
+  moveInYear: String
+}
+
+
+
+Buildings "1" -- "*" OfficeLocations
+
+Companies "1" -- "*" OfficeLocations
+
+
+@enduml

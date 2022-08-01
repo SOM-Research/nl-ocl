@@ -1,0 +1,30 @@
+@startuml "MuseumVisit"
+
+
+class Museum{
+  museumId: String
+  name: String
+  numOfStaff: String
+  openYear: String
+}
+
+class Customer{
+  customerId: Int
+  name: Int
+  levelOfMembership: Int
+  age: Int
+}
+
+class Visit{
+  numOfTicket: String
+  totalSpent: String
+}
+
+
+
+Museum "1" -- "*" Visit
+
+Customer "1" -- "*" Visit
+
+
+@enduml

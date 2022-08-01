@@ -1,0 +1,51 @@
+@startuml "InsurancePolicies"
+
+
+class Customers{
+  customerId: String
+  customerDetails: String
+}
+
+class CustomerPolicies{
+  policyId: Int
+  policyTypeCode: Int
+  startDate: Int
+  endDate: Int
+}
+
+class Claims{
+  claimId: String
+  dateClaimMade: String
+  dateClaimSettled: String
+  amountClaimed: String
+  amountSettled: String
+}
+
+class Settlements{
+  settlementId: Int
+  dateClaimMade: Int
+  dateClaimSettled: Int
+  amountClaimed: Int
+  amountSettled: Int
+  customerPolicyId: Int
+}
+
+class Payments{
+  paymentId: Int
+  paymentMethodCode: Int
+  datePaymentMade: Int
+  amountPayment: Int
+}
+
+
+
+Customers "1" -- "*" CustomerPolicies
+
+CustomerPolicies "1" -- "*" Claims
+
+Claims "1" -- "*" Settlements
+
+Settlements "1" -- "*" Payments
+
+
+@enduml

@@ -1,0 +1,43 @@
+@startuml "ShopMembership"
+
+
+class Member{
+  memberId: String
+  cardNumber: String
+  name: String
+  hometown: String
+  level: String
+}
+
+class Branch{
+  branchId: Int
+  name: Int
+  openYear: Int
+  addressRoad: Int
+  city: Int
+  membershipAmount: Int
+}
+
+class MembershipRegisterBranch{
+  registerYear: String
+}
+
+class Purchase{
+  year: String
+  totalPounds: String
+}
+
+
+
+Member "1" -- "*" MembershipRegisterBranch
+
+Member "1" -- "*" Purchase
+
+Branch "1" -- "*" MembershipRegisterBranch
+
+Branch "1" -- "*" Purchase
+
+MembershipRegisterBranch "1" -- "*" Purchase
+
+
+@enduml

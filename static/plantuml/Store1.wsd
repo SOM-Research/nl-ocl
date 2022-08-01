@@ -1,0 +1,115 @@
+@startuml "Store1"
+
+
+class SqliteSequence{
+  name: String
+  seq: String
+}
+
+class Artists{
+  id: Int
+  name: Int
+}
+
+class Albums{
+  id: String
+  title: String
+}
+
+class Employees{
+  id: String
+  lastName: String
+  firstName: String
+  title: String
+  birthDate: String
+  hireDate: String
+  address: String
+  city: String
+  state: String
+  country: String
+  postalCode: String
+  phone: String
+  fax: String
+  email: String
+}
+
+class Customers{
+  id: String
+  firstName: String
+  lastName: String
+  company: String
+  address: String
+  city: String
+  state: String
+  country: String
+  postalCode: String
+  phone: String
+  fax: String
+  email: String
+}
+
+class Genres{
+  id: Int
+  name: Int
+}
+
+class Invoices{
+  id: String
+  invoiceDate: String
+  billingAddress: String
+  billingCity: String
+  billingState: String
+  billingCountry: String
+  billingPostalCode: String
+  total: String
+}
+
+class MediaTypes{
+  id: Int
+  name: Int
+}
+
+class Tracks{
+  id: Int
+  name: Int
+  composer: Int
+  milliseconds: Int
+  bytes: Int
+  unitPrice: Int
+}
+
+class InvoiceLines{
+  id: String
+  unitPrice: String
+  quantity: String
+}
+
+class Playlists{
+  id: String
+  name: String
+}
+
+
+
+SqliteSequence "1" -- "*" Albums
+
+Albums "1" -- "*" Tracks
+
+Employees "1" -- "*" Customers
+
+Employees "1" -- "*" Employees
+
+Customers "1" -- "*" Invoices
+
+Genres "1" -- "*" Tracks
+
+Invoices "1" -- "*" InvoiceLines
+
+MediaTypes "1" -- "*" Tracks
+
+Tracks "1" -- "*" InvoiceLines
+
+Tracks "*" -- "*" Playlists
+
+
+@enduml

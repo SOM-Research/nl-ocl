@@ -1,0 +1,55 @@
+@startuml "Company1"
+
+
+class WorksOn{
+  employeeSsn: String
+  projectNumber: String
+  hours: String
+}
+
+class Employee{
+  firstName: Int
+  minit: Int
+  lastName: Int
+  ssn: Int
+  birthDate: Int
+  address: Int
+  sex: Int
+  salary: Int
+  superSsn: Int
+  departmentNo: Int
+}
+
+class Department{
+  departmentName: Int
+  departmentNumber: Int
+  managerSsn: Int
+  managerStartDate: Int
+}
+
+class Project{
+  dependentName: Int
+  dependentNumber: Int
+  dependentLocation: Int
+  departmentNumber: Int
+}
+
+class Dependent{
+  dependentName: String
+  sex: String
+  birthDate: String
+  relationship: String
+}
+
+class DepartmentLocations{
+  departmentLocation: String
+}
+
+
+
+WorksOn "1" -- "*" Dependent
+
+Department "1" -- "*" DepartmentLocations
+
+
+@enduml

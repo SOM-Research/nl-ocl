@@ -1,0 +1,29 @@
+@startuml "BrowserWeb"
+
+
+class WebClientAccelerator{
+  id: String
+  name: String
+  operatingSystem: String
+  client: String
+  connection: String
+}
+
+class Browser{
+  id: Int
+  name: Int
+  marketShare: Int
+}
+
+class AcceleratorCompatibleBrowser{
+  compatibleSinceYear: String
+}
+
+
+
+WebClientAccelerator "1" -- "*" AcceleratorCompatibleBrowser
+
+Browser "1" -- "*" AcceleratorCompatibleBrowser
+
+
+@enduml

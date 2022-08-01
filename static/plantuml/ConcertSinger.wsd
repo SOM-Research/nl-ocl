@@ -1,0 +1,37 @@
+@startuml "ConcertSinger"
+
+
+class Stadium{
+  stadiumId: String
+  location: String
+  name: String
+  capacity: String
+  highest: String
+  lowest: String
+  average: String
+}
+
+class Singer{
+  singerId: Int
+  name: Int
+  country: Int
+  songName: Int
+  songReleaseYear: Int
+  age: Int
+  isMale: Int
+}
+
+class Concert{
+  concertId: String
+  concertName: String
+  theme: String
+  year: String
+}
+
+
+Stadium "1" -- "*" Concert
+
+Singer "*" -- "*" Concert: IsIn >
+
+
+@enduml

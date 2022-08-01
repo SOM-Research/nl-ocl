@@ -1,0 +1,28 @@
+@startuml "CourseTeach"
+
+
+class Course{
+  courseId: String
+  staringDate: String
+  course: String
+}
+
+class Teacher{
+  teacherId: Int
+  name: Int
+  age: Int
+  hometown: Int
+}
+
+class CourseArrange{
+  grade: String
+}
+
+
+
+Course "1" -- "*" CourseArrange
+
+Teacher "1" -- "*" CourseArrange
+
+
+@enduml

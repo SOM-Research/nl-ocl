@@ -1,0 +1,38 @@
+@startuml "Activity1"
+
+
+class Activity{
+  activityId: String
+  activityName: String
+}
+
+class Student{
+  studentId: Int
+  lastName: Int
+  firstName: Int
+  age: Int
+  sex: Int
+  major: Int
+  advisor: Int
+  cityCode: Int
+}
+
+class Faculty{
+  facultyId: String
+  lastName: Int
+  firstName: Int
+  rank: Int
+  sex: Int
+  phone: Int
+  room: Int
+  building: Int
+}
+
+
+
+Activity "*" -- "*" Student: ParticipatesIn
+
+Activity "*" -- "*" Faculty: ParticipatesIn
+
+
+@enduml

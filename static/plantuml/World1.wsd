@@ -1,0 +1,49 @@
+@startuml "World1"
+
+
+class City{
+  id: String
+  name: String
+  district: String
+  population: String
+}
+
+class SqliteSequence{
+  name: Int
+  seq: Int
+}
+
+class Country{
+  countryCode: String    
+  name: String
+  continent: String
+  region: String
+  surfaceArea: String
+  indepdentYear: String
+  population: String
+  lifeExpectancy: String
+  gnp: String
+  gnpOld: String
+  localName: String
+  governmentForm: String
+  headOfState: String
+  capital: String
+  code2: String
+}
+
+class Countrylanguage{
+  language: String
+  isOfficial: String
+  percentage: String
+}
+
+
+
+City "*" -- "1" Countrylanguage
+
+City "*" -- "1" Country
+
+Country "1" -- "*" Countrylanguage
+
+
+@enduml

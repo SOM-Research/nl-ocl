@@ -1,0 +1,172 @@
+@startuml "Hospital1"
+
+
+class Physician{
+  employeeId: String
+  name: String
+  position: String
+  ssn: String
+}
+
+class Department{
+  departmentid: Int
+  name: Int
+}
+
+class AffiliatedWith{
+  primaryAffiliation: String
+}
+
+class Procedures{
+  code: String
+  name: String
+  cost: String
+}
+
+class TrainedIn{
+  certificationDate: Int
+  certificationExpires: Int
+}
+
+class Patient{
+  name: Int
+  address: Int
+  phone: Int
+  insuranceId: Int
+}
+
+class Nurse{
+  name: String
+  position: String
+  registered: String
+}
+
+class Appointment{
+  appointmentId: Int
+  start: Int
+  end: Int
+  examinationRoom: Int
+}
+
+class Medication{
+  code: Int
+  name: Int
+  brand: Int
+  description: Int
+}
+
+class Prescribes{
+  date: Int
+  dose: Int
+}
+
+class Block{
+  blockFloor: Boolean
+  blockCode: Boolean
+}
+
+class Room{
+  roomnumber: Int
+  roomType: Int
+  unavailable: Int
+}
+
+class OnCall{
+  oncallStart: String
+  oncallEnd: String
+}
+
+class Stay{
+  stayId: Int
+  stayStart: Int
+  stayEnd: Int
+}
+
+class Undergoes{
+  dateUndergoes: Int
+}
+
+
+
+Physician "1" -- "*" Prescribes
+
+Physician "1" -- "*" Undergoes
+
+Physician "1" -- "*" Nurse
+
+Physician "1" -- "*" AffiliatedWith
+
+Physician "1" -- "*" TrainedIn
+
+Physician "1" -- "*" Patient
+
+Physician "1" -- "*" Appointment
+
+Physician "1" -- "*" Department
+
+Physician "1" -- "*" Patient
+
+Department "1" -- "*" AffiliatedWith
+
+AffiliatedWith "1" -- "*" Undergoes
+
+AffiliatedWith "1" -- "*" TrainedIn
+
+AffiliatedWith "1" -- "*" Appointment
+
+AffiliatedWith "1" -- "*" Prescribes
+
+Procedures "1" -- "*" Undergoes
+
+Procedures "1" -- "*" TrainedIn
+
+TrainedIn "1" -- "*" Prescribes
+
+TrainedIn "1" -- "*" Undergoes
+
+TrainedIn "1" -- "*" Appointment
+
+Patient "1" -- "*" Prescribes
+
+Patient "1" -- "*" Stay
+
+Patient "1" -- "*" Nurse
+
+Patient "1" -- "*" Appointment
+
+Patient "1" -- "*" Undergoes
+
+Nurse "1" -- "*" OnCall
+
+Nurse "1" -- "*" Undergoes
+
+Nurse "1" -- "*" Appointment
+
+Appointment "1" -- "*" Prescribes
+
+Appointment "1" -- "*" Undergoes
+
+Appointment "1" -- "*" Prescribes
+
+Medication "1" -- "*" Prescribes
+
+Prescribes "1" -- "*" Undergoes
+
+Prescribes "1" -- "*" Undergoes
+
+Block "1" -- "*" OnCall
+
+Block "1" -- "*" Room
+
+Block "1" -- "*" OnCall
+
+Block "1" -- "*" Room
+
+Room "1" -- "*" Stay
+
+Stay "1" -- "*" Undergoes
+
+Stay "1" -- "*" Undergoes
+
+
+@enduml

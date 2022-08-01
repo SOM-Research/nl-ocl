@@ -1,0 +1,76 @@
+@startuml "College3"
+
+
+class Student{
+  studentId: String
+  lastName: String
+  firstName: String
+  age: String
+  sex: String
+  major: String
+  advisor: String
+  cityCode: String
+}
+
+class Faculty{
+  facultyId: Int
+  lastName: Int
+  firstName: Int
+  rank: Int
+  sex: Int
+  phone: Int
+  room: Int
+  building: Int
+}
+
+class Department{
+  departmentNumber: String
+  division: String
+  departmentName: String
+  room: String
+  building: String
+  departmentPhone: String
+}
+
+class MemberOf{
+  apptType: String
+}
+
+class Course{
+  courseId: Int
+  courseName: Int
+  credits: Int
+  days: Int
+  hours: Int
+}
+
+
+class EnrolledIn{
+  grade: Int
+}
+
+class GradeConversion{
+  gradePoint: Int
+}
+
+
+
+Student "*" -- "*" Department: HasMinorIn
+
+Student "1" -- "*" EnrolledIn
+
+Faculty "1" -- "*" MemberOf
+
+Faculty "1" -- "*" Course
+
+Department "1" -- "*" Course
+
+
+Department "1" -- "*" MemberOf
+
+Course "1" -- "*" EnrolledIn
+
+EnrolledIn "1" -- "*" GradeConversion
+
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml "1143424806"
+
+
+class MyClass{
+  player: String
+  position: String
+  starter: String
+  touchdowns: Real
+  extraPoints: Real
+  fieldGoals: Real
+  points: Real
+}
+
+
+
+
+@enduml

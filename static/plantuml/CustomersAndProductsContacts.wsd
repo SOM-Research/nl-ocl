@@ -1,0 +1,69 @@
+@startuml "CustomersAndProductsContacts"
+
+
+class Addresses{
+  addressId: String
+  line1NumberBuilding: String
+  city: String
+  zipPostcode: String
+  stateProvinceCounty: String
+  country: String
+}
+
+class Products{
+  productId: Int
+  productTypeCode: Int
+  productName: Int
+  productPrice: Int
+}
+
+class Customers{
+  customerId: String
+  paymentMethodCode: String
+  customerNumber: String
+  customerName: String
+  customerAddress: String
+  customerPhone: String
+  customerEmail: String
+}
+
+class Contacts{
+  contactId: String
+  gender: String
+  firstName: String
+  lastName: String
+  contactPhone: String
+}
+
+class CustomerAddressHistory{
+  dateFrom: String
+  dateTo: String
+}
+
+class CustomerOrders{
+  orderId: String
+  orderDate: String
+  orderStatusCode: String
+}
+
+class OrderItems{
+  orderItemId: String
+  orderQuantity: String
+}
+
+
+
+Addresses "1" -- "*" CustomerAddressHistory
+
+Products "1" -- "*" OrderItems
+
+Customers "1" -- "*" CustomerOrders
+
+Customers "1" -- "*" Contacts
+
+Customers "1" -- "*" CustomerAddressHistory
+
+CustomerOrders "1" -- "*" OrderItems
+
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml "1137589453"
+
+
+class MyClass{
+  club: String
+  played: String
+  won: String
+  drawn: String
+  lost: String
+  pointsFor: String
+  pointsAgainst: String
+  triesFor: String
+  triesAgainst: String
+  tryBonus: String
+  losingBonus: String
+  points: String
+}
+
+
+
+
+@enduml

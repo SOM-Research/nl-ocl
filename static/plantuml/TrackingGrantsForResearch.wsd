@@ -1,0 +1,97 @@
+@startuml "TrackingGrantsForResearch"
+
+
+class DocumentTypes{
+  documentTypeCode: String
+  documentDescription: String
+}
+
+class Documents{
+  documentId: String
+  sentDate: String
+  responseReceivedDate: String
+  otherDetails: String
+}
+
+class Grants{
+  grantId: String    
+  organisationId: String
+  grantAmount: String
+  grantStartDate: String
+  grantEndDate: String
+  otherDetails: String
+}
+
+class OrganisationTypes{
+  organisationType: Int
+  organisationTypeDescription: Int
+}
+
+class Organisations{
+  organisationDetails: String
+}
+
+class ProjectOutcomes{
+  outcomeCode: Int
+  outcomeDetails: String
+}
+
+class ProjectStaff{
+  staffId: Int
+  dateFrom: Date
+  dateTo: Date
+  otherDetails: String
+}
+
+class Projects{
+  projectId: Int    
+  projectDetails: Date
+}
+
+class ResearchOutcomes{
+  outcomeDescription: String
+}
+
+class ResearchStaff{
+  staffDetails: String
+}
+
+class StaffRoles{
+  roleCode: Int    
+  roleDescription: String
+}
+
+class Tasks{
+  taskId: Int
+  taskDetails: String
+  egAgreeObjectives: String
+}
+
+
+
+DocumentTypes "1" -- "*" Documents
+
+Documents "*" -- "1" Grants
+
+Grants "1" -- "*" Organisations
+
+OrganisationTypes "1" -- "*" Organisations
+
+Organisations "1" -- "*" ResearchStaff
+
+Organisations "1" -- "*" Projects
+
+ProjectOutcomes "*" -- "1" Projects
+
+ProjectOutcomes "1" -- "*" ResearchOutcomes
+
+ProjectStaff "1" -- "*" ResearchStaff
+
+ProjectStaff "*" -- "1" Projects
+
+ProjectStaff "*" -- "1" StaffRoles
+
+Projects "1" -- "*" Tasks
+
+
+@enduml

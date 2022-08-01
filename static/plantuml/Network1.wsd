@@ -1,0 +1,29 @@
+@startuml "Network1"
+
+
+class HighSchooler{
+  id: String
+  name: String
+  grade: String
+}
+
+class Friend{
+}
+
+class Likes{
+}
+
+
+
+HighSchooler "1" -- "*" Friend
+
+HighSchooler "1" -- "*" Friend
+
+HighSchooler "1" -- "*" Likes
+
+HighSchooler "1" -- "*" Likes
+
+Friend "1" -- "*" Likes
+
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml "2162755691"
+
+
+class MyClass{
+  200607: String
+  200809: String
+  201011: String
+  201112: String
+  201213: String
+}
+
+
+
+
+@enduml

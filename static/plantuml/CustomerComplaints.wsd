@@ -1,0 +1,53 @@
+@startuml "CustomerComplaints"
+
+
+class Staff{
+  staffId: String
+  gender: String
+  firstName: String
+  lastName: String
+  emailAddress: String
+  phoneNumber: String
+}
+
+class Customers{
+  customerId: Int
+  customerTypeCode: Int
+  addressLine1: Int
+  addressLine2: Int
+  townCity: Int
+  state: Int
+  emailAddress: Int
+  phoneNumber: Int
+}
+
+class Products{
+  productId: String
+  parentProductId: String
+  productCategoryCode: String
+  dateProductFirstAvailable: String
+  dateProductDiscontinued: String
+  productName: String
+  productDescription: String
+  productPrice: String
+}
+
+class Complaints{
+  complaintId: String
+  complaintOutcomeCode: String
+  complaintStatusCode: String
+  complaintTypeCode: String
+  dateComplaintRaised: String
+  dateComplaintClosed: String
+}
+
+
+
+Staff "1" -- "*" Complaints
+
+Customers "1" -- "*" Complaints
+
+Products "1" -- "*" Complaints
+
+
+@enduml

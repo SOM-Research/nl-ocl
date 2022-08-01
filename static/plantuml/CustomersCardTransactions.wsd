@@ -1,0 +1,50 @@
+@startuml "CustomersCardTransactions"
+
+
+class Accounts{
+  accountId: String
+  customerId: String
+  accountName: String
+  otherAccountDetails: String
+}
+
+class Customers{
+  customerFirstName: Int
+  customerLastName: Int
+  customerAddress: Int
+  customerPhone: Int
+  customerEmail: Int
+  otherCustomerDetails: Int
+}
+
+class CustomersCards{
+  cardId: Int
+  cardTypeCode: Int
+  cardNumber: Int
+  dateValidFrom: Int
+  dateValidTo: Int
+  otherCardDetails: Int
+}
+
+class FinancialTransactions{
+  transactionId: String
+  previousTransactionId: String
+  transactionType: String
+  transactionDate: String
+  transactionAmount: String
+  transactionComment: String
+  otherTransactionDetails: String
+}
+
+
+
+Accounts "1" -- "*" FinancialTransactions
+
+Accounts "1" -- "*" Customers
+
+Customers "1" -- "*" CustomersCards
+
+CustomersCards "1" -- "*" FinancialTransactions
+
+
+@enduml

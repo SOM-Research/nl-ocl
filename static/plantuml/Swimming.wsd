@@ -1,0 +1,47 @@
+@startuml "Swimming"
+
+
+class Swimmer{
+  id: String
+  name: String
+  nationality: String
+  meter100: String
+  meter200: String
+  meter300: String
+  meter400: String
+  meter500: String
+  meter600: String
+  meter700: String
+  time: String
+}
+
+class Stadium{
+  id: Int
+  name: Int
+  capacity: Int
+  city: Int
+  country: Int
+  openingYear: Int
+}
+
+class Event{
+  id: String
+  name: String
+  year: String
+}
+
+class Record{
+  id: String
+  result: String
+}
+
+
+
+Swimmer "1" -- "*" Record
+
+Stadium "1" -- "*" Event
+
+Event "1" -- "*" Record
+
+
+@enduml

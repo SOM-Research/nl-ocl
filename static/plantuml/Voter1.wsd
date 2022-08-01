@@ -1,0 +1,27 @@
+@startuml "Voter1"
+
+
+class AreaCodeState{
+  areaCode: String
+  state: String
+}
+
+class Contestants{
+  contestantNumber: Int
+  contestantName: Int
+}
+
+class Votes{
+  voteId: String
+  phoneNumber: String
+  created: String
+}
+
+
+
+AreaCodeState "1" -- "*" Votes
+
+Contestants "1" -- "*" Votes
+
+
+@enduml

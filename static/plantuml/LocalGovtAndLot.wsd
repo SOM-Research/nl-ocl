@@ -1,0 +1,119 @@
+@startuml "LocalGovtAndLot"
+
+
+class Customers{
+  customerId: String
+  customerDetails: String
+}
+
+class Properties{
+  propertyId: Int
+  propertyTypeCode: Int
+  propertyAddress: Int
+  otherDetails: Int
+}
+
+class Residents{
+  residentId: String
+  dateMovedIn: String
+  dateMovedOut: String
+  otherDetails: String
+}
+
+class Organizations{
+  organizationId: Int
+  parentOrganizationId: Int
+  organizationDetails: Int
+}
+
+class Services{
+  serviceId: String
+  serviceTypeCode: String
+  serviceDetails: String
+}
+
+class ResidentsServices{
+  dateRequested: String
+  dateProvided: String
+  otherDetails: String
+}
+
+class Things{
+  thingId: String
+  typeOfThingCode: String
+  serviceTypeCode: String
+  serviceDetails: String
+}
+
+class CustomerEvents{
+  customerEventId: Int
+}
+
+class CustomerEventNotes{
+  customerEventNoteId: Int
+  serviceTypeCode: Int
+  dateMovedIn: Int
+}
+
+class TimedStatusOfThings{
+  dateAndDate: Date
+  statusOfThingCode: Date
+}
+
+class TimedLocationsOfThings{
+  dateAndTime: Date
+  locationCode: Date
+}
+
+
+
+Customers "1" -- "*" CustomerEvents
+
+Properties "1" -- "*" ResidentsServices
+
+Properties "1" -- "*" CustomerEvents
+
+Properties "1" -- "*" Residents
+
+Properties "1" -- "*" CustomerEventNotes
+
+Residents "1" -- "*" CustomerEvents
+
+Residents "1" -- "*" ResidentsServices
+
+Residents "1" -- "*" CustomerEventNotes
+
+Residents "1" -- "*" ResidentsServices
+
+Residents "1" -- "*" CustomerEvents
+
+Residents "1" -- "*" CustomerEvents
+
+Residents "1" -- "*" ResidentsServices
+
+Organizations "1" -- "*" Services
+
+Organizations "1" -- "*" Things
+
+Services "1" -- "*" ResidentsServices
+
+ResidentsServices "1" -- "*" CustomerEvents
+
+ResidentsServices "1" -- "*" CustomerEventNotes
+
+Things "1" -- "*" CustomerEvents
+
+Things "1" -- "*" TimedLocationsOfThings
+
+Things "1" -- "*" TimedStatusOfThings
+
+CustomerEvents "1" -- "*" CustomerEventNotes
+
+CustomerEvents "1" -- "*" TimedStatusOfThings
+
+CustomerEvents "1" -- "*" TimedLocationsOfThings
+
+TimedStatusOfThings "1" -- "*" TimedLocationsOfThings
+
+
+@enduml

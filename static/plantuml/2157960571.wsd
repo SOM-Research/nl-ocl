@@ -1,0 +1,15 @@
+@startuml "2157960571"
+
+
+class MyClass{
+  week: String
+  theme: String
+  originalArtist: String
+  order: String
+  result: String
+}
+
+
+
+
+@enduml

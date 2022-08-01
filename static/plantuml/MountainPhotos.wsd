@@ -1,0 +1,34 @@
+@startuml "MountainPhotos"
+
+
+class Mountain{
+  id: String
+  name: String
+  height: String
+  prominence: String
+  range: String
+  country: String
+}
+
+class CameraLens{
+  id: Int
+  brand: Int
+  name: Int
+  focalLengthMm: Int
+  maxAperture: Int
+}
+
+class Photos{
+  id: String
+  color: String
+  name: String
+}
+
+
+
+Mountain "1" -- "*" Photos
+
+CameraLens "1" -- "*" Photos
+
+
+@enduml

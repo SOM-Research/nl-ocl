@@ -1,0 +1,73 @@
+@startuml "Yelp"
+
+
+class Business{
+  bid: String
+  businessId: String
+  name: String
+  fullAddress: String
+  city: String
+  latitude: String
+  longitude: String
+  reviewCount: String
+  isOpen: String
+  rating: String
+  state: String
+}
+
+class Category{
+  id: Int
+  categoryName: Int
+}
+
+class User{
+  uid: String
+  userId: String
+  name: String
+}
+
+class Checkin{
+  cid: String
+  count: String
+  day: String
+}
+
+class Neighbourhood{
+  id: String
+  neighbourhoodName: String
+}
+
+class Review{
+  rid: String
+  rating: String
+  text: String
+  year: String
+  month: String
+}
+
+class Tip{
+  tipId: String
+  text: String
+  likes: String
+  year: String
+  month: String
+}
+
+
+
+Business "1" -- "*" Tip
+
+Business "1" -- "*" Neighbourhood
+
+Business "1" -- "*" Review
+
+Business "1" -- "*" Category
+
+Business "1" -- "*" Checkin
+
+User "1" -- "*" Tip
+
+User "1" -- "*" Review
+
+
+@enduml

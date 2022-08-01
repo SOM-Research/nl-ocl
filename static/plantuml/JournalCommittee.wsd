@@ -1,0 +1,28 @@
+@startuml "JournalCommittee"
+
+
+class Journal{
+  journalId: String
+  date: String
+  theme: String
+  sales: String
+}
+
+class Editor{
+  editorId: Int
+  name: Int
+  age: Int
+}
+
+class JournalCommittee{
+  workType: String
+}
+
+
+
+Journal "1" -- "*" JournalCommittee
+
+Editor "1" -- "*" JournalCommittee
+
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml "11454391"
+
+
+class MyClass{
+  rank: Real
+  country: String
+  overall: String
+  justice: String
+  health: String
+  education: String
+  economics: String
+  politics: String
+}
+
+
+
+
+@enduml

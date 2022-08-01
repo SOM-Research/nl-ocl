@@ -1,0 +1,29 @@
+@startuml "WorkshopPaper"
+
+
+class Workshop{
+  workshopId: String
+  date: String
+  venue: String
+  name: String
+}
+
+class Submission{
+  submissionId: Int
+  scores: Int
+  author: Int
+  college: Int
+}
+
+class Acceptance{
+  result: String
+}
+
+
+
+Workshop "1" -- "*" Acceptance
+
+Submission "1" -- "*" Acceptance
+
+
+@enduml

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="icon" href="https://som-research.uoc.edu/wp-content/uploads/2015/07/cropped-SOMlogo-boxed-512px-192x192.png" sizes="192x192">
+    <link rel="icon" href="https://som-research.uoc.edu/wp-content/uploads/2015/07/cropped-SOMlogo-boxed-512px-32x32.png" sizes="32x32">    
+    <link rel="apple-touch-icon" href="https://som-research.uoc.edu/wp-content/uploads/2015/07/cropped-SOMlogo-boxed-512px-180x180.png">  
+</head>    
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center" style="padding-top: 60px;">
+                <a href="{% url 'nl2ocl:home' %}">
+                    <img src="https://som-research.uoc.edu/wp-content/uploads/2022/06/web-header-logos-uoc-blue-1.png" class="custom-logo" alt="SOM Research Lab" srcset="https://som-research.uoc.edu/wp-content/uploads/2022/06/web-header-logos-uoc-blue-1.png 688w, https://som-research.uoc.edu/wp-content/uploads/2022/06/web-header-logos-uoc-blue-1-300x45.png 300w" sizes="(max-width: 688px) 100vw, 688px" width="688" height="104">        
+                </a>
+            </div>
+        </div> 
+    </div>
+    <div class="container">
+        <div class="row" style="padding-top: 60px; padding-bottom: 20px;">
+            <div class="col-md-12">
+                <h1>Combining OCL and Natural Language: a Call for a Community Effort</h1>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 20px; padding-bottom: 60px;">
+            <div class="col-md-6">
+                
+                <p>The growing popularity and availability of pretrained natural language models opens the door to many interesting applications combining natural 
+                language (NL) with software artefacts. A couple of examples are the generation of code excerpts from NL instructions
+                or the verbalization of programs in NL to facilitate their comprehension.</p>
+                
+                <p>Many of these language models have been trained with open source software datasets and therefore “understand” a variety of programming languages, 
+                but not OCL.</p>
+
+                <p>We argue that OCL needs to jump into the machine learning bandwagon or it will risk losing its appeal as a constraint specification language. For that, the key first task is to create together an
+                OCL corpus dataset amenable for natural language processing.</p>
+            </div>            
+            <div class="col-md-6">
+                
+                <div class="alert alert-info">
+                    <h5 style="margin-bottom: 0px;" class="text-center">Pick a level and start translating to OCL</h5>
+                    {% include 'nav.html' with not_padding=1 %}
+                </div>
+
+                <div class="dropdown text-center">
+                    Or, you can take a look at the <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #E5E5E5;">EXAMPLES</a>
+                  
+                    <ul class="dropdown-menu">
+                      <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModalEasy"><span class="badge text-bg-secondary">EASY</span> level</button></li>
+                      <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModalHard"><span class="badge text-bg-danger">HARD</span> level</button></li>
+                    </ul>
+                </div>
+
+                <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="2000">
+                            <div style="border: 1px solid #CCC; height:600px; padding: 1px; padding-top: 20px;" class="text-center">
+                                <img src="/static/images/1.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <div style="border: 1px solid #CCC; height:600px; padding: 1px; padding-top: 20px;" class="text-center">
+                                <img src="/static/images/2.png" class="img-fluid">
+                            </div>                            
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <div style="border: 1px solid #CCC; height:600px; padding: 1px; padding-top: 20px;" class="text-center">
+                                <img src="/static/images/3.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <div style="border: 1px solid #CCC; height:600px; padding: 1px; padding-top: 20px;" class="text-center">
+                                <img src="/static/images/4.png" class="img-fluid">
+                            </div>
+                        </div>                                         
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div> -->
+
+
+            </div>
+        </div> 
+    </div>   
+    <div class="b-example-minidivider"></div>    
+    <div class="container">
+        <footer class="py-5">
+            <div class="row">
+            <div class="col-6 col-md-2 mb-3">
+                <!-- <h5>Section</h5>
+                <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul> -->
+            </div>
+        
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+            <p>© 2022 SOM RESEARCH LAB</p>
+            <ul class="list-unstyled d-flex">
+                <li class="ms-3"><a class="link-dark" href="#"><i class="fa fa-chevron-circle-down"></i></a></li>
+                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+            </ul>
+            </div>
+        </footer>
+    </div>
+  
+    <div class="modal fade" id="exampleModalEasy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-lg-down modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Example translation - easy level</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body img-fluid">
+                    <img src="/static/images/easy.png" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <div class="modal fade" id="exampleModalHard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-lg-down modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Example translation - hard level</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="/static/images/hard.png" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style type="text/css">
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-top-width: medium;
+            border-right-width: medium;
+            border-bottom-width: medium;
+            border-left-width: medium;
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }    
+        .b-example-minidivider {
+            height: 1.5rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-top-width: medium;
+            border-right-width: medium;
+            border-bottom-width: medium;
+            border-left-width: medium;
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }              
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+      
+
+</body>
+</html>

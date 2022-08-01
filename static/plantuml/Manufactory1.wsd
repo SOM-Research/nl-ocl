@@ -1,0 +1,23 @@
+@startuml "Manufactory1"
+
+
+class Manufacturers{
+  code: String
+  name: String
+  headquarter: String
+  founder: String
+  revenue: String
+}
+
+class Products{
+  code: Int
+  name: Int
+  price: Int
+}
+
+
+
+Manufacturers "1" -- "*" Products
+
+
+@enduml

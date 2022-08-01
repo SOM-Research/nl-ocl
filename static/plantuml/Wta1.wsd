@@ -1,0 +1,62 @@
+@startuml "Wta1"
+
+
+class Players{
+  playerId: String
+  firstName: String
+  lastName: String
+  hand: String
+  birthDate: String
+  countryCode: String
+}
+
+class Matches{
+  bestOf: Int
+  drawSize: Int
+  loserAge: Int
+  loserEntry: Int
+  loserHand: Int
+  loserHt: Int
+  loserIoc: Int
+  loserName: Int
+  loserRank: Int
+  loserRankPoints: Int
+  loserSeed: Int
+  matchNum: Int
+  minutes: Int
+  round: Int
+  score: Int
+  surface: Int
+  tourneyDate: Int
+  tourneyId: Int
+  tourneyLevel: Int
+  tourneyName: Int
+  winnerAge: Int
+  winnerEntry: Int
+  winnerHand: Int
+  winnerHt: Int
+  winnerIoc: Int
+  winnerName: Int
+  winnerRank: Int
+  winnerRankPoints: Int
+  winnerSeed: Int
+  year: Int
+}
+
+class Rankings{
+  rankingDate: String
+  ranking: String
+  rankingPoints: String
+  tours: String
+}
+
+
+
+Players "1" -- "*" Rankings
+
+Players "1" -- "*" Matches
+
+Players "1" -- "*" Matches
+
+
+@enduml

@@ -1,0 +1,56 @@
+@startuml "TrackingOrders"
+
+
+class Customers{
+  customerId: String
+  customerName: String
+  customerDetails: String
+}
+
+class Invoices{
+  invoiceNumber: Int
+  invoiceDate: Int
+  invoiceDetails: Int
+}
+
+class Orders{
+  orderId: String
+  orderStatus: String
+  dateOrderPlaced: String
+  orderDetails: String
+}
+
+class Products{
+  productId: String
+  productName: String
+  productDetails: String
+}
+
+class OrderItems{
+  orderItemId: Int
+  orderItemStatus: Int
+  orderItemDetails: Int
+}
+
+class Shipments{
+  shipmentId: Date
+  shipmentTrackingNumber: Date
+  shipmentDate: Date
+  otherShipmentDetails: Date
+}
+
+
+Customers "1" -- "*" Orders
+
+Invoices "1" -- "*" Shipments
+
+Orders "1" -- "*" OrderItems
+
+Orders "1" -- "*" Shipments
+
+Products "1" -- "*" OrderItems
+
+OrderItems "*" -- "*" Shipments
+
+
+@enduml

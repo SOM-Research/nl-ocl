@@ -1,0 +1,30 @@
+@startuml "EntertainmentAwards"
+
+
+class FestivalDetail{
+  festivalId: String
+  festivalName: String
+  chairName: String
+  location: String
+  year: String
+  numOfAudience: String
+}
+
+class Artwork{
+  artworkId: Int
+  type: Int
+  name: Int
+}
+
+class Nomination{
+  result: String
+}
+
+
+
+FestivalDetail "1" -- "*" Nomination
+
+Artwork "1" -- "*" Nomination
+
+
+@enduml

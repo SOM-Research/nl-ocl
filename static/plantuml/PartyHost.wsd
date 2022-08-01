@@ -1,0 +1,31 @@
+@startuml "PartyHost"
+
+
+class Party{
+  partyId: String
+  partyTheme: String
+  location: String
+  firstYear: String
+  lastYear: String
+  numberOfHosts: String
+}
+
+class Host{
+  hostId: Int
+  name: Int
+  nationality: Int
+  age: Int
+}
+
+class PartyHost{
+  isMainInCharge: String
+}
+
+
+
+Party "1" -- "*" PartyHost
+
+Host "1" -- "*" PartyHost
+
+
+@enduml

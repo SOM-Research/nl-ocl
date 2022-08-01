@@ -1,0 +1,26 @@
+@startuml "Climbing"
+
+
+class Mountain{
+  mountainId: String
+  name: String
+  height: String
+  prominence: String
+  range: String
+  country: String
+}
+
+class Climber{
+  climberId: Int
+  name: Int
+  country: Int
+  time: Int
+  points: Int
+}
+
+
+
+Mountain "1" -- "*" Climber
+
+
+@enduml

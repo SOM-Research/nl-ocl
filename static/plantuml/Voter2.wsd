@@ -1,0 +1,37 @@
+@startuml "Voter2"
+
+
+class Student{
+  studentId: String
+  lastName: String
+  firstName: String
+  age: String
+  sex: String
+  major: String
+  advisor: String
+  cityCode: String
+}
+
+class VotingRecord{
+  registrationDate: Int
+  electionCycle: Int
+}
+
+
+
+Student "1" -- "*" VotingRecord
+
+Student "1" -- "*" VotingRecord
+
+Student "1" -- "*" VotingRecord
+
+Student "1" -- "*" VotingRecord
+
+Student "1" -- "*" VotingRecord
+
+Student "1" -- "*" VotingRecord
+
+Student "1" -- "*" VotingRecord
+
+
+@enduml

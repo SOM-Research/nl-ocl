@@ -1,0 +1,16 @@
+@startuml "2179821978"
+
+
+class MyClass{
+  geelongDfl: String
+  wins: Real
+  byes: Real
+  losses: Real
+  draws: Real
+  against: Real
+}
+
+
+
+
+@enduml

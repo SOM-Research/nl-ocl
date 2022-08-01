@@ -1,0 +1,137 @@
+@startuml "Academic"
+
+
+class Author{
+  aid: String
+  homepage: String
+  name: String
+  oid: String
+}
+
+class Conference{
+  cid: Int
+  homepage: Int
+  name: Int
+}
+
+class Domain{
+  did: String
+  name: String
+}
+
+class DomainAuthor{
+}
+
+class DomainConference{
+}
+
+class Journal{
+  homepage: Int
+  jid: Int
+  name: Int
+}
+
+class DomainJournal{
+}
+
+class Keyword{
+  keyword: String
+  kid: String
+}
+
+class DomainKeyword{
+}
+
+class Publication{
+  abstract: String
+  citationNum: String
+  pid: String
+  referenceNum: String
+  title: String
+  year: String
+}
+
+class DomainPublication{
+}
+
+class Organization{
+  continent: Int
+  homepage: Int
+  name: Int
+}
+
+class PublicationKeyword{
+}
+
+class Writes{
+}
+
+class Cite{
+}
+
+
+
+Author "1" -- "*" Writes
+
+Author "1" -- "*" DomainAuthor
+
+Author "1" -- "*" Organization
+
+Conference "1" -- "*" DomainConference
+
+Conference "1" -- "*" Publication
+
+Domain "1" -- "*" DomainKeyword
+
+Domain "1" -- "*" DomainAuthor
+
+Domain "1" -- "*" DomainJournal
+
+Domain "1" -- "*" DomainConference
+
+Domain "1" -- "*" DomainPublication
+
+DomainAuthor "1" -- "*" Writes
+
+DomainAuthor "1" -- "*" DomainJournal
+
+DomainAuthor "1" -- "*" DomainConference
+
+DomainAuthor "1" -- "*" DomainPublication
+
+DomainAuthor "1" -- "*" DomainKeyword
+
+DomainConference "1" -- "*" DomainJournal
+
+DomainConference "1" -- "*" DomainPublication
+
+DomainConference "1" -- "*" DomainKeyword
+
+Journal "1" -- "*" Publication
+
+Journal "1" -- "*" DomainJournal
+
+DomainJournal "1" -- "*" DomainKeyword
+
+DomainJournal "1" -- "*" DomainPublication
+
+Keyword "1" -- "*" PublicationKeyword
+
+Keyword "1" -- "*" DomainKeyword
+
+DomainKeyword "1" -- "*" DomainPublication
+
+DomainKeyword "1" -- "*" PublicationKeyword
+
+Publication "1" -- "*" PublicationKeyword
+
+Publication "1" -- "*" Writes
+
+Publication "1" -- "*" Cite
+
+Publication "1" -- "*" DomainPublication
+
+Publication "1" -- "*" Cite
+
+
+@enduml

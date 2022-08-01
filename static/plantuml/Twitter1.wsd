@@ -1,0 +1,23 @@
+@startuml "Twitter1"
+
+
+class Tweets{
+  id: Int
+  text: Int
+  createDate: Int
+}
+
+class UserProfiles{
+  userId: Int
+  name: Int
+  email: Int
+  partitionId: Int
+  followers: Int
+}
+
+
+UserProfiles "*" -- "*" UserProfiles: Follows >
+Tweets "*" -- "1" UserProfiles
+
+
+@enduml

@@ -1,0 +1,43 @@
+@startuml "PartyPeople"
+
+
+class Region{
+  regionId: String
+  regionName: String
+  date: String
+  label: String
+  format: String
+  catalogue: String
+}
+
+class Party{
+  partyId: Int
+  minister: Int
+  tookOffice: Int
+  leftOffice: Int
+  partyName: Int
+}
+
+class Member{
+  memberId: String
+  memberName: String
+  inOffice: String
+}
+
+class PartyEvents{
+  eventId: String
+  eventName: String
+}
+
+
+
+Region "1" -- "*" Party
+
+Party "1" -- "*" PartyEvents
+
+Party "1" -- "*" Member
+
+Member "1" -- "*" PartyEvents
+
+
+@enduml

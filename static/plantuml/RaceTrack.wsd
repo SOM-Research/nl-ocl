@@ -1,0 +1,24 @@
+@startuml "RaceTrack"
+
+
+class Race{
+  raceId: String
+  name: String
+  class: String
+  date: String
+}
+
+class Track{
+  trackId: String
+  name: Int
+  location: Int
+  seating: Int
+  yearOpened: Int
+}
+
+
+
+Race "*" -- "1" Track
+
+
+@enduml

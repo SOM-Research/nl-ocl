@@ -1,0 +1,101 @@
+@startuml "CustomersAndInvoices"
+
+
+class Customers{
+  customerId: String
+  customerFirstName: String
+  customerMiddleInitial: String
+  customerLastName: String
+  gender: String
+  emailAddress: String
+  loginName: String
+  loginPassword: String
+  phoneNumber: String
+  townCity: String
+  stateCountyProvince: String
+  country: String
+}
+
+class Orders{
+  orderId: Int
+  dateOrderPlaced: Int
+  orderDetails: Int
+}
+
+class Invoices{
+  invoiceNumber: String
+  invoiceDate: String
+}
+
+class Accounts{
+  accountId: String
+  dateAccountOpened: String
+  accountName: String
+  otherAccountDetails: String
+}
+
+class ProductCategories{
+  productionTypeCode: String
+  productTypeDescription: String
+  vatRating: String
+}
+
+class Products{
+  productId: String
+  parentProductId: String
+  unitPrice: String
+  productName: String
+  productColor: String
+  productSize: String
+}
+
+class FinancialTransactions{
+  transactionId: String
+  transactionType: String
+  transactionDate: String
+  transactionAmount: String
+  transactionComment: String
+  otherTransactionDetails: String
+}
+
+class OrderItems{
+  orderItemId: String
+  productQuantity: String
+  otherOrderItemDetails: String
+}
+
+class InvoiceLineItems{
+  productTitle: String
+  productQuantity: String
+  productPrice: String
+  derivedProductCost: String
+  derivedVatPayable: String
+  derivedTotalCost: String
+}
+
+
+
+Customers "1" -- "*" Accounts
+
+Customers "1" -- "*" Orders
+
+Orders "1" -- "*" OrderItems
+
+Orders "1" -- "*" Invoices
+
+Invoices "1" -- "*" FinancialTransactions
+
+Invoices "1" -- "*" InvoiceLineItems
+
+Accounts "1" -- "*" FinancialTransactions
+
+ProductCategories "1" -- "*" Products
+
+Products "1" -- "*" OrderItems
+
+Products "1" -- "*" InvoiceLineItems
+
+OrderItems "1" -- "*" InvoiceLineItems
+
+
+@enduml

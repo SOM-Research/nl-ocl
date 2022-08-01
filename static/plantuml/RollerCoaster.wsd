@@ -1,0 +1,28 @@
+@startuml "RollerCoaster"
+
+
+class RollerCoaster{
+  rollerCoasterId: String
+  name: String
+  park: String
+  length: String
+  height: String
+  speed: String
+  opened: String
+  status: String
+}
+
+class Country{
+  countryId: String
+  name: Int
+  population: Int
+  area: Int
+  languages: Int
+}
+
+
+
+RollerCoaster "*" -- "1" Country
+
+
+@enduml

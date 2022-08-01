@@ -1,0 +1,103 @@
+@startuml "CustomerDeliveries"
+
+
+class Products{
+  productId: String
+  productName: String
+  productPrice: String
+  productDescription: String
+}
+
+class Addresses{
+  addressId: Int
+  addressDetails: Int
+  city: Int
+  zipPostcode: Int
+  stateProvinceCounty: Int
+  country: Int
+}
+
+class Customers{
+  customerId: String
+  paymentMethod: String
+  customerName: String
+  customerPhone: String
+  customerEmail: String
+  dateBecameCustomer: String
+}
+
+class RegularOrders{
+  regularOrderId: Int
+}
+
+class ActualOrders{
+  actualOrderId: Int
+  orderStatusCode: Int
+  actualOrderDate: Int
+}
+
+class CustomerAddresses{
+  dateFrom: String
+  addressType: String
+  dateTo: String
+}
+
+class DeliveryRoutes{
+  routeId: String
+  routeName: String
+  otherRouteDetails: String
+}
+
+class DeliveryRouteLocations{
+  locationCode: String
+  locationName: String
+}
+
+class Trucks{
+  truckId: String
+  truckLicenceNumber: String
+  truckDetails: String
+}
+
+class Employees{
+  employeeId: Int
+  employeeName: Int
+  employeePhone: Int
+}
+
+class OrderDeliveries{
+  deliveryStatusCode: String
+  deliveryDate: String
+}
+
+
+
+Products "*" -- "*" RegularOrders
+
+Products "*" -- "*" ActualOrders
+
+Addresses "1" -- "*" DeliveryRouteLocations
+
+Addresses "1" -- "*" Employees
+
+Addresses "1" -- "*" CustomerAddresses
+
+Customers "1" -- "*" RegularOrders
+
+Customers "1" -- "*" CustomerAddresses
+
+RegularOrders "1" -- "*" ActualOrders
+
+
+ActualOrders "1" -- "*" OrderDeliveries
+
+DeliveryRoutes "1" -- "*" DeliveryRouteLocations
+
+DeliveryRouteLocations "1" -- "*" OrderDeliveries
+
+Trucks "1" -- "*" OrderDeliveries
+
+Employees "1" -- "*" OrderDeliveries
+
+
+@enduml

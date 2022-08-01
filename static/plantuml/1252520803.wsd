@@ -1,0 +1,15 @@
+@startuml "1252520803"
+
+
+class MyClass{
+  june1011: String
+  march2729: String
+  january1516: String
+  november3: String
+  august2122: String
+}
+
+
+
+
+@enduml

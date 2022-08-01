@@ -1,0 +1,27 @@
+@startuml "Gymnast"
+
+
+class Gymnast{
+  gymnastId: String
+  floorExercisePoints: String
+  pommelHorsePoints: String
+  ringsPoints: String
+  vaultPoints: String
+  parallelBarsPoints: String
+  horizontalBarPoints: String
+  totalPoints: String
+}
+
+class People{
+  name: Int
+  age: Int
+  height: Int
+  hometown: Int
+}
+
+
+
+Gymnast "1" -- "*" People
+
+
+@enduml

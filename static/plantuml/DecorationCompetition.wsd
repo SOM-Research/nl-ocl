@@ -1,0 +1,30 @@
+@startuml "DecorationCompetition"
+
+
+class College{
+  collegeId: String
+  name: String
+  leaderName: String
+  collegeLocation: String
+}
+
+class Member{
+  memberId: Int
+  name: Int
+  country: Int
+}
+
+class Round{
+  roundId: String
+  decorationTheme: String
+  rankInRound: String
+}
+
+
+
+College "1" -- "*" Member
+
+Member "1" -- "*" Round
+
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml "1259337641"
+
+
+class MyClass{
+  locale: String
+  skip: String
+  w: Real
+  l: Real
+  pf: Real
+  pa: Real
+  endsWon: Real
+  endsLost: Real
+  blankEnds: Real
+  stolenEnds: Real
+  shotPct: Real
+}
+
+
+
+
+@enduml

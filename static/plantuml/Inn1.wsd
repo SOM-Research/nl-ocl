@@ -1,0 +1,30 @@
+@startuml "Inn1"
+
+
+class Rooms{
+  roomId: String
+  roomName: String
+  beds: String
+  bedType: String
+  maxOccupancy: String
+  basePrice: String
+  decor: String
+}
+
+class Reservations{
+  code: String
+  checkIn: String
+  checkOut: String
+  rate: String
+  lastName: String
+  firstName: String
+  adults: String
+  kids: String
+}
+
+
+
+Rooms "1" -- "*" Reservations
+
+
+@enduml

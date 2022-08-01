@@ -1,0 +1,43 @@
+@startuml "StationWeather"
+
+
+class Train{
+  id: String
+  trainNumber: String
+  name: String
+  origin: String
+  destination: String
+  time: String
+  interval: String
+}
+
+class Station{
+  id: Int
+  networkName: Int
+  services: Int
+  localAuthority: Int
+}
+
+class Route{
+}
+
+class WeeklyWeather{
+  dayOfWeek: String
+  highTemperature: String
+  lowTemperature: String
+  precipitation: String
+  windSpeedMph: String
+}
+
+
+
+Train "1" -- "*" Route
+
+Station "1" -- "*" Route
+
+Station "1" -- "*" WeeklyWeather
+
+Route "1" -- "*" WeeklyWeather
+
+
+@enduml

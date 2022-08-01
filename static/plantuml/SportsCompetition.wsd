@@ -1,0 +1,53 @@
+@startuml "SportsCompetition"
+
+
+class Club{
+  clubId: String
+  name: String
+  region: String
+  startYear: String
+}
+
+class ClubRank{
+  rank: Int
+  gold: Int
+  silver: Int
+  bronze: Int
+  total: Int
+}
+
+class Player{
+  playerId: String
+  name: String
+  position: String
+  apps: String
+  tries: String
+  goals: String
+  points: String
+}
+
+class Competition{
+  competitionId: String
+  year: String
+  competitionType: String
+  country: String
+}
+
+class CompetitionResult{
+  score: String
+}
+
+
+
+Club "1" -- "*" CompetitionResult
+
+Club "1" -- "*" Player
+
+Club "1" -- "*" ClubRank
+
+Club "1" -- "*" CompetitionResult
+
+Competition "1" -- "*" CompetitionResult
+
+
+@enduml

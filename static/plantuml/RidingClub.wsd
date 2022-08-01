@@ -1,0 +1,56 @@
+@startuml "RidingClub"
+
+
+class Player{
+  playerId: String
+  sponsorName: String
+  playerName: String
+  gender: String
+  residence: String
+  occupation: String
+  votes: String
+  rank: String
+}
+
+class Club{
+  clubId: Int
+  clubName: Int
+  region: Int
+  startYear: Int
+}
+
+class Coach{
+  coachId: String
+  playerName: String
+  gender: String
+  rank: String
+}
+
+class PlayerCoach{
+  startingYear: String
+}
+
+class MatchResult{
+  gold: String
+  bigSilver: String
+  smallSilver: String
+  bronze: String
+  points: String
+}
+
+
+
+Player "1" -- "*" PlayerCoach
+
+Player "1" -- "*" MatchResult
+
+Club "1" -- "*" Coach
+
+Club "1" -- "*" MatchResult
+
+Coach "1" -- "*" PlayerCoach
+
+Coach "1" -- "*" MatchResult
+
+
+@enduml

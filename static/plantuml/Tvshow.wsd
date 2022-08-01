@@ -1,0 +1,43 @@
+@startuml "Tvshow"
+
+
+class TvChannel{
+  id: String
+  seriesName: String
+  country: String
+  language: String
+  content: String
+  pixelAspectRatioPar: String
+  hightDefinitionTv: String
+  payPerViewPpv: String
+  packageOption: String
+}
+
+class TvSeries{
+  id: String
+  episode: String
+  airDate: String
+  rating: String
+  share: String
+  1849RatingShare: String
+  viewersM: String
+  weeklyRank: String
+}
+
+class Cartoon{
+  id: String
+  title: String
+  directedBy: String
+  writtenBy: String
+  originalAirDate: String
+  productionCode: String
+}
+
+
+
+TvChannel "1" -- "*" TvSeries
+
+TvChannel "1" -- "*" Cartoon
+
+
+@enduml

@@ -1,0 +1,63 @@
+@startuml "RealEstateProperties"
+
+
+class ReferenceFeatureTypes{
+  featureTypeCode: String
+  featureTypeName: String
+}
+
+class ReferencePropertyTypes{
+  propertyTypeCode: String
+  propertyTypeDescription: String
+}
+
+class OtherAvailableFeatures{
+  featureId: String
+  featureName: String
+  featureDescription: String
+}
+
+class Properties{
+  propertyId: String
+  dateOnMarket: String
+  dateSold: String
+  propertyName: String
+  propertyAddress: String
+  roomCount: String
+  vendorRequestedPrice: String
+  buyerOfferedPrice: String
+  agreedSellingPrice: String
+  aptFeature1: String
+  aptFeature2: String
+  aptFeature3: String
+  fldFeature1: String
+  fldFeature2: String
+  fldFeature3: String
+  hseFeature1: String
+  hseFeature2: String
+  hseFeature3: String
+  othFeature1: String
+  othFeature2: String
+  othFeature3: String
+  shpFeature1: String
+  shpFeature2: String
+  shpFeature3: String
+  otherPropertyDetails: String
+}
+
+class OtherPropertyFeatures{
+  propertyFeatureDescription: String
+}
+
+
+
+ReferenceFeatureTypes "1" -- "*" OtherAvailableFeatures
+
+ReferencePropertyTypes "1" -- "*" Properties
+
+OtherAvailableFeatures "1" -- "*" OtherPropertyFeatures
+
+Properties "1" -- "*" OtherPropertyFeatures
+
+
+@enduml

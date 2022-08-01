@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">    
+    <link rel="icon" href="https://som-research.uoc.edu/wp-content/uploads/2015/07/cropped-SOMlogo-boxed-512px-192x192.png" sizes="192x192">
+    <link rel="icon" href="https://som-research.uoc.edu/wp-content/uploads/2015/07/cropped-SOMlogo-boxed-512px-32x32.png" sizes="32x32">    
+    <link rel="apple-touch-icon" href="https://som-research.uoc.edu/wp-content/uploads/2015/07/cropped-SOMlogo-boxed-512px-180x180.png">  
+</head>    
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center" style="padding-top: 60px;">
+                <a href="{% url 'nl2ocl:home' %}">
+                    <img src="https://som-research.uoc.edu/wp-content/uploads/2022/06/web-header-logos-uoc-blue-1.png" class="custom-logo" alt="SOM Research Lab" srcset="https://som-research.uoc.edu/wp-content/uploads/2022/06/web-header-logos-uoc-blue-1.png 688w, https://som-research.uoc.edu/wp-content/uploads/2022/06/web-header-logos-uoc-blue-1-300x45.png 300w" sizes="(max-width: 688px) 100vw, 688px" width="688" height="104">        
+                </a>
+                {% include 'nav.html' %}                     
+            </div>
+        </div> 
+    </div>
+    <div class="container" style="padding-bottom: 20px; padding-top: 20px;">
+        <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="col-md-12 text-center">
+                <h4 class="text-center"><u><strong>{{model.pascalCaseName }}</strong></u></h4>
+                <div id="model_container"></div>
+            </div>
+        </div>        
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <form class="form" method="post">
+                    {% load widget_tweaks %}
+
+                    {% for field in form %}
+                        {{field.error}}
+                        {{field.label_tag}}            
+                        {% render_field field class="form-control form-control-solid" %}<br>
+                    {% endfor %}
+
+                    <!-- <br>
+                    <h3>Your question or statement</h3>
+                    <input id="oclQuestion" name="question" type="text" class="form-control" placeholder="Your question or statement here"></textarea>
+
+                    <br>         
+                    <h3>Your OCL translation</h3>
+                    <label for="oclTranslation" class="visually-hidden">OCL</label>
+                    <textarea id="oclTranslation" type="text" class="form-control" name="translation" placeholder="OCL here"></textarea>
+                    <br> -->
+                    <button id="submitTranslation" type="submit" href="#ocTranslationComponent" class="btn btn-primary">SUBMIT</button>
+                    {% csrf_token %}
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="b-example-divider"></div>    
+    <div class="container">
+        <footer class="py-5">
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>© 2022 SOM RESEARCH LAB</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-dark" href="#"><i class="fa fa-chevron-circle-down"></i></a></li>
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+    <style type="text/css">
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-top-width: medium;
+            border-right-width: medium;
+            border-bottom-width: medium;
+            border-left-width: medium;
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }    
+        .b-example-minidivider {
+            height: 1.5rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-top-width: medium;
+            border-right-width: medium;
+            border-bottom-width: medium;
+            border-left-width: medium;
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }              
+    </style>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+
+    {% load static %}
+    <script type="text/javascript">
+        var umlimage = "{% url 'nl2ocl:umlimage' model.pk %}";
+        var csrftoken;
+    </script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            csrftoken = getCookie('csrftoken');
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            });
+
+            loadUMLImage();
+
+        });
+        function loadUMLImage(){
+            loading = '<div class="spinner-border text-primary" style="width: 6rem; height: 6rem;" role="status"></div>';
+            $("#model_container").html(loading);
+            $("#model_container").load(umlimage);
+        }
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        } 
+            
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>    
+</body>
+</html>

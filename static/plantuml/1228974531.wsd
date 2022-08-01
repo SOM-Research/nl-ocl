@@ -1,0 +1,19 @@
+@startuml "1228974531"
+
+
+class MyClass{
+  states: String
+  noOfMlaMps: Real
+  valueOfEachVote: Real
+  kRNarayananVotes: Real
+  kRNarayananValues: Real
+  tNSeshanVotes: Real
+  tNSeshanValues: Real
+  invalidVotes: Real
+  invalidValues: Real
+}
+
+
+
+
+@enduml

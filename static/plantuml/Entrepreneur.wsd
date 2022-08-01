@@ -1,0 +1,24 @@
+@startuml "Entrepreneur"
+
+
+class Entrepreneur{
+  entrepreneurId: String
+  company: String
+  moneyRequested: String
+  investor: String
+}
+
+class People{
+  peopleId: String
+  name: String
+  height: Float
+  weight: Float
+  dateOfBirth: Date
+}
+
+
+
+Entrepreneur "*" -- "1" People
+
+
+@enduml

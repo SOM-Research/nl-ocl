@@ -1,0 +1,13 @@
+@startuml "{{model.pascalCaseName }}"
+
+{% for item in classes %}
+class {{item.name}}{
+{% for attribute in item.attributes %}  {{attribute.name}}: {{attribute.type}}
+{% endfor %}}
+{% endfor %}
+
+{% for item in associations %}
+{{item.left.qclass.pascalCaseName}} "1" -- "*" {{item.right.qclass.pascalCaseName}}
+{% endfor %}
+
+@enduml

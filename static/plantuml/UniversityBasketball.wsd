@@ -1,0 +1,34 @@
+@startuml "UniversityBasketball"
+
+
+class BasketballMatch{
+  teamId: String
+  teamName: String
+  accRegularSeason: Float
+  accPercent: Float
+  accHome: Float
+  accRoad: Float
+  allGames: Float
+  allGamesPercent: Float
+  allHome: Float
+  allRoad: Float
+  allNeutral: Float
+}
+
+class University{
+  schoolId: String
+  school: Strinng
+  location: String
+  founded: Int
+  affiliation: Int
+  enrollment: Int
+  nickname: String
+  primaryConference: Int
+}
+
+
+
+BasketballMatch "*" -- "1" University
+
+
+@enduml

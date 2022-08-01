@@ -1,0 +1,32 @@
+@startuml "Flight2"
+
+
+class Airlines{
+  airlineId: String
+  airlineName: String
+  abbreviation: String
+  country: String
+}
+
+class Airports{
+  city: Int
+  airportCode: Int
+  airportName: Int
+  country: Int
+  countryAbbrev: Int
+}
+
+class Flights{
+  flightNumber: String
+}
+
+
+
+Airlines "1" -- "*" Flights
+
+Airports "1" -- "*" Flights
+
+Airports "1" -- "*" Flights
+
+
+@enduml

@@ -1,0 +1,30 @@
+@startuml "StormRecord"
+
+
+class Storm{
+  stormId: String
+  name: String
+  datesActive: String
+  maxSpeed: String
+  damageMillionsUsd: String
+  numberDeaths: String
+}
+
+class Region{
+  regionId: Int
+  regionCode: Int
+  regionName: Int
+}
+
+class AffectedRegion{
+  numberCityAffected: String
+}
+
+
+
+Storm "1" -- "*" AffectedRegion
+
+Region "1" -- "*" AffectedRegion
+
+
+@enduml

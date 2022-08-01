@@ -1,0 +1,16 @@
+@startuml "1134145320"
+
+
+class MyClass{
+  district: String
+  incumbent: String
+  party: String
+  firstElected: Real
+  results: String
+  candidates: String
+}
+
+
+
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml "CompanyEmployee"
+
+
+class People{
+  peopleId: String
+  age: String
+  name: String
+  nationality: String
+  graduationCollege: String
+}
+
+class Company{
+  companyId: Int
+  name: Int
+  headquarters: Int
+  industry: Int
+  salesInBillion: Int
+  profitsInBillion: Int
+  assetsInBillion: Int
+  marketValueInBillion: Int
+}
+
+class Employment{
+  yearWorking: Int
+}
+
+
+
+People "1" -- "*" Employment
+
+Company "1" -- "*" Employment
+
+
+@enduml

@@ -1,0 +1,56 @@
+@startuml "CreDocsAndEpenses"
+
+
+class ReferenceDocumentTypes{
+  documentTypeCode: String
+  documentTypeName: String
+  documentTypeDescription: String
+}
+
+class ReferenceBudgetCodes{
+  budgetTypeCode: String
+  budgetTypeDescription: String
+}
+
+class Projects{
+  projectId: String
+  projectDetails: String
+}
+
+class Documents{
+  documentId: String
+  documentDate: String
+  documentName: String
+  documentDescription: String
+  otherDetails: String
+}
+
+class Statements{
+  statementDetails: String
+}
+
+class DocumentsWithExpenses{
+  documentDetails: String
+}
+
+class Accounts{
+  accountId: Int
+  accountDetails: Int
+}
+
+
+
+ReferenceDocumentTypes "1" -- "*" Documents
+
+ReferenceBudgetCodes "1" -- "*" DocumentsWithExpenses
+
+Projects "1" -- "*" Documents
+
+Documents "1" -- "*" DocumentsWithExpenses
+
+Documents "1" -- "*" Statements
+
+Statements "1" -- "*" Accounts
+
+
+@enduml

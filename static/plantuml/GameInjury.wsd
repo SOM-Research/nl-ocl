@@ -1,0 +1,38 @@
+@startuml "GameInjury"
+
+
+class Stadium{
+  id: String
+  name: String
+  homeGames: String
+  averageAttendance: String
+  totalAttendance: String
+  capacityPercentage: String
+}
+
+class Game{
+  id: Int
+  season: Int
+  date: Int
+  homeTeam: Int
+  awayTeam: Int
+  score: Int
+  competition: Int
+}
+
+class InjuryAccident{
+  id: String
+  player: String
+  injury: String
+  numberOfMatches: String
+  source: String
+}
+
+
+
+Stadium "1" -- "*" Game
+
+Game "1" -- "*" InjuryAccident
+
+
+@enduml

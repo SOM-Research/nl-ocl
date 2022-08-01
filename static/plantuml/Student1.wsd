@@ -1,0 +1,21 @@
+@startuml "Student1"
+
+
+class List{
+  lastName: String
+  firstName: String
+  grade: String
+  classRoom: String
+}
+
+class Teachers{
+  firstName: String
+  classRoom: String
+}
+
+
+
+List "1" -- "*" Teachers
+
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml "Device"
+
+
+class Device{
+  deviceId: String
+  device: String
+  carrier: String
+  packageVersion: String
+  applications: String
+  softwarePlatform: String
+}
+
+class Shop{
+  shopId: Int
+  shopName: Int
+  location: Int
+  openDate: Int
+  openYear: Int
+}
+
+class Stock{
+  quantity: String
+}
+
+
+
+Device "1" -- "*" Stock
+
+Shop "1" -- "*" Stock
+
+
+@enduml

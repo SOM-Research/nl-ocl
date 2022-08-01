@@ -1,0 +1,36 @@
+@startuml "BattleDeath"
+
+
+class Battle{
+  id: String
+  name: String
+  date: String
+  bulgarianCommander: String
+  latinCommander: String
+  result: String
+}
+
+class Ship{
+  id: Int
+  name: Int
+  tonnage: Int
+  shipType: Int
+  location: Int
+  dispositionOfShip: Int
+}
+
+class Death{
+  id: String
+  note: String
+  killed: String
+  injured: String
+}
+
+
+
+Battle "1" -- "*" Ship
+
+Ship "1" -- "*" Death
+
+
+@enduml

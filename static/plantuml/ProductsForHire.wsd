@@ -1,0 +1,85 @@
+@startuml "ProductsForHire"
+
+
+class DiscountCoupons{
+  couponId: String
+  dateIssued: String
+  couponAmount: String
+}
+
+class Customers{
+  customerId: Int
+  goodOrBadCustomer: Int
+  firstName: Int
+  lastName: Int
+  gender: Int
+  dateBecameCustomer: Int
+  dateLastHire: Int
+}
+
+class Bookings{
+  bookingId: Date
+  bookingStatusCode: Date
+  returnedDamagedYesOrNo: Date
+  bookingStartDate: Date
+  bookingEndDate: Date
+  countHired: Date
+  amountPayable: Date
+  amountOfDiscount: Date
+  amountOutstanding: Date
+  amountOfRefund: Date
+}
+
+class ProductsForHire{
+  productId: Int
+  productTypeCode: Int
+  dailyHireCost: Int
+  productName: Int
+  productDescription: Int
+}
+
+class Payments{
+  paymentId: Int
+  paymentTypeCode: Int
+  amountPaidInFullYn: Int
+  paymentDate: Int
+  amountDue: Int
+  amountPaid: Int
+}
+
+class ProductsBooked{
+  returnedYesOrNo: Int
+  returnedLateYesOrNo: Int
+  bookedCount: Int
+  bookedAmount: Int
+}
+
+class ViewProductAvailability{
+  statusDate: String
+  availableYesOrNo: String
+}
+
+
+
+DiscountCoupons "1" -- "*" Customers
+
+Customers "1" -- "*" Bookings
+
+Customers "1" -- "*" Payments
+
+Bookings "1" -- "*" ProductsBooked
+
+Bookings "1" -- "*" Payments
+
+Bookings "1" -- "*" ViewProductAvailability
+
+ProductsForHire "1" -- "*" ViewProductAvailability
+
+ProductsForHire "1" -- "*" ProductsBooked
+
+Payments "1" -- "*" ProductsBooked
+
+ProductsBooked "1" -- "*" ViewProductAvailability
+
+
+@enduml

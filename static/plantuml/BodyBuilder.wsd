@@ -1,0 +1,25 @@
+@startuml "BodyBuilder"
+
+
+class BodyBuilder{
+  bodyBuilderId: String
+  snatch: String
+  cleanJerk: String
+  total: String
+}
+
+class People{
+  peopleId: String    
+  name: Int
+  height: Int
+  weight: Int
+  birthDate: Int
+  birthPlace: Int
+}
+
+
+
+BodyBuilder "*" -- "1" People
+
+
+@enduml

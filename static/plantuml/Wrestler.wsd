@@ -1,0 +1,26 @@
+@startuml "Wrestler"
+
+
+class Wrestler{
+  wrestlerId: String
+  name: String
+  reign: String
+  daysHeld: String
+  location: String
+  event: String
+}
+
+class Elimination{
+  eliminationId: Int
+  team: Int
+  eliminatedBy: Int
+  eliminationMove: Int
+  time: Int
+}
+
+
+
+Wrestler "1" -- "*" Elimination
+
+
+@enduml

@@ -1,0 +1,127 @@
+@startuml "CreThemePark"
+
+
+class RefHotelStarRatings{
+  starRatingCode: String
+  starRatingDescription: String
+}
+
+class Locations{
+  locationId: String
+  locationName: String
+  address: String
+  otherDetails: String
+}
+
+class RefAttractionTypes{
+  attractionTypeCode: String
+  attractionTypeDescription: String
+}
+
+class Visitors{
+  touristId: Int
+  touristDetails: Int
+}
+
+class Features{
+  featureId: String
+  featureDetails: String
+}
+
+class Hotels{
+  hotelId: String
+  petsAllowedYn: String
+  priceRange: String
+  otherHotelDetails: String
+}
+
+class TouristAttractions{
+  touristAttractionId: String
+  howToGetThere: String
+  name: String
+  description: String
+  openingHours: String
+  otherDetails: String
+}
+
+class StreetMarkets{
+  marketDetails: String
+}
+
+class Shops{
+  shopDetails: String
+}
+
+class Museums{
+  museumDetails: Int
+}
+
+class RoyalFamily{
+  royalFamilyDetails: String
+}
+
+class ThemeParks{
+  themeParkDetails: Int
+}
+
+class Visits{
+  visitId: String
+  visitDate: String
+  visitDetails: String
+}
+
+class Photos{
+  photoId: Int
+  name: Int
+  description: Int
+  filename: Int
+  otherDetails: Int
+}
+
+class Staff{
+  staffId: String
+  name: String
+  otherDetails: String
+}
+
+class TouristAttractionFeatures{
+}
+
+
+
+RefHotelStarRatings "1" -- "*" Hotels
+
+Locations "1" -- "*" TouristAttractions
+
+RefAttractionTypes "1" -- "*" TouristAttractions
+
+Visitors "1" -- "*" Visits
+
+Features "1" -- "*" TouristAttractionFeatures
+
+TouristAttractions "1" -- "*" Photos
+
+TouristAttractions "1" -- "*" StreetMarkets
+
+TouristAttractions "1" -- "*" Staff
+
+TouristAttractions "1" -- "*" RoyalFamily
+
+TouristAttractions "1" -- "*" Shops
+
+TouristAttractions "1" -- "*" TouristAttractionFeatures
+
+TouristAttractions "1" -- "*" Visits
+
+TouristAttractions "1" -- "*" ThemeParks
+
+TouristAttractions "1" -- "*" Museums
+
+Visits "1" -- "*" TouristAttractionFeatures
+
+Photos "1" -- "*" TouristAttractionFeatures
+
+Staff "1" -- "*" TouristAttractionFeatures
+
+
+@enduml

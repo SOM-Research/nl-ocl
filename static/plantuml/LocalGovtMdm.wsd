@@ -1,0 +1,64 @@
+@startuml "LocalGovtMdm"
+
+
+class CustomerMasterIndex{
+  masterCustomerId: String
+  cmiDetails: String
+}
+
+class CmiCrossReferences{
+  cmiCrossReferenceId: Int
+  sourceSystemCode: Int
+}
+
+class CouncilTax{
+  councilTaxId: String
+}
+
+class BusinessRates{
+  businessRatesId: Int
+}
+
+class BenefitsOverpayments{
+}
+
+class ParkingFines{
+}
+
+class RentArrears{
+}
+
+class ElectoralRegister{
+  electoralRegisterId: Int
+}
+
+
+
+CustomerMasterIndex "1" -- "*" CmiCrossReferences
+
+CmiCrossReferences "1" -- "*" ElectoralRegister
+
+CmiCrossReferences "1" -- "*" CouncilTax
+
+CmiCrossReferences "1" -- "*" ParkingFines
+
+CmiCrossReferences "1" -- "*" BusinessRates
+
+CmiCrossReferences "1" -- "*" RentArrears
+
+CmiCrossReferences "1" -- "*" BenefitsOverpayments
+
+CouncilTax "1" -- "*" ParkingFines
+
+CouncilTax "1" -- "*" RentArrears
+
+CouncilTax "1" -- "*" BenefitsOverpayments
+
+BenefitsOverpayments "1" -- "*" RentArrears
+
+BenefitsOverpayments "1" -- "*" ParkingFines
+
+ParkingFines "1" -- "*" RentArrears
+
+
+@enduml

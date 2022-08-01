@@ -1,0 +1,62 @@
+@startuml "ELearning"
+
+
+class CourseAuthorsAndTutors{
+  authorId: String
+  authorTutorAtb: String
+  loginName: String
+  password: String
+  personalName: String
+  middleName: String
+  familyName: String
+  genderMf: String
+  addressLine1: String
+}
+
+class Students{
+  studentId: Int
+  dateOfRegistration: Int
+  dateOfLatestLogon: Int
+  loginName: Int
+  password: Int
+  personalName: Int
+  middleName: Int
+  familyName: Int
+}
+
+class Subjects{
+  subjectId: String
+  subjectName: String
+}
+
+class Courses{
+  courseId: String
+  courseName: String
+  courseDescription: String
+}
+
+class StudentCourseEnrolment{
+  registrationId: String
+  dateOfEnrolment: String
+  dateOfCompletion: String
+}
+
+class StudentTestsTaken{
+  dateTestTaken: String
+  testResult: String
+}
+
+
+
+CourseAuthorsAndTutors "1" -- "*" Courses
+
+Students "1" -- "*" StudentCourseEnrolment
+
+Subjects "1" -- "*" Courses
+
+Courses "1" -- "*" StudentCourseEnrolment
+
+StudentCourseEnrolment "1" -- "*" StudentTestsTaken
+
+
+@enduml

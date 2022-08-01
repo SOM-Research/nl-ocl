@@ -1,0 +1,25 @@
+@startuml "Scientist1"
+
+
+class Scientists{
+  ssn: String
+  name: String
+}
+
+class Projects{
+  code: Int
+  name: Int
+  hours: Int
+}
+
+class AssignedTo{
+}
+
+
+
+Scientists "1" -- "*" AssignedTo
+
+Projects "1" -- "*" AssignedTo
+
+
+@enduml

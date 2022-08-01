@@ -1,0 +1,38 @@
+@startuml "FlightCompany"
+
+
+class Airport{
+  id: String
+  city: String
+  country: String
+  iata: String
+  icao: String
+  name: String
+}
+
+class OperateCompany{
+  id: Int
+  name: Int
+  type: Int
+  principalActivities: Int
+  incorporatedIn: Int
+  groupEquityShareholding: Int
+}
+
+class Flight{
+  id: String
+  vehicleFlightNumber: String
+  date: String
+  pilot: String
+  velocity: String
+  altitude: String
+}
+
+
+
+Airport "1" -- "*" Flight
+
+OperateCompany "1" -- "*" Flight
+
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml "Wedding"
+
+
+class People{
+  peopleId: String
+  name: String
+  country: String
+  isMale: String
+  age: String
+}
+
+class Church{
+  churchId: Int
+  name: Int
+  organizedBy: Int
+  openDate: Int
+  continuationOf: Int
+}
+
+class Wedding{
+  year: String
+}
+
+
+
+People "1" -- "*" Wedding
+
+People "1" -- "*" Wedding
+
+Church "1" -- "*" Wedding
+
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml "ElectionRepresentative"
+
+
+class Election{
+  electionId: String
+  date: String
+  votes: String
+  votePercent: String
+  seats: String
+  place: String
+}
+
+class Representative{
+  representativeId: String
+  name: Int
+  state: Int
+  party: Int
+  lifespan: Int
+}
+
+
+
+Election "*" -- "1" Representative
+
+
+@enduml

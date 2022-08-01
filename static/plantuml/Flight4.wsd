@@ -1,0 +1,40 @@
+@startuml "Flight4"
+
+
+class Routes{
+  routeId: String
+  codeShare: String
+}
+
+class Airports{
+  airportId: String
+  name: String
+  city: String
+  country: String
+  x: Int
+  y: Int
+  elevation: Int
+  iata: Int
+  icao: Int
+}
+
+class Airlines{
+  airlineId: String
+  name: String
+  iata: Int
+  icao: Int
+  callSign: Int
+  country: Int
+  active: Int
+}
+
+
+
+Routes "*" -- "1" Airports
+
+Routes "*" -- "1" Airports
+
+Routes "*" -- "1" Airlines
+
+
+@enduml

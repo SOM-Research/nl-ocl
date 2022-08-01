@@ -1,0 +1,31 @@
+@startuml "NewsReport"
+
+
+class Event{
+  eventId: String
+  date: String
+  venue: String
+  name: String
+  eventAttendance: String
+}
+
+class Journalist{
+  journalistId: Int
+  name: Int
+  nationality: Int
+  age: Int
+  yearsWorking: Int
+}
+
+class NewsReport{
+  workType: String
+}
+
+
+
+Event "1" -- "*" NewsReport
+
+Journalist "1" -- "*" NewsReport
+
+
+@enduml

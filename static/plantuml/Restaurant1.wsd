@@ -1,0 +1,43 @@
+@startuml "Restaurant1"
+
+
+class Student{
+  studentId: String
+  lastName: String
+  firstName: String
+  age: String
+  sex: String
+  major: String
+  advisor: String
+  cityCode: String
+}
+
+class Restaurant{
+  restaurantId: Int
+  restaurantName: Int
+  address: Int
+  rating: Int
+}
+
+class RestaurantType{
+  restaurantTypeId: String
+  restaurantTypeName: String
+  restaurantTypeDescription: String
+}
+
+class VisitsRestaurant{
+  time: Int
+  spent: Int
+}
+
+
+
+Student "1" -- "*" VisitsRestaurant
+
+Restaurant "*" -- "*" RestaurantType: IsOfType >
+
+Restaurant "1" -- "*" VisitsRestaurant
+
+
+
+@enduml

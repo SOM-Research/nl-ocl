@@ -1,0 +1,41 @@
+@startuml "EmployeeHireEvaluation"
+
+
+class Employee{
+  employeeId: String
+  name: String
+  age: String
+  city: String
+}
+
+class Shop{
+  shopId: Int
+  name: Int
+  location: Int
+  district: Int
+  numberProducts: Int
+  managerName: Int
+}
+
+class Hiring{
+  startFrom: String
+  isFullTime: String
+}
+
+class Evaluation{
+  yearAwarded: Int
+  bonus: Int
+}
+
+
+
+Employee "1" -- "*" Hiring
+
+Employee "1" -- "*" Evaluation
+
+Shop "1" -- "*" Hiring
+
+Hiring "1" -- "*" Evaluation
+
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml "Network2"
+
+
+class Person{
+  name: String
+  age: String
+  city: String
+  gender: String
+  job: String
+}
+
+class PersonFriend{
+  year: String
+}
+
+
+
+Person "1" -- "*" PersonFriend
+
+Person "1" -- "*" PersonFriend
+
+
+@enduml

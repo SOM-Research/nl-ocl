@@ -1,0 +1,118 @@
+@startuml "College2"
+
+
+class Classroom{
+  building: String
+  roomNumber: String
+  capacity: String
+}
+
+class Department{
+  departmentName: String
+  budget: String
+}
+
+class Course{
+  courseId: String
+  title: String
+  credits: String
+}
+
+class Instructor{
+  id: Int
+  name: Int
+  salary: Int
+}
+
+class Section{
+  sectionId: String
+  semester: String
+  year: String
+  timeSlotId: String
+}
+
+class Teaches{
+}
+
+class Student{
+  id: Int
+  name: Int
+  totalCredits: Int
+}
+
+class TakesClasses{
+  grade: String
+}
+
+class Advisor{
+}
+
+class TimeSlot{
+  day: String
+  startHour: String
+  startMinute: String
+  endHour: String
+  endMinute: String
+}
+
+class Prerequisite{
+}
+
+
+
+Classroom "1" -- "*" Department
+
+Classroom "1" -- "*" Section
+
+Classroom "1" -- "*" Section
+
+Department "1" -- "*" Course
+
+Department "1" -- "*" Student
+
+Department "1" -- "*" Instructor
+
+Course "1" -- "*" Teaches
+
+Course "1" -- "*" TakesClasses
+
+Course "1" -- "*" Prerequisite
+
+Course "1" -- "*" Section
+
+Course "1" -- "*" Prerequisite
+
+Instructor "1" -- "*" Advisor
+
+Instructor "1" -- "*" Teaches
+
+Section "1" -- "*" Prerequisite
+
+Section "1" -- "*" Teaches
+
+Section "1" -- "*" TakesClasses
+
+Section "1" -- "*" Teaches
+
+Section "1" -- "*" TakesClasses
+
+Section "1" -- "*" Teaches
+
+Section "1" -- "*" TakesClasses
+
+Section "1" -- "*" Teaches
+
+Section "1" -- "*" TakesClasses
+
+Section "1" -- "*" TimeSlot
+
+Teaches "1" -- "*" Prerequisite
+
+Student "1" -- "*" TakesClasses
+
+Student "1" -- "*" Advisor
+
+TakesClasses "1" -- "*" Prerequisite
+
+
+@enduml

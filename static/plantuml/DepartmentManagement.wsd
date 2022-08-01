@@ -1,0 +1,31 @@
+@startuml "DepartmentManagement"
+
+
+class Department{
+  departmentId: String
+  name: String
+  creation: String
+  ranking: String
+  budgetInBillions: String
+  numEmployees: String
+}
+
+class Head{
+  headId: Int
+  name: Int
+  bornState: Int
+  age: Int
+}
+
+class Management{
+  temporaryActing: String
+}
+
+
+
+Department "1" -- "*" Management
+
+Head "1" -- "*" Management
+
+
+@enduml

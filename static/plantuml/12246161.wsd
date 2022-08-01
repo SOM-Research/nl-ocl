@@ -1,0 +1,17 @@
+@startuml "12246161"
+
+
+class MyClass{
+  year: Real
+  champion: String
+  country: String
+  venue: String
+  locationOfVenue: String
+  winnersScore: String
+  winnersShare: Real
+}
+
+
+
+
+@enduml

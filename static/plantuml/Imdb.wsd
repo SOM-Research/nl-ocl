@@ -1,0 +1,132 @@
+@startuml "Imdb"
+
+
+class Actor{
+  aid: String
+  gender: String
+  name: String
+  nationality: String
+  birthCity: String
+  birthYear: String
+}
+
+class Copyright{
+  id: Int
+  msid: Int
+  cid: Int
+}
+
+class Cast{
+  id: String
+  role: String
+}
+
+class Genre{
+  gid: String
+  genre: String
+}
+
+class Classification{
+  id: String
+}
+
+class Company{
+  id: String
+  name: String
+  countryCode: String
+}
+
+class Director{
+  did: Int
+  gender: Int
+  name: Int
+  nationality: Int
+  birthCity: Int
+  birthYear: Int
+}
+
+class Producer{
+  pid: Int
+  gender: Int
+  name: Int
+  nationality: Int
+  birthCity: Int
+  birthYear: Int
+}
+
+class DirectedBy{
+  id: Int
+}
+
+class Keyword{
+  id: Int
+  keyword: Int
+}
+
+class MadeBy{
+  id: Int
+}
+
+class Movie{
+  mid: Int
+  title: Int
+  releaseYear: Int
+  titleAka: Int
+  budget: Int
+}
+
+class Tags{
+  id: Int
+  kid: Int
+}
+
+class TvSeries{
+  sid: Int
+  title: Int
+  releaseYear: Int
+  numOfSeasons: Int
+  numOfEpisodes: Int
+  titleAka: Int
+  budget: Int
+}
+
+class Writer{
+  wid: Int
+  gender: Int
+  name: Int
+  nationality: Int
+  numOfEpisodes: Int
+  birthCity: Int
+  birthYear: Int
+}
+
+class WrittenBy{
+  id: String
+}
+
+
+
+Actor "1" -- "*" Cast
+
+Copyright "1" -- "*" Classification
+
+Copyright "1" -- "*" WrittenBy
+
+Copyright "1" -- "*" DirectedBy
+
+Copyright "1" -- "*" Tags
+
+Copyright "1" -- "*" Cast
+
+Copyright "1" -- "*" MadeBy
+
+Genre "1" -- "*" Classification
+
+Director "1" -- "*" DirectedBy
+
+Producer "1" -- "*" MadeBy
+
+Writer "1" -- "*" WrittenBy
+
+
+@enduml
