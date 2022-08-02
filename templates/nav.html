@@ -2,14 +2,17 @@
     <div class="col-md-12 text-center" style="{% if not_padding %}padding-top: 8px;{% else %}padding-top: 40px;{% endif %} padding-bottom: 20px;">
         <div class="btn-group" role="group" aria-label="NAV">
             {% if not home %}
-            <a href="{% url 'nl2ocl:home' %}" class="btn btn-outline-secondary">INFO</a>
+            <a href="{% url 'nl2ocl:home' %}" class="btn btn-outline-secondary d-md-block">INFO</a>
             {% endif %}
             <a href="{% url 'nl2ocl:random' %}" class="btn btn-primary">RANDOM</a>
             <a href="{% url 'nl2ocl:easy' %}" class="btn btn-secondary">EASY</a>
             <a href="{% url 'nl2ocl:harder' %}" class="btn btn-danger">HARD</a>
             {% if model %}
-            <a href="{% url 'nl2ocl:sameModel' model.pk %}" class="btn btn-warning">Try another <strong>{{model.pascalCaseName}}</strong> question</a>
+            <a href="{% url 'nl2ocl:sameModel' model.pk %}" class="btn btn-warning d-none d-md-inline">Try another <strong>{{model.pascalCaseName}}</strong> question</a>
             {% endif %}
-        </div>        
+        </div>
+        {% if model %}
+        <a href="{% url 'nl2ocl:sameModel' model.pk %}" class="btn btn-warning d-sm-block d-md-none" style="margin-top: 4px;">Try another <strong>{{model.pascalCaseName}}</strong> question</a>
+        {% endif %}
     </div>
 </div>
