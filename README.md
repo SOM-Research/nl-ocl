@@ -17,10 +17,10 @@ We argue that OCL needs to jump into the machine learning bandwagon or it will r
 You can also wrap the app with Docker and use .env vars instead to protect secrets. That's why you can find the ocl/settings/production.py in the repo and you can set it up accordingly.
 
 
-# How to import the datasets from scratch:
-The repo already has an SOMOCL.sql file to initialize the service with the datasets already migrated to MYSQL for you. But you can also modify the commands that work directly with the Spider and WikiSQL datasets.
+# How to import the datasets from scratch
+The repo has an SOMOCL.sql file to initialize the service with the datasets already migrated to MYSQL for you. But you can also modify the commands that work directly with the Spider and WikiSQL datasets.
 
-Your MYSQL service should be installed and set up accordingly in the ocl/settings/local.py
+Your MYSQL service should be installed and set up accordingly in ```ocl/settings/local.py'''
 
 + To migrate the original Spider dataset to the SOM dataset:
     - Download and unzip content to /data/spider
@@ -34,3 +34,4 @@ Your MYSQL service should be installed and set up accordingly in the ocl/setting
 
 
 Remember that the best way is to create a virtualenv and source activate it (using either virtualenv or Anaconda).
+
