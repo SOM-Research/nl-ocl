@@ -3,9 +3,13 @@ The growing popularity and availability of pretrained natural language models op
 
 Many of these language models have been trained with open source software datasets and therefore “understand” a variety of programming languages, but not OCL.
 
-
 We argue that OCL needs to jump into the machine learning bandwagon or it will risk losing its appeal as a constraint specification language. For that, the key first task is to create together an OCL corpus dataset amenable for natural language processing.
 
+---
+You can get involved and start translating Natural Language to OCL in our website:
+[http://hdl.handle.net/20.500.12004/1/A/OCL_NL/002](http://hdl.handle.net/20.500.12004/1/A/OCL_NL/002)
+
+---
 
 ## Installation
 - Install requirements.txt with pip
